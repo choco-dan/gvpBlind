@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#background{
+    width:100%;
+    height: 100vh;
+    background: url(./assets/background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#outer-box{
+    width:90%;
+    height: 90%;
+    display: flex;
+    border-radius: 10px;
+    background-color: aliceblue;
+    
+}
+#login-box{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #f8f9fa; */
+}
+#login-form{
+    width:90%;
+    height:90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    align-self: center;
+}
+#image-box{
+    width: 60%;
+    height:100%;
+    background: url(./assets/image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    justify-self:end;
+
+}
+#input-box{
+    width:100%;
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#heading{
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
+}
+#uname-input,#password-input{
+    width:300px;
+    height: 40px;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    font-weight: 100;
+}
+#password-box{
+    width: 300px;
+    display: flex;
+
+}
+#pwd-icon{
+    width:50px;
+    height: 40px;
+    border: 1px solid rgb(108, 105, 105);
+    border-left: none;
+}
+.icon{
+    font-size: 2rem;
+    width: 50px;
+    cursor: pointer;
+}
+#password-input{
+    width: 250px;
+    margin-bottom: 10px;
+}
+#forgot-pwd{
+    width:300px;
+}
+
+#username,#password{
+    width: 300px;
+    font-weight: 50;
+    color: rgb(83, 81, 81);
+    font-size: 1.1rem;
+    font-family: "Sofia",Caveat;
+}
+#signup-box{
+    width:100%;
+    text-align: center;
+}
+#btn-box{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#user-result{
+    width:300px;
+    height: 20px;
+    color: red;
+}
+#login-btn{
+    width:150px;
+    height: 40px;
+    background-color: rgb(179, 22, 251);
+    font-size: 1.2rem;
+    color: rgb(229, 216, 216);
+    cursor: pointer;
+}

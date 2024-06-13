@@ -1,15 +1,18 @@
-import Sidebar from './sidebar/sidebar.jsx'
-import Header from './Header/header.jsx'
-import Post from './post.jsx'
+import HomePage from './HomePage/HomePage.jsx';
+import Login from "./Login/Login.jsx";
+import { useState } from 'react';
+import users from "./Login/Users.json";
+
 import './App.css'
 function App(){
-
+  const [isValid,setIsvalid]=useState(false);
+  const handleValid=(valid)=>{
+    setIsvalid(valid);
+  }
   return(
 
     <>
-    <Header />
-    <Sidebar />
-    <Post />
+        {isValid?<HomePage/>:<Login handleValid={handleValid}/>}
     </>
     
 
