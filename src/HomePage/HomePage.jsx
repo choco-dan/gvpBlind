@@ -5,15 +5,11 @@ import '../App.css'
 function HomePage(){
 
   return(
-
     <>
     <Header />
     <Sidebar />
     <Post />
     </>
-    
-
-  
   );
 }
 export default HomePage
