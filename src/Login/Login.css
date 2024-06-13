@@ -65,14 +65,12 @@
     font-size: 1rem;
     margin-bottom: 30px;
     text-align:justify;
+    
     font-weight: 400;
     color:hsl(0, 3%, 19%);
     font-style:none;
     font-family:"mulish","arial","sans-serif";
-    padding:1px 8px;
-    
-
-    
+    padding:1px 8px; 
 }
 #password-box{
     display: flex;
@@ -81,7 +79,9 @@
     width:50px;
     height: 40px;
     border: 1px solid rgb(108, 105, 105);
-    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left:none;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,6 @@
 }
 #forgot-pwd:hover{
     color:#da3238;
-
 }
 #username,#password{
     width: 300px;
@@ -153,7 +152,13 @@ input:focus{
 #signup-link:active{
     color:#da3238
 }
-#uname-input:focus-visible,#password-input:focus-visible{
+#uname-input:focus-visible{
     border:2px solid black;
     border-radius:5px;
+}
+#password-input:focus-visible{
+    border:2px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
 }
