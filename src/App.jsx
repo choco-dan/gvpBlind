@@ -1,7 +1,6 @@
 import HomePage from './HomePage/HomePage.jsx';
 import Login from "./Login/Login.jsx";
 import { useState } from 'react';
-import users from "./Login/Users.json";
 
 import './App.css'
 function App(){
