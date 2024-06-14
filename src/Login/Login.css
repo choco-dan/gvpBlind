@@ -23,61 +23,68 @@
     
 }
 #login-box{
-    width: 40%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding:10px 50px;
     /* background-color: #f8f9fa; */
 }
 #login-form{
-    width:90%;
-    height:90%;
+    padding: 20px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f8f9fa;
     align-self: center;
+    justify-content: space-evenly;
+    
 }
 #image-box{
     width: 60%;
     height:100%;
+    display:flex;
     background: url(./assets/image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
     justify-self:end;
-
 }
 #input-box{
-    width:100%;
-    height:50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 #heading{
     font-size: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 30px;
+    font-weight: 500;
 }
 #uname-input,#password-input{
     width:300px;
     height: 40px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-bottom: 30px;
-    font-weight: 100;
+    text-align:justify;
+    
+    font-weight: 400;
+    color:hsl(0, 3%, 19%);
+    font-style:none;
+    font-family:"mulish","arial","sans-serif";
+    padding:1px 8px; 
 }
 #password-box{
-    width: 300px;
     display: flex;
-
 }
 #pwd-icon{
     width:50px;
     height: 40px;
     border: 1px solid rgb(108, 105, 105);
-    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .icon{
     font-size: 2rem;
@@ -89,15 +96,19 @@
     margin-bottom: 10px;
 }
 #forgot-pwd{
+    margin-top: 10px;
     width:300px;
+    color:#6F58C9;
+    transition:background-color 0.15s ease-in;
 }
-
+#forgot-pwd:hover{
+    color:#da3238;
+}
 #username,#password{
     width: 300px;
-    font-weight: 50;
+    font-weight: 300;
     color: rgb(83, 81, 81);
     font-size: 1.1rem;
-    font-family: "Sofia",Caveat;
 }
 #signup-box{
     width:100%;
@@ -110,17 +121,44 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    margin-top:40px;
 }
 #user-result{
-    width:300px;
+    margin-top:20px;
+    white-space: nowrap;
     height: 20px;
-    color: red;
+    color: #da3238 ;
 }
-#login-btn{
-    width:150px;
-    height: 40px;
-    background-color: rgb(179, 22, 251);
+#login-btn{  
+    background-color: #6F58C9;
     font-size: 1.2rem;
-    color: rgb(229, 216, 216);
+    color: whitesmoke;
+    border:none;
+    border-radius: 10px;
+    padding:10px 30px;
     cursor: pointer;
+    transition:transform 0.15s ease-in-out;
+}
+#login-btn:hover{
+    transform:translateY(8px);
+}
+#signup-link{
+    color:#6F58C9;
+    transition:background-color 0.15s ease-out;
+}
+input:focus{
+    outline:none;
+}
+#signup-link:active{
+    color:#da3238
+}
+#uname-input:focus-visible{
+    border:2px solid black;
+    border-radius:5px;
+}
+#password-input:focus-visible{
+    border:2px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
 }

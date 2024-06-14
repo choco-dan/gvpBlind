@@ -53,7 +53,7 @@ function Login(props){
                             {show?<IoEye className="icon" onClick={showPassword}/>:<IoEyeOff className="icon" onClick={showPassword}/>}
                         </div>
                         </div>
-                        <a href="#" id="forgot-pwd">Forget Password</a>
+                        <a href="#" id="forgot-pwd">Forget&nbsp;password?</a>
                     </div>
                     <div id="btn-box">
                         <button id="login-btn" onClick={login} ref={loginBtn} >
