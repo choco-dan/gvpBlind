@@ -1,6 +1,6 @@
-
 .profiledownbox{
     display:flex;
+    cursor:pointer;
     flex-direction: column;
     position:absolute;
     top:3.7rem;
@@ -43,10 +43,18 @@
 #settings{
     border-bottom: 1px solid rgb(80, 81, 84);
     padding-bottom:6px;
+    border-radius:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 li{
     color: hsl(265, 87%, 15%);
     margin-top:none;
     cursor:pointer;
     font-weight: 350;
+    padding:3px 6px;
+    border-radius:5px;
+}
+li:hover{
+    background-color: rgba(251, 250, 253, 0.7);
 }
