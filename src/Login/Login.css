@@ -27,14 +27,14 @@
     justify-content: center;
     align-items: center;
     padding:10px 50px;
-    /* background-color: #f8f9fa; */
+     background-color: #f8f9fa; 
 }
 #login-form{
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f8f9fa;
+
     align-self: center;
     justify-content: space-evenly;
     
@@ -86,10 +86,14 @@
     align-items: center;
     justify-content: center;
 }
+.icon:hover{
+    transform:scale3d(1.15,1.15,1.15);
+}
 .icon{
     font-size: 2rem;
     width: 50px;
     cursor: pointer;
+    transition: transform 0.1s ease-in;
 }
 #password-input{
     width: 250px;

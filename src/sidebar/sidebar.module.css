@@ -3,6 +3,8 @@
     height:100%;
     width:250px;
     background-color: whitesmoke;
+    position:fixed;
+    z-index:30;
 }
 .unscroll{
     border-bottom: 1px solid #d3d3d3; 
@@ -11,8 +13,8 @@
 }
 .feedicon,.pollicon{
     height:1rem;
-    filter: invert(20%) sepia(100%) saturate(1901%) 
-    hue-rotate(339deg) brightness(107%) contrast(87%);
+    filter: invert(36%) sepia(57%) saturate(1082%)
+     hue-rotate(220deg) brightness(91%) contrast(85%);
     border:none;
     cursor:pointer;
 }
@@ -35,19 +37,17 @@
     margin-bottom: 0.6rem;
 }
 .feed:hover,.poll:hover{
-    background-color: #bbb;
+    background-color: rgba(210, 216, 234,0.7);
     transition : ease-in-out 0.1s;
 }
 .scrollable{
     margin-top:0.5rem;
     width:250px;
-    height:100vh;
+    height:100%;
     overflow-y:scroll;
     background-color: whitesmoke;
     padding:15px;
-    position:fixed;
     scrollbar-gutter:stable;
-    
 }
 .scrollable a{
     display:block;
@@ -58,7 +58,7 @@
     border-radius: 10px;
 }
 .scrollable a:hover{
-    background-color: #bbb;
+    background-color: rgba(210, 216, 234,0.7);
 }
 .scrollable div{
     margin-bottom:20px;
@@ -66,25 +66,26 @@
 }
 .scrollable h3{
     margin-top:0;
-    color: #333;
+    color:#43318b;
+    margin-bottom:5px;
 }
 .scrollable::-webkit-scrollbar{
     width: 9px;
 }
 .scrollable::-webkit-scrollbar-track{
-    
     border-radius: 10px;
+    
 }
 .scrollable::-webkit-scrollbar-thumb{
-    background: #a6a6a6;
+    background: hsla(262, 95%, 92%, 0.801);
     border-radius: 10px;
-    height:5px;
+    height:2px;
 }
 .scrollable::-webkit-scrollbar-thumb:hover{
-    background: #555;
+    background: #836bafff;
 }
 .scrollable::after{
     content: '';
     display:block;
-    height:20px;
+    height:170px;
 }
