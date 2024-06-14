@@ -2,17 +2,17 @@ body{
   background-color: whitesmoke;
   font-family: "mulish",'sans-serif','arial'
 }
-::-webkit-scrollbar{
+root::-webkit-scrollbar{
   width:10px;
   z-index:1;
 }
-::-webkit-scrollbar-thumb{
+root::-webkit-scrollbar-thumb{
   background-color: #bec1c5;
   background-clip: content-box;
   border-radius: 20px;
   border: 2px solid transparent;
 }
-::-webkit-scrollbar-track{
+root::-webkit-scrollbar-track{
   width: 4px;
   background-color: transparent;
 }
