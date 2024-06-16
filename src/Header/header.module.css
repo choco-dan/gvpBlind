@@ -56,13 +56,9 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    display: none;
     z-index: 10; /* Ensure dropdownmenu has a higher z-index */
 }
 
-.dropdownmenu.open {
-    display: block;
-}
 
 .dropdownmenu::before {
     content: '';

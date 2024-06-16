@@ -19,16 +19,20 @@ function Header() {
             <div className={styles.name}>gvpBlind</div>
             <div className={styles.options}>
                 <div className={styles.wrapper}>
-                    <div className={styles.button} onClick={() => { setOpen(!open); }}>
+                    <div className={styles.button} onClick={() => { setOpen((prev)=>!prev); }}>
                         <img className={styles.usericon} src={logo} alt='user' />
                     </div>
-                    <div className={`${styles.dropdownmenu} ${open ? styles.open : ''}`}>
+                    { 
+
+                    
+                    <div className={styles.dropdownmenu} >
                         <ul>
                             <DropDownItem text='my profile' />
                             <DropDownItem text='settings' />
                             <DropDownItem text='Logout' />
                         </ul>
                     </div>
+}
                 </div>
                 <div className={styles.wrapper}>
                     <div className={styles.button}>
@@ -42,6 +46,7 @@ function Header() {
                 </div>
             </div>
         </div>
+
     );
 }
 
