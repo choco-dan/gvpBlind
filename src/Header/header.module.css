@@ -40,66 +40,69 @@
     display: flex;
     position: fixed;
     right: 10px;
-    overflow: hidden;
+    
 }
 
 .wrapper {
     position: relative;
+
+}
+.dropdownprofile,.dropdownpost,.dropdowndots{
+    display:flex;
+    cursor:pointer;
+    flex-direction: column;
+    position:absolute;
+    font-size:0.8rem;
+    white-space:nowrap;
+    border-radius:15px;
+    border: 1px solid #d3d3d3;
+    z-index:2000;
+    background-color: whitesmoke;
+}
+.dropdownprofile{
+    top:3rem;
+    right:9rem;
+    width:90px;
+    padding:10px 10px;
+    
+}
+.dropdownpost{
+    right:6rem;
+    top:3rem;
+    width:90px;
+    padding:15px 10px;
+}
+.dropdowndots{
+    right:3rem;
+    top:3rem;
+    width:110px;
+    
+    padding:10px 10px;
+
+}
+.dropdownmenu::before{
+    content:'';
+    position:absolute;
+    top:-0.7rem;
+    right:1.5rem;
+    z-index:1000;
+
+    width:20px;
+    height:20px;
+    transform: rotate(45deg);
+    border-left:1px solid #bdbdbd;
+    border-top:1px solid #bdbdbd;
+    
+}
+.dropdownmenu ul{
+    white-space:nowrap;
+    
+}
+.dropdownitem{
+    padding-bottom:5px;
+    margin-top:5px;
+    border-bottom: 1px solid #d3d3d3;
 }
 
-.dropdownmenu {
-    position: absolute;
-    top: 2.5rem; /* Adjust based on your button height */
-    right: 0;
-    background-color: #e4e3e5;
-    border: 1px solid #bdbdbd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    z-index: 10; /* Ensure dropdownmenu has a higher z-index */
-}
 
 
-.dropdownmenu::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    right: 10px; 
-    width: 20px;
-    height: 20px;
-    background-color: red; 
-    z-index: 5;
-}
-
-
-.dropdownmenu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.dropdownmenu ul li {
-    padding: 10px 20px;
-    border-top: 1px solid #d3d3d3;
-}
-
-.dropdownmenu ul li:hover a {
-    color: #d00000;
-    cursor: pointer;
-}
-
-.dropdownitem {
-    display: flex;
-    margin: 10px auto;
-}
-
-.dropdownitem a {
-    max-width: 100px;
-    margin-left: 10px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.dropdownitem:hover {
-    color: rgba(15, 113, 194, 0.85);
-}

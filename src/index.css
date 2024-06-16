@@ -1,6 +1,7 @@
 body{
   background-color: whitesmoke;
-  font-family: "mulish",'sans-serif','arial'
+  font-family: "mulish",'sans-serif','arial';
+  padding-bottom:1000px;
 }
 ::-webkit-scrollbar{
   width:10px;
