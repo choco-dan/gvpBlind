@@ -1,38 +1,109 @@
-.x{
+.x {
     background-color: white;
-    width:100%;
-    display:flex;
-    top:0;
-    z-index:100;
-    margin:none;
-    padding:20px 15px;
-    flex-direction:row;
-    justify-content:space-between;
-    border:none;
+    width: 100%;
+    display: flex;
+    top: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 20px 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
     border-bottom: 1px solid #d3d3d3;
     box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.1),   
-    0 6px 20px rgba(0, 0, 0, 0.15),  
-    0 8px 30px rgba(0, 0, 0, 0.2);
-    position:fixed;
-    
-}
-.name{
-    font-weight:700;
-}
-.button{
-    height:30px;
-    background-color: none;
-    border:none;
-    margin-right:1rem;
-    background-color: white;
-    padding-right:20px;
-}
-.usericon,.post,.dots{
-    height:1rem;
-    filter: invert(36%) sepia(57%)
-     saturate(1082%) hue-rotate(220deg) brightness(91%) contrast(85%);
-    border:none;
-    cursor:pointer;
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        0 8px 30px rgba(0, 0, 0, 0.2);
+    position: fixed;
 }
 
+.name {
+    font-weight: 700;
+}
+
+.button {
+    height: 30px;
+    border: none;
+    margin-right: 1rem;
+    background-color: white;
+    padding-right: 20px;
+}
+
+.usericon, .post, .dots {
+    height: 1rem;
+    filter: invert(36%) sepia(57%) saturate(1082%) hue-rotate(220deg) brightness(91%) contrast(85%);
+    border: none;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    position: fixed;
+    right: 10px;
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.dropdownmenu {
+    position: absolute;
+    top: 2.5rem; /* Adjust based on your button height */
+    right: 0;
+    background-color: #e4e3e5;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    display: none;
+    z-index: 10; /* Ensure dropdownmenu has a higher z-index */
+}
+
+.dropdownmenu.open {
+    display: block;
+}
+
+.dropdownmenu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 10px; 
+    width: 20px;
+    height: 20px;
+    background-color: red; 
+    z-index: 5;
+}
+
+
+.dropdownmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdownmenu ul li {
+    padding: 10px 20px;
+    border-top: 1px solid #d3d3d3;
+}
+
+.dropdownmenu ul li:hover a {
+    color: #d00000;
+    cursor: pointer;
+}
+
+.dropdownitem {
+    display: flex;
+    margin: 10px auto;
+}
+
+.dropdownitem a {
+    max-width: 100px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.dropdownitem:hover {
+    color: rgba(15, 113, 194, 0.85);
+}

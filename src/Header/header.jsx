@@ -1,31 +1,48 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import styles from './header.module.css';
-import logo from "./assets/user.svg";
+import logo from './assets/user.svg';
 import post from './assets/script.svg';
-import dots from "./assets/menu-dots.svg"
-import Profiledown from "./profiledown.jsx"
-function Header(){
+import dots from './assets/menu-dots.svg';
 
-    const[openProfile, setOpenProfile] = useState(false);
-    
-    return(
-        <>
-        <div className = {styles.x}>
-            <div className={styles.name}> gvpBlind</div>
-            <div className = {styles.options}>
-                <button className = {styles.button} onClick={()=>setOpenProfile((prev)=> !prev)}>
-                <img className = {styles.usericon} src ={logo} alt = 'user' />
-                </button>
-                <button className = {styles.button}>
-                    <img className = {styles.post} src={post} alt = 'post' />
-                </button>
-                <button className = {styles.button}>
-                    <img className = {styles.dots} src = {dots} alt = 'about' />
-                </button>
+function DropDownItem({ text }) {
+    return (
+        <li className={styles.dropdownitem}>
+            <a>{text}</a>
+        </li>
+    );
+}
+
+function Header() {
+    const [open, setOpen] = useState(false);
+    return (
+        <div className={styles.x}>
+            <div className={styles.name}>gvpBlind</div>
+            <div className={styles.options}>
+                <div className={styles.wrapper}>
+                    <div className={styles.button} onClick={() => { setOpen(!open); }}>
+                        <img className={styles.usericon} src={logo} alt='user' />
+                    </div>
+                    <div className={`${styles.dropdownmenu} ${open ? styles.open : ''}`}>
+                        <ul>
+                            <DropDownItem text='my profile' />
+                            <DropDownItem text='settings' />
+                            <DropDownItem text='Logout' />
+                        </ul>
+                    </div>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.button}>
+                        <img className={styles.post} src={post} alt='post' />
+                    </div>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.button}>
+                        <img className={styles.dots} src={dots} alt='about' />
+                    </div>
+                </div>
             </div>
         </div>
-        {openProfile && <Profiledown />}
-        </>
-    )
+    );
 }
-export default Header
+
+export default Header;
