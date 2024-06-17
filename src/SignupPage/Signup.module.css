@@ -77,3 +77,6 @@ input,select:focus{
     border-radius: 10px;
     cursor: pointer;
 }
+#dialog-title{
+    color: green;
+}
