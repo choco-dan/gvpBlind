@@ -1,0 +1,79 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+input,select:focus{
+    outline: black;
+}
+#container{
+    background-color: rgb(72, 143, 201);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment:fixed;
+}
+#signup-box{
+    width: 400px;
+    min-height: 90vh;
+    background-color:aliceblue;
+    backdrop-filter:blur(20px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#heading{
+    color: rgb(31, 73, 108);
+}
+#uname-box,#email-box,#pwd-box,#confirm-box{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#uname,#email,#branch,#year,#pwd,#confirm-pwd{
+    font-size: 1.2rem;
+    font-family:"mulish","arial","sans-serif";
+    color: rgb(83, 81, 81);
+
+}
+#uname-input,#email-input,#pwd-input,#confirm-input{
+    height: 40px;
+    font-size: 1.2rem;
+}
+#mail-check,#pwd-match{
+    color: #da3238 ;
+    font-size: 1.1rem;
+}
+#acadamic-box{
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+#branch-input,#year-input{
+    width: 100px;
+    height: 30px;
+}
+#btn-box{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+#register-btn{
+    width: 120px;
+    height: 40px;
+    color: whitesmoke;
+    background-color: #6F58C9;
+    font-size: 1.2rem;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+}

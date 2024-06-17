@@ -2,6 +2,8 @@ import "./Login.css";
 import { IoEye,IoEyeOff  } from "react-icons/io5";
 import { useState,useRef, useEffect } from "react";
 import users from "./Users.json";
+import HomePage from '../HomePage/HomePage.jsx';
+
 function Login(props){
     const [show,setShow]=useState(false);
     const [valid,setValid]=useState(false);
@@ -62,7 +64,7 @@ function Login(props){
                         <p id="user-result"></p>
                     </div>
                     <div id="signup-box">
-                        <a href="#" id="signup-link">Doesnt have account yet? Sign up</a>
+                        <a href="../SignupPage/SignupPage" id="signup-link">Doesnt have account yet? Sign up</a>
                     </div>
                 </div>
                 </div>
