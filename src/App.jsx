@@ -1,7 +1,7 @@
 import HomePage from './HomePage/HomePage.jsx';
 import SignupPage from './SignupPage/SignupPage.jsx';
 import Login from "./Login/Login.jsx";
-import NotFound from "./NotFound.jsx";
+import NotFound from "./notFound.jsx";
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
 import './App.css'
