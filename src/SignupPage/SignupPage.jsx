@@ -40,6 +40,7 @@ function SignupPage(){
             userdetail["password"]=pwd;
             userdetail["year"]=year;
             userdetail["branch"]=branch;
+            setUser(userdetail);
             setDialogopen(true);
         }
         else{
