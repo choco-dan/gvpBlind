@@ -2,12 +2,14 @@
     padding:0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 input,select:focus{
     outline: black;
 }
 #container{
-    background-color: rgb(72, 143, 201);
+    background: linear-gradient(180deg,
+                                 rgb(231, 117, 117), rgb(16, 3, 58) );
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -21,14 +23,17 @@ input,select:focus{
     background-color:aliceblue;
     backdrop-filter:blur(20px);
     border-radius: 20px;
-    padding: 20px 30px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    gap:8px;
 }
 #heading{
     color: rgb(31, 73, 108);
+    font-weight:600;
+    
 }
 #uname-box,#email-box,#pwd-box,#confirm-box{
     width: 90%;
@@ -37,14 +42,14 @@ input,select:focus{
     padding: 10px;
 }
 #uname,#email,#branch,#year,#pwd,#confirm-pwd{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family:"mulish","arial","sans-serif";
     color: rgb(83, 81, 81);
 
 }
 #uname-input,#email-input,#pwd-input,#confirm-input{
-    height: 40px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 9px 10px;
 }
 #mail-check,#pwd-match{
     color: #da3238 ;
@@ -68,14 +73,13 @@ input,select:focus{
     padding: 10px;
 }
 #register-btn{
-    width: 120px;
-    height: 40px;
     color: whitesmoke;
     background-color: #6F58C9;
     font-size: 1.2rem;
     border:none;
     border-radius: 10px;
     cursor: pointer;
+    padding:10px 30px;
 }
 #dialog-title{
     color: green;

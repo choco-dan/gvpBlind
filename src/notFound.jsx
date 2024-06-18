@@ -7,7 +7,7 @@ const notFoundStyle = {
     justifyContent: 'center',
     flexDirection: 'column',
     verticalAlign: 'middle',
-    marginTop: '48vh',
+    marginTop: '45vh',
 };
 const NotFound = () =>{
     return(

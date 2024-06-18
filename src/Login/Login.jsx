@@ -51,7 +51,7 @@ function Login(){
                             {show?<IoEye className={styles.icon} onClick={showPassword}/>:<IoEyeOff className={styles.icon} onClick={showPassword}/>}
                         </div>
                         </div>
-                        <a href="#" id={styles["forgot-pwd"]}>Forget Password</a>
+                        <a href="#" id={styles["forgot-pwd"]}>Forget Password?</a>
                     </div>
                     <div id={styles["btn-box"]}>
                         <button id={styles["login-btn"]} onClick={login} ref={loginBtn}>

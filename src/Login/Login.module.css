@@ -10,7 +10,7 @@ a {
 #background {
     width: 100%;
     height: 100vh;
-    background: url(./assets/background.jpg);
+    background: url(./assets/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
@@ -33,6 +33,7 @@ a {
     justify-content: center;
     align-items: center;
     padding: 20px;
+
     background-color: #f8f9fa;
     flex: 1;
     min-width: 350px;
@@ -49,6 +50,7 @@ a {
     align-items: center;
     align-self: center;
     justify-content: space-evenly;
+    gap:8px;
 }
 #image-box {
     width: 60%;
@@ -71,6 +73,8 @@ a {
     font-size: 2rem;
     margin-bottom: 30px;
     font-weight: 500;
+    color:hsl(0, 3%, 10%);
+
 }
 #uname-input, #password-input {
     width: 300px;
@@ -114,7 +118,7 @@ a {
 #forgot-pwd {
     margin-top: 10px;
     width: 300px;
-    color: aliceblue;
+    color: #d00000;
     transition: background-color 0.15s ease-in;
 }
 #forgot-pwd:hover {
@@ -159,7 +163,7 @@ a {
     transform: translateY(8px);
 }
 #signup-link {
-    color: aliceblue;
+    color:hsl(0, 3%, 19%);
     transition: background-color 0.15s ease-out;
 }
 input:focus {
@@ -182,7 +186,8 @@ input:focus {
         display: none;
     }
     #outer-box{
-        width:400px;
+        width:350px;
+        height:560px;
     }
 
 }
