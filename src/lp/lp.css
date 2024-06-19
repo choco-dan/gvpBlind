@@ -2,9 +2,7 @@ body{
     cursor:default;
     margin:0;
     overflow:scroll;
-   
 }
-
 video {
     position: absolute;
     top: 0;
@@ -66,7 +64,6 @@ video {
     font-size: 6rem;
     color: white;
     padding:20px 10px;
-    
   }
 .lp-sec p{
     color:white;

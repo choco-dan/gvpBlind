@@ -9,10 +9,10 @@ a {
 }
 #background {
     width: 100%;
-    height: 100vh;
-    background: url(./assets/bg.jpg);
+    height: 101vh;
+    background: url(./assets/pexels-markusspiske-1089440.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -70,10 +70,10 @@ a {
     align-items: center;
 }
 #heading {
-    font-size: 2rem;
+    font-size: 2.9rem;
     margin-bottom: 30px;
-    font-weight: 500;
-    color:hsl(0, 3%, 10%);
+    font-weight: 200;
+    color: black;
 
 }
 #uname-input, #password-input {
@@ -118,11 +118,14 @@ a {
 #forgot-pwd {
     margin-top: 10px;
     width: 300px;
-    color: #d00000;
+    color: black;
+    font-style:oblique;
+    font-size:0.8rem;
+    font-weight:600;
     transition: background-color 0.15s ease-in;
 }
 #forgot-pwd:hover {
-    color: hsl(0, 100%, 68%);
+    color: red;
 }
 #username, #password {
     width: 300px;
@@ -151,7 +154,7 @@ a {
 }
 #login-btn {
     background-color: #6F58C9;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     color: aliceblue;
     border: none;
     border-radius: 10px;
@@ -163,8 +166,13 @@ a {
     transform: translateY(8px);
 }
 #signup-link {
-    color:hsl(0, 3%, 19%);
+    color: red;
     transition: background-color 0.15s ease-out;
+    font-size: 0.8rem;
+    font-style:italic;
+    text-decoration:underline;
+    
+
 }
 input:focus {
     outline: none;

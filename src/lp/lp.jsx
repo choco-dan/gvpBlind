@@ -4,10 +4,9 @@ import './lp.css'
 import {Link} from 'react-router-dom'
 import React, {useRef} from 'react';
 
-
-
-
 function LandingPage(){
+
+
     const mailRef = useRef(null);
     const handleEmail = ()=>{
         const mailid = mailRef.current.value;
@@ -18,7 +17,7 @@ function LandingPage(){
             alert('Enter valid Domain Mail ID');
         }       
     };
-        
+
     return(
         <>
         <div className = "lander">
@@ -58,13 +57,8 @@ function LandingPage(){
                 &copy;i am the owner of this bitch
             </div>
         </section>
-
-
-
         </div>
-        
         </>
-
     )
 }
 
