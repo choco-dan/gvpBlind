@@ -1,5 +1,7 @@
 body{
     cursor:default;
+    margin:0;
+    overflow:scroll;
    
 }
 
@@ -13,7 +15,7 @@ video {
     filter:brightness(81%);
   }
   .lp-header{
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding:10px 20px;
@@ -54,10 +56,10 @@ video {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow:scroll;
     height:100vh;
     width:100vw;
-    
+    z-index:10;
+    overflow-y:scroll;
   }
   .lp-sec h1{
     font-size: 6rem;
@@ -69,7 +71,7 @@ video {
     color:white;
 }
 .lp-sec label{
-    color: white;
+    color: wheat;
     white-space:nowrap;
     margin-right: 14.8em;
     font-weight:500;
@@ -83,7 +85,7 @@ video {
 }
 .lp-mail input{
     padding:8px;
-    background-color: hsla(0, 0%, 50%,0.7);
+    background-color: hsla(0, 0%, 50%,0.75);
     color: black;
     border:none;
     display:flex;
@@ -93,12 +95,15 @@ video {
     margin:4px 8px;
     font-size:0.8rem;
     font-family:"mulish",'arial','sans-serif';
-    font-weight:600;
+    font-weight:700;
     font-style:oblique;
     cursor:default;
+    caret-shape:;
+    caret-color: black;
+    caret-shape: ;
 }
 .lp-mail input:focus-visible{
-    border: 2px solid red;
+    border: 2px solid rebeccapurple
 }
 .lp-mail button{
     background-color: #161130;
@@ -115,11 +120,14 @@ video {
 }
 .lp-mail button:hover{
     border: 1px solid hsla(0, 0%, 20%,1);
-    background-color:hsla(0, 0%, 20%,0.85);
+    background-color:hsla(0, 0%, 20%,0.9);
     color:hsl(0, 0%, 90%);
     
 }
 .lp-credits{
-    height:60vh;
-    overflow:scroll;
+    z-index:20;
+    overflow-y:scroll;
+    width: 100vw;
+    height: 60vh;
+
 }
