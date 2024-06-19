@@ -24,7 +24,7 @@ video {
     position:sticky;
     top:0;
   }
-  .lp-header span{
+  .lp-nav{
     background: linear-gradient(120deg, hsl(0, 0%, 100%),hsl(197, 71%, 79%));
     -webkit-background-clip: text;
     color:transparent;
@@ -33,6 +33,7 @@ video {
     font-size: 1.1rem;
     font-weight: 500;
     margin-left:2rem;
+    text-decoration:none;
   }
   .lp-options ol{
     display:flex;
@@ -41,7 +42,7 @@ video {
     gap:30px;
     margin-right:20px;
   }
-  .lp-options li{
+  .lp-navli{
     background: linear-gradient(120deg, antiquewhite,skyblue);
     -webkit-background-clip: text;
     color:transparent;
@@ -71,7 +72,7 @@ video {
     color:white;
 }
 .lp-sec label{
-    color: wheat;
+    color: aliceblue;
     white-space:nowrap;
     margin-right: 14.8em;
     font-weight:500;
@@ -98,9 +99,7 @@ video {
     font-weight:700;
     font-style:oblique;
     cursor:default;
-    caret-shape:;
     caret-color: black;
-    caret-shape: ;
 }
 .lp-mail input:focus-visible{
     border: 2px solid rebeccapurple

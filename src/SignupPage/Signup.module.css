@@ -22,7 +22,6 @@ input,select:focus{
     min-height: 90vh;
     background-color:aliceblue;
     backdrop-filter:blur(20px);
-    border-radius: 20px;
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
@@ -31,8 +30,8 @@ input,select:focus{
     gap:8px;
 }
 #heading{
-    color: rgb(31, 73, 108);
-    font-weight:600;
+    font-weight:700;
+    color:rgb(16, 3, 58);
     
 }
 #uname-box,#email-box,#pwd-box,#confirm-box{

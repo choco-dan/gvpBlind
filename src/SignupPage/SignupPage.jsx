@@ -61,7 +61,7 @@ function SignupPage(){
     return(
         <div id={styles.container}>
             <div id={styles["signup-box"]}>
-                <h1 id={styles["heading"]}>Student Signup</h1>
+                <h1 id={styles["heading"]}>Sign up</h1>
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>
                     <input type="text" id={styles["uname-input"]} ref={unameInput}/>
