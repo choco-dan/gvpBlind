@@ -16,13 +16,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 #outer-box {
     width: 90%;
     height: 90%;
     display: flex;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: transparent;
     flex-wrap: wrap;
     background:transparent;
 }
@@ -32,15 +33,16 @@ a {
     justify-content: center;
     align-items: center;
     padding: 20px;
-
+    background-size:30px;
     background-color: #f8f9fa;
     flex: 1;
     min-width: 350px;
-    background-color: transparent;
+    background-color: transparent;  
     backdrop-filter: blur(20px);
     background-image: linear-gradient(120deg,
                                         rgba(255, 255, 255, 0.6),
                                         hsla(0, 0%, 2%, 0.1));
+
 }
 #login-form {
     padding: 20px 30px;
@@ -69,9 +71,9 @@ a {
     align-items: center;
 }
 #heading {
-    font-size: 2.9rem;
+    font-size: 3.2rem;
     margin-bottom: 15px;
-    font-weight: 200;
+    font-weight: 100;
     color: black;
 }
 #input-box code{

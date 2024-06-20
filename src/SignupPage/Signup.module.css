@@ -11,7 +11,7 @@ input,select:focus{
     border: 1.5px solid rebeccapurple;
 }
 #container{
-    background: linear-gradient(120deg,
+    background: linear-gradient(60deg,
                                 #6f58c9, white );
 
     display: flex;
@@ -20,7 +20,8 @@ input,select:focus{
     font-size:1rem;
     flex-direction: column;
     overflow:hidden;
-    padding-bottom:200px;    
+    padding-bottom:100px; 
+    background-size:30px;   
 }
 #signup-box{
     width: 350px;
@@ -38,6 +39,7 @@ input,select:focus{
     background-image: linear-gradient(120deg,
                                         rgba(255, 255, 255, 0.6),
                                         hsla(0, 0%, 2%, 0.1));
+    
 }
 #heading{
     font-weight:200;
