@@ -26,14 +26,14 @@ function LandingPage(){
            <span>
             <Link className = "lp-nav"to = "/HomePage">HOME</Link></span>
            <div className = "lp-options">
-            <ol>
+            <ul>
                 <li>
                     <Link className = "lp-navli" to ="/Login">Log in</Link>
                 </li>
                 <li>
                     <Link className = "lp-navli" to = "/SignupPage">Sign up</Link>
                 </li>
-            </ol>
+            </ul>
            </div>
         </div>
         <section className = "lp-sec"> 
@@ -41,7 +41,7 @@ function LandingPage(){
             <br></br>
             <br></br>
             <p>yaba yaba laba laba do doo</p>
-            <br></br><br />
+            <br></br><br></br>
             <label for = "lmai">Enter your email here*</label>
             <div className = "lp-mail">
                 <input type = "email" id = "lmai" name ="lmai" ref = {mailRef} />
@@ -52,10 +52,11 @@ function LandingPage(){
             <div>
                 <p>
                     icons 
-                    ig x in 
+                    ig x in links social media 
                 </p>
-                &copy;i am the owner of this bitch
+                &copy;i am the owner 
             </div>
+            <hr></hr>
         </section>
         </div>
         </>
