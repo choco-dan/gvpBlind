@@ -9,7 +9,7 @@ a {
 #background {
     width: 100%;
     height: 101vh;
-    background: url(./assets/pexels-markusspiske-1089440.jpg);
+    background: linear-gradient(120deg, #6F58C9,white);
     background-repeat: no-repeat;
     background-size:cover;
     z-index: 1;
@@ -70,20 +70,23 @@ a {
 }
 #heading {
     font-size: 2.9rem;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-weight: 200;
     color: black;
-
+}
+#input-box code{
+    margin-bottom:20px;
+    color:dimgray;
 }
 #uname-input, #password-input {
     width: 300px;
     height: 40px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 30px;
     text-align: justify;
-    font-weight: 400;
+    font-weight: 600;
     color: hsl(0, 3%, 19%);
-    font-style: none;
+    font-style: oblique;
     font-family: "mulish", "arial", "sans-serif";
     padding: 1px 8px;
 }
@@ -149,25 +152,36 @@ a {
     margin-top: 20px;
     white-space: nowrap;
     height: 20px;
-    color: #da3238;
+    color:indigo;
+    font-size:1.1rem;
+    font-weight:400;
+    font-style:italic;
 }
 #login-btn {
-    background-color: #6F58C9;
+    background-color: white;
     font-size: 1.0rem;
-    color: aliceblue;
-    border: none;
+    color: #6F58C9;
+    border: 1px solid #6F58C9;
     border-radius: 10px;
     padding: 10px 30px;
     cursor: pointer;
-    transition: transform 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out,
+                background-color 0.15s ease-in-out,
+                color 0.15s ease-in-out,
+                border 0.15s ease-in-out;
+    
 }
 #login-btn:hover {
-    transform: translateY(8px);
+    transform: translateY(9px);
+    background-color: black;
+    color:white;
+    border:1px solid black;
 }
 #signup-link {
-    color: red;
+    color: black;
     transition: background-color 0.15s ease-out;
     font-size: 0.8rem;
+    font-weight:600;
     font-style:italic;
     text-decoration:underline;
     

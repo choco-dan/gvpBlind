@@ -41,7 +41,8 @@ function Login(){
                 <div id={styles["login-box"]}>
                 <div id={styles["login-form"]}>
                     <div id={styles["input-box"]}>
-                        <p id={styles["heading"]}>Login</p>
+                        <h1 id={styles["heading"]}>Login</h1>
+                        <code>/enter your credentials/</code>
                         <p id={styles["username"]}>Username</p>
                         <input type="text" id={styles["uname-input"]} ref={unameInput} />
                         <p id={styles["password"]}>Password</p>

@@ -7,20 +7,25 @@
 input,select:focus{
     outline: black;
 }
+#signup-box input:focus-visible{
+    border: 1.5px solid rebeccapurple;
+}
 #container{
-    background: linear-gradient(180deg,
-                                 rgb(231, 117, 117), rgb(16, 3, 58) );
-    width: 100vw;
-    min-height: 100vh;
+    background: linear-gradient(120deg,
+                                #6f58c9, white );
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-attachment:fixed;
+    font-size:1rem;
+    flex-direction: column;
+    overflow:hidden;
+    padding-bottom:200px;    
 }
 #signup-box{
-    width: 400px;
-    min-height: 90vh;
-    background-color:aliceblue;
+    width: 350px;
+    min-height: 500px;
+    background-color: white;
     backdrop-filter:blur(20px);
     padding: 20px 10px;
     display: flex;
@@ -28,41 +33,64 @@ input,select:focus{
     align-items: center;
     justify-content: space-evenly;
     gap:8px;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(120deg,
+                                        rgba(255, 255, 255, 0.6),
+                                        hsla(0, 0%, 2%, 0.1));
 }
 #heading{
-    font-weight:700;
-    color:rgb(16, 3, 58);
-    
+    font-weight:200;
+    font-size:4rem;
+    color: black;
+}
+#signup-box code{
+    color: dimgray;
+    font-size:0.8rem;
+
 }
 #uname-box,#email-box,#pwd-box,#confirm-box{
-    width: 90%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 #uname,#email,#branch,#year,#pwd,#confirm-pwd{
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family:"mulish","arial","sans-serif";
-    color: rgb(83, 81, 81);
+    color:hsl(0, 0%, 10%);
+    font-style: italic;
 
 }
 #uname-input,#email-input,#pwd-input,#confirm-input{
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight:700;
+    font-style:oblique;
     padding: 9px 10px;
+    font-family: "mulish","sans-serif","arial";
+    color: hsl(0, 0%, 20%);
+    
 }
 #mail-check,#pwd-match{
     color: #da3238 ;
     font-size: 1.1rem;
 }
 #acadamic-box{
-    width: 90%;
+    width: 85%;
     display: flex;
     padding: 10px;
     justify-content: space-between;
 }
+#acadamic-box input:focus-visible{
+    border: 1.5px solid rebeccapurple;
+}
 #branch-input,#year-input{
     width: 100px;
     height: 30px;
+    font-size: 0.8rem;
+    font-weight:700;
+    font-style:oblique;
+    color: darkslategray;
 }
 #btn-box{
     width: 90%;
@@ -72,13 +100,21 @@ input,select:focus{
     padding: 10px;
 }
 #register-btn{
-    color: whitesmoke;
-    background-color: #6F58C9;
+    color: #6f58c9;
+    background-color: white;
     font-size: 1.2rem;
-    border:none;
+    border: 1px solid #6f58c9;
     border-radius: 10px;
     cursor: pointer;
     padding:10px 30px;
+    transition: color 0.2s ease-in-out,background-color 0.2s ease-in-out,
+    border 0.2s ease-in, transform 0.2s ease-in;
+}
+#register-btn:hover{
+    color:white;
+    background-color: black;
+    border: 1px solid black;
+    transform: translateY(8px);
 }
 #dialog-title{
     color: green;

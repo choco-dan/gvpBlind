@@ -60,8 +60,12 @@ function SignupPage(){
 
     return(
         <div id={styles.container}>
+            <br></br>
+               <h1 id={styles["heading"]}>Sign up</h1>
+               <br></br>
             <div id={styles["signup-box"]}>
-                <h1 id={styles["heading"]}>Sign up</h1>
+                <code>/Fill up this form to register/</code>
+             
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>
                     <input type="text" id={styles["uname-input"]} ref={unameInput}/>
