@@ -126,16 +126,17 @@ a {
     font-style:oblique;
     font-size:0.8rem;
     font-weight:600;
-    transition: background-color 0.15s ease-in;
+    transition: color 0.15s ease-in;
 }
 #forgot-pwd:hover {
-    color: red;
+    color: aliceblue;
 }
 #username, #password {
     width: 300px;
     font-weight: 300;
     color: rgb(0, 0, 0);
     font-size: 1.1rem;
+    font-style:oblique;
 }
 #signup-box {
     width: 100%;
@@ -187,13 +188,12 @@ a {
     font-style:italic;
     text-decoration:underline;
     
-
 }
 input:focus {
     outline: none;
 }
 #signup-link:active {
-    color: #da3238;
+    color: aliceblue;
 }
 #uname-input:focus-visible {
     border: 2px solid black;

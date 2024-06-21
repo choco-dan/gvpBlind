@@ -61,7 +61,7 @@ function Login(){
                         <p id={styles["user-result"]} ref={result}></p>
                     </div>
                     <div id={styles["signup-box"]}>
-                        <a href="/SignupPage" id={styles["signup-link"]}>Doesnt have account yet? Sign up</a>
+                        <a href="/SignupPage" id={styles["signup-link"]}>Doesn't have an account yet? Sign up</a>
                     </div>
                 </div>
                 </div>

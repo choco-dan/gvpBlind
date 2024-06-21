@@ -64,7 +64,7 @@ function SignupPage(){
                <h1 id={styles["heading"]}>Sign up</h1>
                <br></br>
             <div id={styles["signup-box"]}>
-                <code>/Fill up this form to register/</code>
+                <code>/fill up this form to register/</code>
              
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>
