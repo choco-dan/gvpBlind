@@ -1,4 +1,5 @@
 import  styles from"./Signup.module.css";
+import axios from "axios";
 import { useState,useEffect,useRef } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -9,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function SignupPage(){
     const [validDetails,setValiddetails]=useState(false);
     const [dialogOpen,setDialogopen]=useState(false);
-    const [user,setUser]=useState({});
+    const [userData,setUserdata]=useState({username:"",email:"",branch:"cse",year:"",password:""});
     let navigate=useNavigate();
     //accesing dom using useRef hook
     const unameInput=useRef(null);
@@ -40,12 +41,15 @@ function SignupPage(){
             userdetail["password"]=pwd;
             userdetail["year"]=year;
             userdetail["branch"]=branch;
-            setUser(userdetail);
+            postData();
             setDialogopen(true);
         }
         else{
             setValiddetails(false);
         }
+    }
+    const postData=async()=>{
+        await axios.post("http://localhost:3000/signup",userData);
     }
     // adding functions to dialog box
     const handleOpen=()=>{
@@ -61,24 +65,28 @@ function SignupPage(){
     return(
         <div id={styles.container}>
             <br></br>
-               <h1 id={styles["heading"]}>Sign up</h1>
-               <br></br>
             <div id={styles["signup-box"]}>
-                <code>/fill up this form to register/</code>
-             
+                <h1 id={styles["heading"]}>Signup</h1>
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>
-                    <input type="text" id={styles["uname-input"]} ref={unameInput}/>
+                    <input 
+                    type="text" 
+                    id={styles["uname-input"]} 
+                    ref={unameInput} 
+                    onChange={e=>setUserdata({...userData,username:e.target.value})}
+                    />
                 </div>
                 <div id={styles["email-box"]}>
                     <p id={styles["email"]}>Email-id</p>
-                    <input type="email" id={styles["email-input"]} placeholder="Enter domain mail id" ref={emailInput}/>
+                    <input type="email" id={styles["email-input"]} placeholder="Enter domain mail id" ref={emailInput}
+                     onChange={e=>setUserdata({...userData,email:e.target.value})}/>
                     <p id={styles["mail-check"]} ref={mailCheck}></p>
                 </div>
                 <div id={styles["acadamic-box"]}>
                     <div id={styles["branch-box"]}>
                         <p id={styles["branch"]}>Branch</p>
-                        <select name="" id={styles["branch-input"]} ref={branchInput}>
+                        <select name="" id={styles["branch-input"]} ref={branchInput}
+                         onChange={e=>setUserdata({...userData,branch:e.target.value})}>
                             <option value="cse">CSE</option>
                             <option value="ece">ECE</option>
                             <option value="eee">EEE</option>
@@ -89,7 +97,8 @@ function SignupPage(){
                     </div>
                     <div id={styles["year-box"]}>
                         <p id={styles["year"]}>Year</p>
-                        <select name="" id={styles["year-input"]} ref={yearInput}>
+                        <select name="" id={styles["year-input"]} ref={yearInput}
+                         onChange={e=>setUserdata({...userData,year:e.target.value})}>
                             <option value="1">1st</option>
                             <option value="2">2nd</option>
                             <option value="3">3rd</option>
@@ -99,7 +108,8 @@ function SignupPage(){
                 </div>
                 <div id={styles["pwd-box"]}>
                     <p id={styles["pwd"]}>Create Password</p>
-                    <input type="password" id={styles["pwd-input"]} ref={pwdInput} />
+                    <input type="password" id={styles["pwd-input"]} ref={pwdInput} 
+                     onChange={e=>setUserdata({...userData,password:e.target.value})}/>
                 </div>
                 <div id={styles["confirm-box"]}>
                     <p id={styles["confirm-pwd"]}>Confirm Password</p>
@@ -112,7 +122,7 @@ function SignupPage(){
             </div>
             <Dialog open={dialogOpen} onClose={handleClose} id={styles["dialog-box"]}>
                 <DialogTitle id={styles["dialog-title"]}>
-                    {`welcome ${user["username"]}`}
+                    {`welcome ${userData["username"]}`}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
