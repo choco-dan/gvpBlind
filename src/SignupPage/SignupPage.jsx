@@ -11,6 +11,8 @@ function SignupPage(){
     const [validDetails,setValiddetails]=useState(false);
     const [dialogOpen,setDialogopen]=useState(false);
     const [userData,setUserdata]=useState({username:"",email:"",branch:"cse",year:"",password:""});
+    const [otp,setOtp]=useState();
+    const [sysOTP,setSysOTP]=useState();
     let navigate=useNavigate();
     //accesing dom using useRef hook
     const unameInput=useRef(null);
@@ -22,7 +24,7 @@ function SignupPage(){
     const registerBtn=useRef(null);
     const mailCheck=useRef(null);
     const pwdMatch=useRef(null);
-
+    const dialogMsg=useRef(null);
     //addding event listener to register button
     const register=()=>{
         const uname=unameInput.current.value;
@@ -49,7 +51,17 @@ function SignupPage(){
         }
     }
     const postData=async()=>{
-        await axios.post("http://localhost:3000/signup",userData);
+        const response=await axios.post("http://localhost:3000/signup",userData);
+        setSysOTP(response.data);
+    }
+    const validateOtp=()=>{
+        if(otp==sysOTP){
+            dialogMsg.current.textContent="";
+            navigate("/HomePage");
+        }
+        else{
+            dialogMsg.current.textContent="enter valid OTP";
+        }
     }
     // adding functions to dialog box
     const handleOpen=()=>{
@@ -57,9 +69,6 @@ function SignupPage(){
     }
     const handleClose=()=>{
         setDialogopen(false);
-    }
-    const navigateDialog=()=>{
-        navigate("/HomePage");
     }
 
     return(
@@ -130,7 +139,11 @@ function SignupPage(){
                         Click on continue to start gvpBlind
                     </DialogContentText>
                     <DialogActions>
-                        <button onClick={navigateDialog}>Continue</button>
+                        <input type="number" id={styles["otp-input"]}
+                        onChange={e=>setOtp(e.target.value)}/>
+                        <br/>
+                        <p id={styles["dialog-msg"]} ref={dialogMsg}></p><br/>
+                        <button onClick={validateOtp}>Check OTP</button>
                     </DialogActions>
                 </DialogContent>
             </Dialog>
