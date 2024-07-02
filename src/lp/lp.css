@@ -103,7 +103,9 @@ video {
     caret-color: black;
 }
 .lp-mail input:focus-visible{
-    border: 2px solid rebeccapurple
+    border: 2px solid black;
+    background-color: hsla(0, 0%, 60%, 1);
+
 }
 .lp-mail button{
     background-color: #161130;
