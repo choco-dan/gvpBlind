@@ -4,7 +4,7 @@
     overflow-y:scroll;
     overflow-x:hidden;
     /*background issues*/
-    background:linear-gradient(120deg, #6f58c9, black);
+    background:linear-gradient(120deg, rgb(21, 9, 44), #6f58c9);
     background-size: 40px;
 }
 video {
@@ -18,7 +18,7 @@ video {
     display:none;
   }/*just temporary changes regarding the lp video*/
   .lp-header{
-  
+    backdrop-filter: blur(10px);
     width:100%;
     padding:10px 20px;
     padding-top:40px;
@@ -48,7 +48,7 @@ video {
     list-style: none;
   }
   .lp-navli{
-    background: linear-gradient(120deg, white, skyblue);
+    background: linear-gradient(0deg, white, skyblue);
     -webkit-background-clip: text;
     color:transparent;
     display:inline-block;
@@ -70,11 +70,12 @@ video {
   }
 
   .lp-sec h1{
-    font-size: 6rem;
-    color: whitesmoke;
+    font-size: 9rem;
+    color: white;
     padding:20px 10px;
     white-space:nowrap;
     text-align: center;
+    font-weight: 100;
 
   }
   .lp-desc{
@@ -84,10 +85,12 @@ video {
     justify-content: flex-start;
     max-width:700px;
     margin:0vw 4vw;
+    padding:20px;
 
   }
   .lp-desc h3{
     color: whitesmoke;
+    font-weight: 600;
   }
 
 .lp-desc p{
@@ -110,8 +113,9 @@ video {
 }
 .lp-mail input{
     padding:8px;
-    background-color: hsla(0, 0%, 50%,0.75);
-    color: black;
+    background:transparent;
+    color: white;
+    caret-color: white;
     border:none;
     display:flex;
     width:300px;
@@ -127,7 +131,7 @@ video {
 }
 .lp-mail input:focus-visible{
     border: 2px solid black;
-    background-color: hsla(0, 0%, 60%, 1);
+    background-color: hsla(0, 0%, 30%,0.75);
 
 }
 .lp-mail button{
@@ -158,7 +162,7 @@ video {
     display:flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: whitesmoke;
     font-weight: 400;
 
     flex-direction: column;
@@ -169,7 +173,7 @@ video {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid black;
+  border-top: 1px solid whitesmoke;
   margin: 1em 0;
   padding: 0;
   backdrop-filter: blur(10px);
