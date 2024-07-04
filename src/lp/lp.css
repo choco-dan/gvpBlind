@@ -3,6 +3,9 @@
     margin:0;
     overflow-y:scroll;
     overflow-x:hidden;
+    /*background issues*/
+    background:linear-gradient(120deg, #6f58c9, black);
+    background-size: 40px;
 }
 video {
     position: fixed;
@@ -12,7 +15,8 @@ video {
     max-height: 104%;
     z-index:-100;
     filter:brightness(81%);
-  }
+    display:none;
+  }/*just temporary changes regarding the lp video*/
   .lp-header{
   
     width:100%;
@@ -25,12 +29,12 @@ video {
     align-items: center;
   }
   .lp-nav{
-    background: linear-gradient(120deg, hsl(0, 0%, 100%),hsl(197, 71%, 79%));
+    background: linear-gradient(120deg, white, violet);
     -webkit-background-clip: text;
     color:transparent;
     display:inline-block;
     cursor:pointer;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 500;
     margin-left:2rem;
     text-decoration:none;
@@ -44,7 +48,7 @@ video {
     list-style: none;
   }
   .lp-navli{
-    background: linear-gradient(120deg, antiquewhite,skyblue);
+    background: linear-gradient(120deg, white, skyblue);
     -webkit-background-clip: text;
     color:transparent;
     display:inline-block;
@@ -64,13 +68,32 @@ video {
     z-index:10;
     overflow-y:scroll;
   }
+
   .lp-sec h1{
     font-size: 6rem;
-    color: white;
+    color: whitesmoke;
     padding:20px 10px;
+    white-space:nowrap;
+    text-align: center;
+
   }
-.lp-sec p{
-    color:white;
+  .lp-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width:700px;
+    margin:0vw 4vw;
+
+  }
+  .lp-desc h3{
+    color: whitesmoke;
+  }
+
+.lp-desc p{
+    color:silver;
+    font-weight: 300;
+    font-size:0.89rem;
 }
 .lp-sec label{
     color: aliceblue;
@@ -93,7 +116,7 @@ video {
     display:flex;
     width:300px;
     height:40px;
-    border:1px solid antiquewhite;
+    border:1px solid whitesmoke;
     margin:4px 8px;
     font-size:0.8rem;
     font-family:"mulish",'arial','sans-serif';
@@ -135,8 +158,8 @@ video {
     display:flex;
     align-items: center;
     justify-content: center;
-    color: whitesmoke;
-    font-weight: 100;
+    color: black;
+    font-weight: 400;
 
     flex-direction: column;
 
@@ -146,7 +169,7 @@ video {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid whitesmoke;
+  border-top: 1px solid black;
   margin: 1em 0;
   padding: 0;
   backdrop-filter: blur(10px);

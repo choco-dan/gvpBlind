@@ -28,19 +28,30 @@ function LandingPage(){
            <div className = "lp-options">
             <ul>
                 <li>
-                    <Link className = "lp-navli" to ="/Login">Log in</Link>
+                    <Link className = "lp-navli" to ="/Login">LOGIN</Link>
                 </li>
                 <li>
-                    <Link className = "lp-navli" to = "/SignupPage">Sign up</Link>
+                    <Link className = "lp-navli" to = "/SignupPage">SIGN UP</Link>
                 </li>
             </ul>
            </div>
         </div>
         <section className = "lp-sec"> 
-            <h1>gvpBlind</h1>
+            <h1>Blinder</h1>
             <br></br>
             <br></br>
-            <p>yaba yaba laba laba do doo</p>
+            <div className = "lp-desc">
+                <h3>Welcome to GVP Blinder Community Hub</h3>
+                <br></br>
+                <p>
+                Stay connected with your peers and engage in meaningful discussions
+                on GVP Blinder Community Hub! This exclusive platform is designed for students of
+                GVP to share experiences, exchange ideas, and collaborate on projects.
+                Access is restricted to members with a valid college domain email, ensuring a safe and 
+                private environment for our community.</p>
+
+            </div>
+            
             <br></br><br></br>
             <label for = "lmai">Enter your email here*</label>
             <div className = "lp-mail">
