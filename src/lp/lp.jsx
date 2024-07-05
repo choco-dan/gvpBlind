@@ -49,7 +49,7 @@ function LandingPage(){
                 on GVP Blinder Community Hub! This exclusive platform is designed for students of
                 GVP to share experiences, exchange ideas, and collaborate on projects.
                 Access is restricted to members with a valid college domain email, ensuring a safe and 
-                private environment for our community.More on community guidelines</p>
+                private environment for our community. More on community guidelines.</p>
 
             </div>
             
