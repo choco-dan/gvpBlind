@@ -37,7 +37,7 @@ function Header() {
     return (
         <>
         <div className={styles.x}>
-            <div className={styles.name}>gvpBlind</div>
+            <div className={styles.name}>Blinder</div>
             <div className={styles.options}>
                     <div
                     className={styles.button}

@@ -1,0 +1,74 @@
+.cardBox{
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    min-height:211px;
+    min-width: 240px;
+    max-height:310px;
+    padding: 16px;
+    gap:7px;
+    margin-bottom:7px;
+}
+.userimg{
+    height: 40px;
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+.cardDetails{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.cardtag{
+    display:flex;
+    flex-direction: column;
+    margin-left:15px;
+    gap:4px;
+}
+.comtime{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.branchuser{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.community{
+    color:black;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+.time{
+    font-size:12px;
+    color:#989a9e;
+    font-weight:700;
+}
+.branch{
+    font-size:13px;
+    color: #54545a;
+    font-weight:700;
+}
+.username{
+    font-size:13px;
+    color: #54545a;
+    font-weight:700;
+}
+.dot{
+    color:gray;
+    font-weight:700; 
+}
+.cardpost{
+
+}
+.cardposttitle{
+    color:#222222;
+    font-size:18px;
+}
+.cardpostcontent{
+    color:#42424b;
+    font-size:14px;
+}

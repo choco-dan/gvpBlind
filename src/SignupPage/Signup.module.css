@@ -8,7 +8,7 @@ input,select:focus{
     outline: black;
 }
 #signup-box input:focus-visible{
-    border: 1.5px solid rebeccapurple;
+    border: 1.5px solid black;
 }
 #container{
     background: linear-gradient(60deg,
