@@ -27,7 +27,7 @@ function Login(){
        const response= await axios.post("http://localhost:3000/login",user);
        if(response.data==="success"){
         result.current.textContent="";
-        navigate("/HomePage");
+        navigate("/HomePage",{state:user.username});
        }
        else{
         console.log("Invalid username or password");
