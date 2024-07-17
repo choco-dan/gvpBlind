@@ -1,0 +1,6 @@
+.CommunityPage{
+    display:flex;
+    flex-direction: column;
+    margin-top:60px;
+    margin-left:300px;
+}

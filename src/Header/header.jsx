@@ -1,4 +1,5 @@
 import React, { useState, useRef} from 'react';
+import {Link} from 'react-router-dom';
 import styles from './header.module.css';
 import logo from './assets/user.svg';
 import post from './assets/script.svg';
@@ -37,7 +38,7 @@ function Header() {
     return (
         <>
         <div className={styles.x}>
-            <div className={styles.name}>Blinder</div>
+            <Link className = {styles.name} to = "/HomePage" >Blinder</Link>
             <div className={styles.options}>
                     <div
                     className={styles.button}

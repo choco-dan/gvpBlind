@@ -7,8 +7,6 @@ function HomePage(){
 
   return(
     <>
-    <Header />
-    <Sidebar />
     <Post />
   
     <div className = 'post-box'>
