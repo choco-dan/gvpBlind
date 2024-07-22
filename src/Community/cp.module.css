@@ -1,0 +1,15 @@
+.CommunityPage{
+    display:flex;
+    flex-direction: column;
+    margin-top:80px;
+    margin-left:300px;
+    padding: 20px 30px;
+    margin-right:10px;
+    background: linear-gradient(120deg,
+                        hsla(252, 51%, 57%,0.5),
+                        hsla(0, 0%, 100%,0.3));
+    backdrop-filter:blur(10px);
+    gap:10px;
+    min-height:150px;
+    align-items:flex-start;
+}

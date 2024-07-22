@@ -1,60 +1,50 @@
-import React from 'react'
-import styles from './sidebar.module.css'
-import feed from './assets/square-poll-horizontal.svg'
-import poll from './assets/vote-yea.svg'
-function Sidebar(){
-    return(
-        <>
-        <div className = {styles.sidebar}>
-        <div className = {styles.unscroll}>
-        <div className ={styles.feed}>
-        <img className = {styles.feedicon} src={feed} alt='feed'/>
-        <a className = {styles.feeda}href="#" >&nbsp;Feed</a>
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './sidebar.module.css';
+import feed from './assets/square-poll-horizontal.svg';
+import poll from './assets/vote-yea.svg';
+
+function Sidebar() {
+  const industries = ['Tech', 'Financial Services', 'Healthcare', 'Gaming', 'E-commerce & Retail'];
+  const branches = ['CSE', 'CSM', 'CSD', 'IT', 'ECE', 'EEE', 'Mech', 'Civil', 'Chemical'];
+  const generalTopics = ['Ask Gvp', 'Cars', 'Artificial Intelligence', 'Vizag',
+                         'Misc.', 'India', 'Politics','Relationships', 'Memes',
+                        'Movies', 'Anime', 'Cricket'];
+
+  return (
+    <div className={styles.sidebar}>
+      <div className={styles.unscroll}>
+        <Link className={styles.feed} to ="/HomePage">
+          <img className={styles.feedicon} src={feed} alt='feed' />
+          <p className={styles.feeda} to="/HomePage">&nbsp;Feed</p>
+        </Link>
+        <Link className={styles.poll} to = '/polls'>
+          <img className={styles.pollicon} src={poll} alt='poll' />
+          <p className={styles.polla} to="/polls">&nbsp;Polls</p>
+        </Link>
+      </div>
+      <div className={styles.scrollable}>
+        <div className={styles.industries}>
+          <h3>Industries</h3>
+          {industries.map(industry => (
+            <Link key={industry} to={`/community/${industry}`}>{industry}</Link>
+          ))}
         </div>
-        <div className = {styles.poll}>
-            <img className = {styles.pollicon} src = {poll} alt = 'poll' />
-            <a className = {styles.polla} href = "#">&nbsp;Polls</a>
+        <div className={styles.branches}>
+          <h3>Branch groups</h3>
+          {branches.map(branch => (
+            <Link key={branch} to={`/community/${branch}`}>{branch}</Link>
+          ))}
         </div>
+        <div className={styles.general}>
+          <h3>General Topics</h3>
+          {generalTopics.map(topic => (
+            <Link key={topic} to={`/community/${topic}`}>{topic}</Link>
+          ))}
         </div>
-        <div className = {styles.scrollable}>
-            <div className = {styles.industries}>
-            <h3>Industries</h3>
-            <a href = "#">Tech</a>
-            <a href = "#">Financial Services</a>
-            <a href = "#">Healthcare</a>
-            <a href = "#">Gaming</a>
-            <a href= "#">E-commerce & Retail</a>
-            </div>
-            <div className = {styles.branches}>
-                <h3>Branch groups</h3>
-                <a href = "#">CSE</a>
-                <a href = "#">CSM</a>
-                <a href = "#">CSD</a>
-                <a href = "#">IT</a>
-                <a href = "#">ECE</a>
-                <a href = "#">EEE</a>
-                <a href = "#">Mech</a>
-                <a href = "#">Civil</a>
-                <a href = "#">Chemical</a>
-            </div>
-            <div className = {styles.general}>
-                <h3>General Topics</h3>
-                <a href ="#">Ask Gvp</a>
-                <a href ="#">Cars</a>
-                <a href = "#">Artificial Intelligence</a>
-                <a href = "#">Vizag</a>
-                <a href = "#">Misc.</a>
-                <a href = "#">India</a>
-                <a href = "#">Politics</a>
-                <a href = "#">Relation ships</a>
-                <a href = "#">memes</a>
-                <a href = "#">movies</a>
-                <a href = "#">Anime</a>
-                <a href = "#">Cricket</a>
-            </div>
-        </div>
-        </div>
-        </>
-    );
+      </div>
+    </div>
+  );
 }
-export default Sidebar
+
+export default Sidebar;

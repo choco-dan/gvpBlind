@@ -73,9 +73,12 @@ function SignupPage(){
 
     return(
         <div id={styles.container}>
+              <h1 id={styles["heading"]}>SignUp</h1>
             <br></br>
             <div id={styles["signup-box"]}>
-                <h1 id={styles["heading"]}>Signup</h1>
+                <code>
+                    /fill up this form to register/
+                </code>
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>
                     <input 
@@ -129,8 +132,15 @@ function SignupPage(){
                     <button id={styles["register-btn"]} ref={registerBtn} onClick={register}>Register</button>
                 </div>
             </div>
-            <Dialog open={dialogOpen} onClose={handleClose} id={styles["dialog-box"]}>
-                <DialogTitle id={styles["dialog-title"]}>
+            <Dialog
+            open={dialogOpen} onClose={handleClose} 
+            id={styles["dialog-box"]}>
+                <DialogTitle  
+                sx={{
+                    color:'black',
+                }}
+               
+                id={styles["dialog-title"]}>
                     {`welcome ${userData["username"]}`}
                 </DialogTitle>
                 <DialogContent>
