@@ -13,7 +13,7 @@ import './App.css';
 
 const App = () => {
   const location = useLocation();
-  const hidePaths = ['/','*'];
+  const hidePaths = ['/','*','/Login','/SignupPage'];
 
   const shouldHideSidebar = hidePaths.includes(location.pathname);
   const shouldHideHeader = hidePaths.includes(location.pathname);
