@@ -14,7 +14,7 @@ const NotFound = () =>{
         <div style = {notFoundStyle} >
             <h1> 404 Page not Found</h1>
             <br></br>
-            <Link to = "/">GO HOME</Link>
+            <Link to = "/HomePage">GO HOME</Link>
         </div>
     );
 };

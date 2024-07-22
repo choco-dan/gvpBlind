@@ -6,14 +6,14 @@ import SignupPage from './SignupPage/SignupPage.jsx';
 import Login from "./Login/Login.jsx";
 import NotFound from "./notFound.jsx";
 import LandingPage from "./lp/lp.jsx";
-import CommunityPage from './Community/CommunityPage'; 
+import CommunityPage from './Community/CommunityPage.jsx'; 
 import Sidebar from './sidebar/sidebar.jsx';
 import Header from './Header/header.jsx'
 import './App.css';
 
 const App = () => {
   const location = useLocation();
-  const hidePaths = ['/'];
+  const hidePaths = ['/','*'];
 
   const shouldHideSidebar = hidePaths.includes(location.pathname);
   const shouldHideHeader = hidePaths.includes(location.pathname);

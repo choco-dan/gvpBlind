@@ -22,10 +22,11 @@
     font-weight: 600;
     text-decoration:none;
     color:hsla(0, 0%, 4%, 0.804);
+    margin-left:2px;
     }
 .feed,.poll{
     width:250px;
-    display:block;
+    display:flex;
     font-size:1.2em;
     padding: 10px 15px;
     border-radius:10px;
@@ -66,7 +67,7 @@
 }
 .scrollable h3{
     margin-top:0;
-    color:#43318b;
+    color: black;
     margin-bottom:5px;
 }
 .scrollable::-webkit-scrollbar{

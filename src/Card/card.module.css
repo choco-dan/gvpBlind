@@ -41,6 +41,7 @@
     color:black;
     font-size:1.3rem;
     font-weight:bold;
+    cursor: pointer;
 }
 .time{
     font-size:12px;
@@ -53,16 +54,15 @@
     font-weight:700;
 }
 .username{
-    font-size:13px;
+    font-size:12.5px;
     color: #54545a;
-    font-weight:700;
-}
+    font-weight:500;}
 .dot{
     color:gray;
     font-weight:700; 
 }
 .cardpost{
-
+    cursor:pointer;
 }
 .cardposttitle{
     color:#222222;

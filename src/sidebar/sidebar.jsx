@@ -14,14 +14,14 @@ function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.unscroll}>
-        <div className={styles.feed}>
+        <Link className={styles.feed} to ="/HomePage">
           <img className={styles.feedicon} src={feed} alt='feed' />
-          <Link className={styles.feeda} to="/HomePage">&nbsp;Feed</Link>
-        </div>
-        <div className={styles.poll}>
+          <p className={styles.feeda} to="/HomePage">&nbsp;Feed</p>
+        </Link>
+        <Link className={styles.poll} to = '/polls'>
           <img className={styles.pollicon} src={poll} alt='poll' />
-          <Link className={styles.polla} to="/polls">&nbsp;Polls</Link>
-        </div>
+          <p className={styles.polla} to="/polls">&nbsp;Polls</p>
+        </Link>
       </div>
       <div className={styles.scrollable}>
         <div className={styles.industries}>

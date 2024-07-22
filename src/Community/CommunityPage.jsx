@@ -15,10 +15,10 @@ const CommunityPage = () => {
   if (!communityData) {
     return <div>Loading...</div>;
   }*/
-
+//can be added when the data base is connected to this shit
   return (
     <div className = {styles.CommunityPage}>
-      <h1>Welcome to the  community</h1>
+      <h1>#Community</h1>
       <p>This is a community b1tch and you can fuck offf!!!!!!!!!</p>
     </div>
   );

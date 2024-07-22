@@ -38,7 +38,7 @@ function Header() {
     return (
         <>
         <div className={styles.x}>
-            <Link className = {styles.name} to = "/HomePage" >Blinder</Link>
+            <Link className = {styles.name} to = "/HomePage" >blinder</Link>
             <div className={styles.options}>
                     <div
                     className={styles.button}
