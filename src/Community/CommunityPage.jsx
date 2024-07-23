@@ -1,25 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './cp.module.css'
-
+import axios from 'axios';
+import Card from "../Card/card.jsx";
 const CommunityPage = () => {
-  /*const { name } = useParams();
+  const community=useParams().name.toLowerCase();
   const [communityData, setCommunityData] = useState(null);
 
-  useEffect(() => {
-    fetch(`/api/community/${name}`)
-      .then(response => response.json())
-      .then(data => setCommunityData(data));
-  }, [name]);
-
+  const getPost=async()=>{
+    const response=await axios.get(`http://localhost:3000/community/${community}`);
+    setCommunityData(response.data);
+    console.log(response);
+  }
+  useEffect(()=>{
+    getPost();
+  },[community]);
   if (!communityData) {
     return <div>Loading...</div>;
-  }*/
-//can be added when the data base is connected to this shit
+  }
   return (
+    <div className={styles.container}>
     <div className = {styles.CommunityPage}>
       <h1>#Community</h1>
-      <p>This is a community b1tch and you can fuck offf!!!!!!!!!</p>
+      <p>Community {community.toUpperCase()}</p>
+    </div>
+      <div id={styles.cardBox}>
+        {
+          communityData.map((post,index)=>{
+              return(
+                <Card
+                  id={styles.card}
+                  key={index}
+                  community={community}
+                  username={post.username}
+                  time="0"
+                  branch={post.branch}
+                  year={post.year}
+                  para={post.post}
+                  title="title"
+                />
+              )
+          })
+        }
+      </div>
     </div>
   );
 };

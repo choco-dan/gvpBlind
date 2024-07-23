@@ -1,3 +1,13 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+#cardBox{
+    display:flex;
+    flex-direction: column;
+    margin-left:300px;
+    padding: 20px 30px;
+}
 .CommunityPage{
     display:flex;
     flex-direction: column;

@@ -1,27 +1,36 @@
 import styles from './homepage.module.css'
 import plus from './assets/add.svg';
 import tick from "./assets/tick.svg";
-import { useState,useRef } from 'react'
+import { useState,useRef, useEffect } from 'react'
 import axios from 'axios';
 function Post(props){
     const [post,setPost]=useState("");
     const [icon,setIcon]=useState(plus);
+    const [usermail,setUsermail]=useState("");
     const postInput=useRef(null);
-    const community=()=>{
-        if(post){
-            let low=0;
-            let str=post.substring(low);
-            if(str.indexOf('#')!==-1)
-            {
-                let a=str.substring(str.indexOf('#'));
-                let b=a.substring(1,a.indexOf(" "));
-                low=a.indexOf(" ");
+    useEffect(()=>{
+        if(props.usermail){
+            localStorage.setItem("usermail",props.usermail);
+        }
+        console.log("user",localStorage.getItem("usermail") );
+        
+    },[props.usermail])
+    const getCommunity = (post) => {
+        let communities=[];
+        if (post) {
+            const regex = /#[^\s#]+/g;
+            let match;
+            while ((match = regex.exec(post)) !== null) {
+                 
+                communities.push(match[0].substring(1))
             }
         }
-    }
+        return communities;
+    };
+    
     const postData=async()=>{
        if(post){
-        const data={post:post,user:props.user};
+        const data={post:post,usermail:localStorage.getItem("usermail"),communities:getCommunity(post)};
         setIcon(tick);
         postInput.current.value="";
         await axios.post("http://localhost:3000/userpost",data);

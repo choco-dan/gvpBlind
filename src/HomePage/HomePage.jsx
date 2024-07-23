@@ -6,14 +6,12 @@ import '../App.css'
 import {useLocation} from "react-router-dom";
 function HomePage(){
   const location=useLocation();
-  const user=location.state || {};
+  const usermail=location.state || {};
   return(
     <>
     <Header />
     <Sidebar />
-    <Post user={user}/>
-    <Post />
-  
+    <Post usermail={usermail}/>  
     <div className = 'post-box'>
       <Card community ="community"
         time = "time"
