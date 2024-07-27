@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import HomePage from './HomePage/HomePage.jsx';
@@ -14,10 +14,10 @@ import './App.css';
 const App = () => {
   const location = useLocation();
   const hidePaths = ['/','*','/Login','/SignupPage'];
-
+  const [valid,setValid]=useState(false);
   const shouldHideSidebar = hidePaths.includes(location.pathname);
   const shouldHideHeader = hidePaths.includes(location.pathname);
-
+  const login=()=>set
   return (
     <div className="app-container">
       {!shouldHideHeader && <Header />}

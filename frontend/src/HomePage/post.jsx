@@ -6,13 +6,14 @@ import axios from 'axios';
 function Post(props){
     const [post,setPost]=useState("");
     const [icon,setIcon]=useState(plus);
-    const [usermail,setUsermail]=useState("");
+    const [usermail,setUsermail]=useState(props.usermail);
+
     const postInput=useRef(null);
     useEffect(()=>{
         if(props.usermail){
-            localStorage.setItem("usermail",props.usermail);
+            setUsermail(props.usermail);
         }
-        console.log("user",localStorage.getItem("usermail") );
+        console.log("user",usermail );
         
     },[props.usermail])
     const getCommunity = (post) => {
@@ -30,7 +31,7 @@ function Post(props){
     
     const postData=async()=>{
        if(post){
-        const data={post:post,usermail:localStorage.getItem("usermail"),communities:getCommunity(post)};
+        const data={post:post,usermail:usermail,communities:getCommunity(post)};
         setIcon(tick);
         postInput.current.value="";
         await axios.post("http://localhost:3000/userpost",data);

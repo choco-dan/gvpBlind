@@ -38,7 +38,7 @@ app.post("/signup",async (req,res)=>{
     transporter.sendMail(mailData,(err,info)=>{
         if(err){
             res.json("invalid mail");
-            console.log("error",err);
+            console.log("nodemailer error",err);
         }
         else{
             console.log(info);
