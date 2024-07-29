@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './cp.module.css'
 import axios from 'axios';
@@ -21,8 +21,10 @@ const CommunityPage = () => {
   return (
     <div className={styles.container}>
     <div className = {styles.CommunityPage}>
-      <h1>#Community</h1>
-      <p>Community {community.toUpperCase()}</p>
+      <h1>#{community.toUpperCase()}</h1>
+      <p>Community description needed to be added from database
+
+      </p>
     </div>
       <div id={styles.cardBox}>
         {

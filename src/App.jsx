@@ -9,14 +9,16 @@ import LandingPage from "./lp/lp.jsx";
 import CommunityPage from './Community/CommunityPage.jsx'; 
 import Sidebar from './sidebar/sidebar.jsx';
 import Header from './Header/header.jsx'
+import CreatePost from './postPage/postPage.jsx'
 import './App.css';
 
 const App = () => {
   const location = useLocation();
-  const hidePaths = ['/','*','/Login','/SignupPage'];
+  const hideSidebarPaths = ['/','*','/Login','/SignupPage','/CreatePost'];
+  const hideHeaderPaths = ['/','*','/Login','/SignupPage']
 
-  const shouldHideSidebar = hidePaths.includes(location.pathname);
-  const shouldHideHeader = hidePaths.includes(location.pathname);
+  const shouldHideSidebar = hideSidebarPaths.includes(location.pathname);
+  const shouldHideHeader = hideHeaderPaths.includes(location.pathname);
 
   return (
     <div className="app-container">
@@ -36,6 +38,7 @@ const App = () => {
               <Route path="/SignupPage" element={<SignupPage />} />
               <Route path="/HomePage" element={<HomePage />} />
               <Route path="/Login" element={<Login />} />
+              <Route path = "/CreatePost" element = {<CreatePost />} />
               <Route path="/community/:name" element={<CommunityPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
