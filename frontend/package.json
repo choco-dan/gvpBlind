@@ -34,5 +34,9 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "gh-pages": "^6.1.1",
     "vite": "^5.2.13"
-  }
+  },
+  "description": "\u0000 \u0000",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }
