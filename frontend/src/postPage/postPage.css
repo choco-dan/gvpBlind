@@ -1,31 +1,47 @@
+.post-body{
+  display:flex;
+  flex-direction: column;
+  margin-top:80px;
+  justify-content:center;
+  align-items:flex-start;
+  padding:10px 30px;
+  
+}
+.post-body h2{
+  margin-bottom:2rem;
+  font-size:2rem;
+  color: hsl(200, 4%, 14%);
+}
 .create-post-container {
-    max-width: 600px;
+    max-width: 1000px;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
-    margin-top:80px;
-  }
-  h2 {
-    text-align: center;
+    display:flex;  
+    box-shadow: 5px 5px 15px hsla(0, 0%, 0%,0.24);
   }
 
+ 
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     position: relative;
-  }
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
   
+  }
+  .title{
+    font-weight:700;
+    font-size:1.3rem;
+    padding:15px 3px;
+  } 
   .form-group input,
-  .form-group textarea,
   .ql-container {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    background-color: white;
+    font-family:'mulish','sans-serif',Arial, Helvetica, sans-serif;
+  }
+  .ql-container{
+    font-weight:400;
   }
   
   .error-message {
@@ -43,19 +59,26 @@
  
   .form-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   .post {
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-  }
-  .post {
-    background-color: #0079d3;
-    color: #fff;
+    background-color:#6f58c9;
+    color: white;
+    transition:transform 0.15s ease-in;
+
   }
   .post:hover {
-    background-color: #005ea6;
+    background-color: white;
+    color:black;
+    border:1px solid black;
+    transform:scale(1.1,1.1);
+  }
+  .post:active {
+    transform:translateY(5px);
+
   }
   

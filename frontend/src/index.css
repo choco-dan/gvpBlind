@@ -17,3 +17,8 @@ body{
   width: 4px;
   background:transparent;
 }
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  font-size: 12px;
+  padding-left:10px;
+  color: gray;
+}

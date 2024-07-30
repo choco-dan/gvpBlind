@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef, useEffect} from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './postPage.css';
@@ -6,6 +6,8 @@ import './postPage.css';
 const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+
+
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -39,35 +41,46 @@ const CreatePost = () => {
   ];
 
   return (
-    <div className="create-post-container">
+    <div className = 'post-body'>
       <h2>Create a Post</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title*</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={handleTitleChange}
-            required
-          />
-          <p className="error-message">Please fill out this field.</p>
-          <div className="char-counter">{title.length}/300</div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="content">Body</label>
-          <ReactQuill
-            value={content}
-            onChange={handleContentChange}
-            modules={modules}
-            formats={formats}
-          />
-        </div>
-        <div className="form-actions">
-          <button type="submit" className="post">Post</button>
-        </div>
-      </form>
+
+      <div className="create-post-container">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              id="title"
+              className = 'title'
+              placeholder='Title*'
+              value={title}
+              onChange={handleTitleChange}
+              required
+            />
+            <div className="char-counter">{title.length}/300</div>
+          </div>
+          <div className="form-group">
+            <ReactQuill
+              placeholder='Body'
+              value={content}
+              onChange={handleContentChange}
+              modules={modules}
+              formats={formats}
+
+            />
+        
+
+          </div>
+          <div className="form-actions">
+            <button type="submit" className="post">Post</button>
+          </div>
+        </form>
+      </div>
+
+
+
+
     </div>
+    
   );
 };
 
