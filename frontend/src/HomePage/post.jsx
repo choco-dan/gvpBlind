@@ -1,6 +1,7 @@
 import styles from './homepage.module.css'
 import plus from './assets/add.svg';
 import tick from "./assets/tick.svg";
+import {Link} from 'react-router-dom'
 import { useState,useRef, useEffect } from 'react'
 import axios from 'axios';
 function Post(props){
@@ -42,7 +43,8 @@ function Post(props){
     }
     return(
         <>
-        <div className = {styles.postCont}>
+        <Link className = {styles.postCont}
+                to = '/CreatePost'>
             <img 
             className = {styles.plusicon} 
             src = {icon} alt='post '
@@ -57,7 +59,7 @@ function Post(props){
             setIcon(plus)}}
             ref={postInput}
             ></input>
-        </div> 
+        </Link> 
         </>
     )
 

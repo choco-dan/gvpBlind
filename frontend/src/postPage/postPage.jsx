@@ -1,4 +1,5 @@
-import React, { useState,useRef, useCallback } from 'react';
+
+import React, { useState,useRef, useEffect} from 'react';
 import ReactQuill from 'react-quill';
 import axios from "axios";
 import 'react-quill/dist/quill.snow.css';
@@ -9,6 +10,8 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [contentHTML,setContentHTML]=useState();
   const postbtn=useRef(null);
+
+
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -57,7 +60,7 @@ const CreatePost = () => {
   ];
 
   return (
-    <div className="create-post-container">
+    <div className = 'post-body'>
       <h2>Create a Post</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -86,6 +89,7 @@ const CreatePost = () => {
         </div>
       </form>
     </div>
+    
   );
 };
 
