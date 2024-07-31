@@ -79,15 +79,16 @@ app.post("/login",async(req,res)=>{
      }
 })
 app.post("/userpost",async (req,res)=>{
-    const usermail=req.body.usermail;
+    // const usermail=req.body.usermail;
     try{
         await client.connect();
         const blind=client.db("blind");
         const posts=blind.collection("posts");
         const users=blind.collection("users");
-        const userdetails=await users.findOne({email:usermail});
-        console.log(userdetails);
-        const insertion=await posts.insertOne({...req.body,username:userdetails.username,branch:userdetails.branch,year:userdetails.year,time:new Date()});
+        // const userdetails=await users.findOne({email:usermail});
+        // console.log(userdetails);
+        // const insertion=await posts.insertOne({...req.body,username:userdetails.username,branch:userdetails.branch,year:userdetails.year,time:new Date()});
+        const insertion=await posts.insertOne({...req.body})
     }
     catch(err){
         console.log("error",err);
