@@ -14,8 +14,8 @@ import './App.css';
 
 const App = () => {
   const location = useLocation();
-  const hideSidebarPaths = ['/','*','/Login','/SignupPage','/CreatePost'];
-  const hideHeaderPaths = ['/','*','/Login', '/SignupPage'];
+  const hideSidebarPaths = ['/','*','/Login','/SignupPage','/CreatePost','/login','signuppage'];
+  const hideHeaderPaths = ['/','*','/Login', '/SignupPage','/login','/signuppage'];
   const [valid,setValid]=useState(false);
   const shouldHideSidebar = hideSidebarPaths.includes(location.pathname);
   const shouldHideHeader = hideHeaderPaths.includes(location.pathname);

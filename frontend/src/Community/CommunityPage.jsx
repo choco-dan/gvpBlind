@@ -21,10 +21,13 @@ const CommunityPage = () => {
   return (
     <div className={styles.container}>
     <div className = {styles.CommunityPage}>
+      <div className = {styles.commtitle}>
       <h1>#{community.toUpperCase()}</h1>
-      <p>Community description needed to be added from database
-
-      </p>
+      </div>
+      <div className= {styles.commdesc}>
+      <p>Community description needed to be added from database</p>
+      </div>
+     
     </div>
       <div id={styles.cardBox}>
         {

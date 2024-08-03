@@ -1,6 +1,7 @@
 body{
   background-color: whitesmoke;
   font-family: "mulish",'sans-serif','arial';
+  overflow-x:hidden;
 }
 ::-webkit-scrollbar{
   width:10px;
