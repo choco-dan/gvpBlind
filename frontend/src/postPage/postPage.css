@@ -5,7 +5,6 @@
   justify-content:center;
   align-items:flex-start;
   padding:10px 30px;
-  
 }
 .post-body h2{
   margin-bottom:2rem;
@@ -19,12 +18,9 @@
     display:flex;  
     box-shadow: 5px 5px 15px hsla(0, 0%, 0%,0.24);
   }
-
- 
   .form-group {
     margin-bottom: 25px;
     position: relative;
-  
   }
   .title{
     font-weight:700;
@@ -43,12 +39,10 @@
   .ql-container{
     font-weight:400;
   }
-  
   .error-message {
     color: red;
     font-size: 12px;
   }
-  
   .char-counter {
     position: absolute;
     right: 10px;
@@ -56,7 +50,6 @@
     font-size: 12px;
     color: gray;
   }
- 
   .form-actions {
     display: flex;
     justify-content: center;
@@ -69,7 +62,6 @@
     background-color:#6f58c9;
     color: white;
     transition:transform 0.15s ease-in;
-
   }
   .post:hover {
     background-color: white;
@@ -79,6 +71,5 @@
   }
   .post:active {
     transform:translateY(5px);
-
   }
   
