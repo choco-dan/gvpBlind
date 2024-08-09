@@ -33,8 +33,8 @@ function SignupPage(){
         const year=yearInput.current.value;
         const pwd=pwdInput.current.value;
         const confirm=confirmInput.current.value;
-        email.indexOf("@gvpce.ac.in")==-1?mailCheck.current.textContent="Enter correct domain mail id":mailCheck.current.textContent="";
-        pwd!==confirm?pwdMatch.current.textContent="Password didnt matched":pwdMatch.current.textContent="";
+        email.indexOf("@gvpce.ac.in")==-1?mailCheck.current.textContent="Enter valid mail credentials":mailCheck.current.textContent="";
+        pwd!==confirm?pwdMatch.current.textContent="Password is not matching":pwdMatch.current.textContent="";
         if(uname &&  email.indexOf("@gvpce.ac.in")!==-1 && pwd===confirm){
             setValiddetails(true);
             let userdetail={};
@@ -77,7 +77,7 @@ function SignupPage(){
             <br></br>
             <div id={styles["signup-box"]}>
                 <code>
-                    /fill up this form to register/
+                    /fill this form up to register/
                 </code>
                 <div id={styles["uname-box"]}>
                     <p id={styles["uname"]}>Username</p>

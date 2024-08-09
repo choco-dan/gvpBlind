@@ -74,8 +74,18 @@ input,select:focus{
     
 }
 #mail-check,#pwd-match{
-    color: #da3238 ;
-    font-size: 1.1rem;
+    color: #E60000 ;
+    font-size: 0.8rem;
+    font-style:oblique;
+    font-weight:500;
+    margin-left:5px;
+}
+#mail-check{
+    text-shadow: 0 0 1px red, 0 0 4px #ede9ff;
+}
+#pwd-match{
+    text-shadow :0 0 0.5px red, 0 0 6px #ccc5ff;
+
 }
 #acadamic-box{
     width: 85%;

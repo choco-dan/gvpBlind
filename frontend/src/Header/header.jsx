@@ -61,20 +61,23 @@ function Header() {
                 </div>
             </div>
         
-        {openProfile && (
-                     <div ref = {profileMenuRef}
-                     className = {styles.dropdownprofile}>
-                     <ul>
-                         {profileMenu.map((menu,index)=>(
-                             <li onClick={()=>setOpenProfile(false)}
-                               className = {styles.dropdownitem} key={index}>
-                                 {menu}      
-                             </li>
-                         ))}
-                     </ul>
-                     </div> 
-
-                )};
+            {openProfile && (
+                <div ref={profileMenuRef} className={styles.dropdownprofile}>
+                    <ul>
+                        {profileMenu.map((menu, index) => (
+                            <li onClick={() => {
+                                setOpenProfile(false);
+                            }} className={styles.dropdownitem} key={index}>
+                                {index === 0 ? ( // Check if it's the 'PROFILE' option
+                                    <Link to="/profile">{menu}</Link> // Wrap with Link
+                                ) : (
+                                    menu
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         {openPost && (
                     <div ref = {postMenuRef}
                      className = {styles.dropdownpost}>

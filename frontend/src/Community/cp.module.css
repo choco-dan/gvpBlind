@@ -20,14 +20,16 @@
     border:1px solid #d3d3d3;
 }
 .commtitle{
-    background-color: #22184b;
+    background-color: rgb(12,5,26);
     display: flex;
     width: 99.99%;
     padding:10px;
+    cursor:default;
 }
 .commtitle h1{
     color: white;
 }
 .commdesc{
     padding:10px;
+    cursor:default;
 }
