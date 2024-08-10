@@ -1,8 +1,9 @@
 import styles from "./Login.module.css";
 import { IoEye,IoEyeOff  } from "react-icons/io5";
-import { useState,useRef } from "react";
+import { useState,useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../UserContext";
 
 function Login(){
     const [show,setShow]=useState(false);
@@ -12,6 +13,7 @@ function Login(){
     const unameInput=useRef(null);
     const pwdInput=useRef(null);
     const result=useRef(null);
+    const {setUsermail}= useContext(UserContext);
     const showPassword=()=>{
         if(show){
             pwdInput.current.setAttribute("type","password");
@@ -29,7 +31,7 @@ function Login(){
             const response= await axios.post("http://localhost:3000/login",user);
        console.log(response);
        if(response.data==="valid user"){
-        
+        setUsermail(user.usermail);
         result.current.textContent="";
         navigate("/HomePage",{state:user.usermail});
        }

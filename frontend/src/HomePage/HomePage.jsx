@@ -5,10 +5,11 @@ import {useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
 import { BottomNavigation } from '@mui/material'
+import { UserContext } from '../UserContext.jsx';
 function HomePage(){
   const location=useLocation();
   const navigate = useNavigate();
-  const usermail=location.state || {};
+  const {usermail}= useContext(UserContext);
   console.log("homepage usermail", usermail);
   const [feed,setFeed]=useState([]);
   const getFeed=async()=>{

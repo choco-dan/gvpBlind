@@ -4,11 +4,10 @@ import axios from "axios";
 import 'react-quill/dist/quill.snow.css';
 import './postPage.css';
 import {useLocation} from "react-router-dom";
-
+import { UserContext } from '../UserContext';
 const CreatePost = () => {
   const location=useLocation();
-  const usermail=location.state || {};
-  console.log("userp",usermail);
+  const {usermail} = useContext(UserContext);
   console.log("createpost usermail: ", usermail);
   const [title, setTitle] = useState('');
   const [contentHTML, setContentHTML] = useState('');
