@@ -3,11 +3,15 @@ import ReactQuill from 'react-quill';
 import axios from "axios";
 import 'react-quill/dist/quill.snow.css';
 import './postPage.css';
+import {useLocation} from "react-router-dom";
 
 const CreatePost = () => {
+  const location=useLocation();
+  const usermail=location.state || {};
+  console.log("userp",usermail);
   const [title, setTitle] = useState('');
   const [contentHTML, setContentHTML] = useState('');
-
+  const [post,setPost]=useState("");
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
@@ -26,17 +30,18 @@ const CreatePost = () => {
     }, 100);
   };
 
-  const handleContentHTML = (value) => {
-    setContentHTML(value);
-  };
-
+  const handlequill=(content, delta, source, editor)=>{
+      setContentHTML(content);
+      setPost(editor.getText());
+}
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (title.length > 300) return;
-    const contentInput = document.querySelector(".ql-editor");
-    const post = contentInput.textContent;
+    // const contentInput = document.querySelector(".ql-editor");
+    // const post = contentInput.textContent;
     const communities = getCommunity(post);
-    await axios.post("http://localhost:3000/userpost", { title, post, communities });
+    console.log({ title:title,post:post,communities:communities,contentHTML:contentHTML });
+    await axios.post("http://localhost:3000/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
   };
 
   const getCommunity = (post) => {
@@ -88,9 +93,10 @@ const CreatePost = () => {
           </div>
           <div className="form-group">
             <ReactQuill
-              value={contentHTML}
+              id="quill"
+              // value={contentHTML}
               placeholder="Body"
-              onChange={handleContentHTML}
+              onChange={handlequill}
               modules={modules}
               formats={formats}
             />

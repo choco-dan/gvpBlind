@@ -27,26 +27,36 @@ const OTP=(usermail,username)=>{
         }
         else{
             console.log(info);
-            return otp;
+            console.log("b" ,otp);
         }
     })
+    return otp;
 
 }
 const addUser=async(req,res)=>{
-    try{
-        const userInsertion=await user.create(req.body);
-        const otp=OTP(req.body.usermail,req.body.username);
-        res.json(otp);
-    }
-    catch(err){
-        console.log("error inserting user",err);
-    }
-
+    console.log(req.body);
+    const usermail=req.body.usermail;
+        const userdetails=await user.findOne({usermail:usermail});
+        if(userdetails){
+            res.json("already user registered");
+        }
+        else{
+            try{
+                const userInsertion=await user.create(req.body);
+                const otp=OTP(req.body.usermail,req.body.username);
+                console.log("a ",otp);
+                res.json(otp);
+            }
+            catch(err){
+                console.log("error a inserting user",err);
+            }
+        }
 };
 const authUser=async(req,res)=>{
     const {usermail,password}=req.body;
     try{
-        const userdetails=user.findOne({usermail:usermail});
+        const userdetails=await user.findOne({usermail:usermail});
+        console.log(userdetails);
         if(!userdetails){
             res.json("invalid user");
         }

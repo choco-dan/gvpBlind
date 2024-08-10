@@ -38,11 +38,11 @@ const CommunityPage = () => {
                   key={index}
                   community={community}
                   username={post.username}
-                  time="0"
+                  time={post.timespan}
                   branch={post.branch}
                   year={post.year}
                   para={post.post}
-                  title="title"
+                  title={post.title}
                 />
               )
           })

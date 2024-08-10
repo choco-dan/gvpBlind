@@ -9,7 +9,7 @@ function Card(props){
                 <div className = {styles.cardtag}>
                     <div className = {styles.comtime}>
                         <div className = {styles.community}>
-                            {props.community}
+                            {props.username}
                         </div>
                         <div className = {styles.dot}>
                         &nbsp;&#183;&nbsp; 

@@ -7,7 +7,7 @@ const userRouter=require("./routes/userRoutes");
 const mongoose=require("mongoose");
 app.use(express.json());
 app.use(cors());
-app.use("/users",userRouter);
+app.use("/",userRouter);
 const connection=async()=>{
    try{
     await mongoose.connect("mongodb://localhost:27017/blind");

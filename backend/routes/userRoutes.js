@@ -1,8 +1,12 @@
 const express=require("express");
-const {addUser,authUser,fetchUser}=require("../contoller/users");
+const {addUser,authUser,fetchUser}=require("../contoller/userContoller");
+const {addPost,getPost,getFeed}=require("../contoller/postContoller");
 const app=express();
 const router=express.Router();
 console.log("router page");
 router.post("/signup",addUser);
 router.post("/login",authUser);
+router.post("/post",addPost);
+router.post("/feed",getFeed);
+router.get("/community/:community",getPost);
 module.exports=router;

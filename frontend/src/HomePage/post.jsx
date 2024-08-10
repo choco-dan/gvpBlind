@@ -4,62 +4,27 @@ import tick from "./assets/tick.svg";
 import {Link} from 'react-router-dom'
 import { useState,useRef, useEffect } from 'react'
 import axios from 'axios';
+import {useLocation} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 function Post(props){
-    const [post,setPost]=useState("");
-    const [icon,setIcon]=useState(plus);
-    const [usermail,setUsermail]=useState(props.usermail);
-
-    const postInput=useRef(null);
-    useEffect(()=>{
-        if(props.usermail){
-            setUsermail(props.usermail);
-        }
-        console.log("user",usermail );
-        
-    },[props.usermail])
-    const getCommunity = (post) => {
-        let communities=[];
-        if (post) {
-            const regex = /#[^\s#]+/g;
-            let match;
-            while ((match = regex.exec(post)) !== null) {
-                 
-                communities.push(match[0].substring(1))
-            }
-        }
-        return communities;
-    };
-    
-    const postData=async()=>{
-       if(post){
-        const data={post:post,usermail:usermail,communities:getCommunity(post)};
-        setIcon(tick);
-        postInput.current.value="";
-        await axios.post("http://localhost:3000/userpost",data);
-       }
-       else{
-        postInput.current.value="Enter something to post";
-       }
+  const location=useLocation();
+  const usermail=location.state || {};
+  const navigate=useNavigate();
+    console.log("user a",usermail);
+    const [icon,setIcon]=useState(plus);  
+    const postData=()=>{
+        navigate('/CreatePost',{state:usermail})
     }
     return(
         <>
-        <Link className = {styles.postCont}
-                to = '/CreatePost'>
+         <div className = {styles.postCont} >
             <img 
             className = {styles.plusicon} 
             src = {icon} alt='post '
             onClick={postData} 
             />
 
-            <input 
-            className = {styles.postin} 
-            type = "text" 
-            placeholder="Start a post......" 
-            onChange={(e)=>{setPost(e.target.value);
-            setIcon(plus)}}
-            ref={postInput}
-            ></input>
-        </Link> 
+        </div> 
         </>
     )
 

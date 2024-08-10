@@ -10,13 +10,13 @@ import { useNavigate } from "react-router-dom";
 function SignupPage(){
     const [validDetails,setValiddetails]=useState(false);
     const [dialogOpen,setDialogopen]=useState(false);
-    const [userData,setUserdata]=useState({username:"",email:"",branch:"cse",year:"",password:""});
+    const [userData,setUserdata]=useState({username:"",usermail:"",branch:"cse",year:"1",password:""});
     const [otp,setOtp]=useState();
     const [sysOTP,setSysOTP]=useState();
     let navigate=useNavigate();
     //accesing dom using useRef hook
     const unameInput=useRef(null);
-    const emailInput=useRef(null);
+    const usermailInput=useRef(null);
     const pwdInput=useRef(null);
     const confirmInput=useRef(null);
     const branchInput=useRef(null);
@@ -28,23 +28,22 @@ function SignupPage(){
     //addding event listener to register button
     const register=()=>{
         const uname=unameInput.current.value;
-        const email=emailInput.current.value;
+        const usermail=usermailInput.current.value;
         const branch=branchInput.current.value;
         const year=yearInput.current.value;
         const pwd=pwdInput.current.value;
         const confirm=confirmInput.current.value;
-        email.indexOf("@gvpce.ac.in")==-1?mailCheck.current.textContent="Enter valid mail credentials":mailCheck.current.textContent="";
+        usermail.indexOf("@gvpce.ac.in")==-1?mailCheck.current.textContent="Enter valid mail credentials":mailCheck.current.textContent="";
         pwd!==confirm?pwdMatch.current.textContent="Password is not matching":pwdMatch.current.textContent="";
-        if(uname &&  email.indexOf("@gvpce.ac.in")!==-1 && pwd===confirm){
+        if(uname &&  usermail.indexOf("@gvpce.ac.in")!==-1 && pwd===confirm){
             setValiddetails(true);
             let userdetail={};
-            userdetail["email"]=email;
+            userdetail["usermail"]=usermail;
             userdetail["username"]=uname;
             userdetail["password"]=pwd;
             userdetail["year"]=year;
             userdetail["branch"]=branch;
             postData();
-            setDialogopen(true);
         }
         else{
             setValiddetails(false);
@@ -52,12 +51,20 @@ function SignupPage(){
     }
     const postData=async()=>{
         const response=await axios.post("http://localhost:3000/signup",userData);
-        setSysOTP(response.data);
+        console.log(response);
+        if(response.data==="already user registered"){
+            mailCheck.current.textContent="already user registered";
+        }
+        else{
+            setDialogopen(true);
+            setSysOTP(response.data);
+        }
+
     }
     const validateOtp=()=>{
         if(otp==sysOTP){
             dialogMsg.current.textContent="";
-            navigate("/HomePage");
+            navigate("/login");
         }
         else{
             dialogMsg.current.textContent="enter valid OTP";
@@ -89,9 +96,9 @@ function SignupPage(){
                     />
                 </div>
                 <div id={styles["email-box"]}>
-                    <p id={styles["email"]}>Email-id</p>
-                    <input type="email" id={styles["email-input"]} placeholder="Enter domain mail id" ref={emailInput}
-                     onChange={e=>setUserdata({...userData,email:e.target.value})}/>
+                    <p id={styles["email"]}>usermail-id</p>
+                    <input type="usermail" id={styles["email-input"]} placeholder="Enter domain mail id" ref={usermailInput}
+                     onChange={e=>setUserdata({...userData,usermail:e.target.value})}/>
                     <p id={styles["mail-check"]} ref={mailCheck}></p>
                 </div>
                 <div id={styles["acadamic-box"]}>
