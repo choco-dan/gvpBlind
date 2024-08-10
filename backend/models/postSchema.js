@@ -2,11 +2,11 @@ const { date } = require("joi");
 const mongoose=require("mongoose");
 const postSchema=new mongoose.Schema({
     usermail:{
-        type:String,
+        type: String,
         required:true,
     },
     username:{
-        type:String,
+        type: String,
         required:true,
     },
     branch:String,

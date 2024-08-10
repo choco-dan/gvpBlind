@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactQuill from 'react-quill';
 import axios from "axios";
 import 'react-quill/dist/quill.snow.css';
@@ -9,6 +9,7 @@ const CreatePost = () => {
   const location=useLocation();
   const usermail=location.state || {};
   console.log("userp",usermail);
+  console.log("createpost usermail: ", usermail);
   const [title, setTitle] = useState('');
   const [contentHTML, setContentHTML] = useState('');
   const [post,setPost]=useState("");

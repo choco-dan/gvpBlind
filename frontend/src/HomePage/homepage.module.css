@@ -11,6 +11,10 @@
     align-items: center;
     
 }
+.btn{
+    margin-top:200px;
+    margin-left:800px;
+}
 .postin{
     height: 40px;
     padding: 10px;

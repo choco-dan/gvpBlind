@@ -1,9 +1,9 @@
 import styles from "./Login.module.css";
 import { IoEye,IoEyeOff  } from "react-icons/io5";
 import { useState,useRef } from "react";
-import users from "./assets/Users.json"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 function Login(){
     const [show,setShow]=useState(false);
     const [valid,setValid]=useState(false);
@@ -24,9 +24,12 @@ function Login(){
     const loginBtn=useRef(null);
     
     const postUser=async ()=>{
-       const response= await axios.post("http://localhost:3000/login",user);
+        console.log("user data before post:", user);
+        try{
+            const response= await axios.post("http://localhost:3000/login",user);
        console.log(response);
        if(response.data==="valid user"){
+        
         result.current.textContent="";
         navigate("/HomePage",{state:user.usermail});
        }
@@ -34,6 +37,14 @@ function Login(){
         console.log("Invalid username or password");
         result.current.textContent="Invalid username or password";
        }
+
+        }
+        catch (error) {
+        console.error("Error during login:", error);
+        result.current.textContent = "An error occurred. Please try again.";
+    }
+
+       
     }
     return(
         <div id={styles["background"]}>

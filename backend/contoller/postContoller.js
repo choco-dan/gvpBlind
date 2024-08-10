@@ -4,14 +4,25 @@ const user=require("../models/userSchema");
 const addPost=async(req,res)=>{
     try{
         const postData=req.body;
-        const usermail=req.body.usermail;
+        let usermail=req.body.usermail;
         console.log(postData);
+           
         const userdetails=await user.findOne({usermail:usermail});
-        const postInsertion=await posts.create({...postData,username:userdetails.username,branch:userdetails.branch,time:new Date().getTime()});
+        if (!userdetails) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const postInsertion=await posts.create({...postData,
+                                                    username:userdetails.username,
+                                                    branch:userdetails.branch,
+                                                    time:new Date().getTime()});
         console.log(postInsertion);
+        res.status(201).json(postInsertion);
+
     }
+    
     catch(err){
         console.log("error inserting post",err);
+        res.status(400).json({error: err.message});
     }
 }
 const getPost=async(req,res)=>{
@@ -62,8 +73,17 @@ function calcTime(ms) {
 }
 
 const getFeed=async(req,res)=>{
-    const {usermail}=req.body;
+  
     try{
+        let {usermail} = req.body;
+        if (typeof usermail !== 'string') {
+            if (usermail && typeof usermail === 'object') {
+                usermail = String(usermail);
+            } else {
+                throw new Error('Invalid usermail provided');
+            }
+        }
+
         const feed=await posts.find({usermail:usermail}).sort({time:-1});
         const updatedPost=feed.map((post)=>{
             const currTime=new Date().getTime();

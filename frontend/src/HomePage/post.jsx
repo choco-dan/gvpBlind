@@ -8,12 +8,12 @@ import {useLocation} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 function Post(props){
   const location=useLocation();
-  const usermail=location.state || {};
   const navigate=useNavigate();
-    console.log("user a",usermail);
+  const usermail = props.usermail;
     const [icon,setIcon]=useState(plus);  
+    console.log("post usermali", usermail);
     const postData=()=>{
-        navigate('/CreatePost',{state:usermail})
+        navigate('/CreatePost',{state: usermail})
     }
     return(
         <>
@@ -21,7 +21,6 @@ function Post(props){
             <img 
             className = {styles.plusicon} 
             src = {icon} alt='post '
-            onClick={postData} 
             />
 
         </div> 

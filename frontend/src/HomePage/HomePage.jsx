@@ -1,14 +1,15 @@
-import Sidebar from '../sidebar/sidebar.jsx'
-import Header from '../Header/header.jsx'
-import Post from './post.jsx'
 import Card from '../Card/card.jsx'
+import styles from './homepage.module.css'
 import '../App.css'
-import {useLocation} from "react-router-dom";
-import { useEffect, useState } from 'react'
+import {useLocation, useNavigate} from "react-router-dom";
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
+import { BottomNavigation } from '@mui/material'
 function HomePage(){
   const location=useLocation();
+  const navigate = useNavigate();
   const usermail=location.state || {};
+  console.log("homepage usermail", usermail);
   const [feed,setFeed]=useState([]);
   const getFeed=async()=>{
     const feedresponse=await axios.post("http://localhost:3000/feed",{usermail:usermail});
@@ -18,11 +19,13 @@ function HomePage(){
   useEffect(()=>{
     getFeed();
   },[]);
+
+  const navigateToCreatePost = ()=>{
+    navigate("/CreatePost", {state:usermail});
+  }
   return(
     <>
-    <Header />
-    <Sidebar />
-    <Post usermail={usermail}/>  
+    <button onClick = {navigateToCreatePost} className = {styles.postCont}>create a post</button>
     <div className = 'post-box'>
       {
         feed.map((post,index)=>{
