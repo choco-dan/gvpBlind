@@ -7,7 +7,7 @@ import axios from "axios";
 function Login(){
     const [show,setShow]=useState(false);
     const [valid,setValid]=useState(false);
-    const [user,setUser]=useState({username:"",password:""});
+    const [user,setUser]=useState({usermail:"",password:""});
     const navigate=useNavigate();
     const unameInput=useRef(null);
     const pwdInput=useRef(null);
@@ -28,7 +28,7 @@ function Login(){
        console.log(response);
        if(response.data==="valid user"){
         result.current.textContent="";
-        navigate("/HomePage",{state:user.username});
+        navigate("/HomePage",{state:user.usermail});
        }
        else{
         console.log("Invalid username or password");
@@ -43,9 +43,9 @@ function Login(){
                     <div id={styles["input-box"]}>
                         <h1 id={styles["heading"]}>Login</h1>
                         <code>/enter your credentials/</code>
-                        <p id={styles["username"]}>Username</p>
+                        <p id={styles["username"]}>Usermail</p>
                         <input type="text" id={styles["uname-input"]} ref={unameInput} 
-                        onChange={e=>setUser({...user,username:e.target.value})} />
+                        onChange={e=>setUser({...user,usermail:e.target.value})} />
                         <p id={styles["password"]}>Password</p>
                         <div id={styles["password-box"]}>
                         <input type="password" id={styles["password-input"]} ref={pwdInput}

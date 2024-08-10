@@ -54,6 +54,7 @@ const addUser=async(req,res)=>{
 };
 const authUser=async(req,res)=>{
     const {usermail,password}=req.body;
+    console.log(req.body);
     try{
         const userdetails=await user.findOne({usermail:usermail});
         console.log(userdetails);
