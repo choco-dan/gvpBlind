@@ -24,7 +24,7 @@ function Login(){
     const loginBtn=useRef(null);
     
     const postUser=async ()=>{
-       const response= await axios.post("http://localhost:3000/login",user);
+       const response= await axios.post("http://localhost:3000/users/login",user);
        if(response.data==="success"){
         result.current.textContent="";
         navigate("/HomePage",{state:user.username});

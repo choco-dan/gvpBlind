@@ -5,7 +5,7 @@
   "main": "backend.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend.js"
+    "start": "nodemon index.js"
   },
   "author": "dileep kumar rambarki",
   "license": "ISC",
