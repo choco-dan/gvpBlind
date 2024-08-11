@@ -59,7 +59,7 @@ const authUser=async(req,res)=>{
         const userdetails=await user.findOne({usermail:usermail});
         console.log(userdetails);
         if(!userdetails){
-            res.json("invalid user");
+            res.json("Invalid user");
         }
         else if(userdetails && userdetails.password==password){
             res.json("valid user");

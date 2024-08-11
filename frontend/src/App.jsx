@@ -15,11 +15,12 @@ import './App.css';
 
 const App = () => {
   const location = useLocation();
+  const [isNotFound, setIsNotFound] = useState(false);
   const hideSidebarPaths = ['/','*','/Login','/SignupPage','/CreatePost','/login','/signuppage','/profile'];
   const hideHeaderPaths = ['/','*','/Login', '/SignupPage','/login','/signuppage'];
   const [valid,setValid]=useState(false);
-  const shouldHideSidebar = hideSidebarPaths.includes(location.pathname);
-  const shouldHideHeader = hideHeaderPaths.includes(location.pathname);
+  const shouldHideSidebar = hideSidebarPaths.includes(location.pathname) || isNotFound;
+  const shouldHideHeader = hideHeaderPaths.includes(location.pathname) || isNotFound;
   const login=()=>set
   return (
     <div className="app-container">
@@ -42,7 +43,7 @@ const App = () => {
               <Route path = "/CreatePost" element = {<CreatePost />} />
               <Route path = "/Profile" element = {<UserProfile />} />
               <Route path="/community/:name" element={<CommunityPage />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<NotFound setIsNotFound={setIsNotFound} />} />
             </Routes>
           </CSSTransition>
         </SwitchTransition>

@@ -17,7 +17,6 @@ const addPost=async(req,res)=>{
                                                     time:new Date().getTime()});
         console.log(postInsertion);
         res.status(201).json(postInsertion);
-
     }
     
     catch(err){

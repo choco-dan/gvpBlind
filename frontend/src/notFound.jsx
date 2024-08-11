@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import React, {useEffect} from 'react';
 const notFoundStyle = {
     color: 'black',
     backgroundColor: 'whitesmoke',
@@ -9,7 +10,13 @@ const notFoundStyle = {
     verticalAlign: 'middle',
     marginTop: '45vh',
 };
-const NotFound = () =>{
+const NotFound = ({setIsNotFound}) =>{
+    useEffect (()=>{
+        setIsNotFound(true);
+
+        return()=>setIsNotFound(false);
+
+    },[setIsNotFound]);
     return(
         <div style = {notFoundStyle} >
             <h1> 404 Page not Found</h1>
