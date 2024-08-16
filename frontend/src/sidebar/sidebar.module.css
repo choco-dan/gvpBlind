@@ -69,21 +69,21 @@
     color: black;
     margin-bottom:5px;
 }
-.scrollable::-webkit-scrollbar{
-    width: 9px;
-}
-.scrollable::-webkit-scrollbar-track{
+.scrollable::-webkit-scrollbar {
+    width:6px;
+
+  }
+  .scrollable::-webkit-scrollbar-track {
+    background: #f9f9fb;
     border-radius: 10px;
-    
-}
-.scrollable::-webkit-scrollbar-thumb{
-    background: hsla(262, 95%, 92%, 0.801);
-    border-radius: 10px;
-    height:2px;
-}
-.scrollable::-webkit-scrollbar-thumb:hover{
-    background: #836bafff;
-}
+  }
+  .scrollable::-webkit-scrollbar-thumb {
+    background: #bfc1c5;
+    border:none;
+  }
+  .scrollable::-webkit-scrollbar-thumb:hover {
+    background: rgb(170, 170, 170) ;
+  }
 .scrollable::after{
     content: '';
     display:block;
