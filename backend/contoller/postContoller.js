@@ -83,7 +83,7 @@ const getFeed=async(req,res)=>{
             }
         }
 
-        const feed=await posts.find({usermail:usermail}).sort({time:-1});
+        const feed=await posts.find().sort({time:-1});
         const updatedPost=feed.map((post)=>{
             const currTime=new Date().getTime();
             const prevTime=post.time;

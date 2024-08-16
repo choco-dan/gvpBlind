@@ -4,12 +4,16 @@
     flex-direction: column;
     border: 1px solid #d3d3d3;
     border-radius: 8px;
-    min-height:211px;
-    min-width: 240px;
+    min-height:180px;
+    min-width: 350px;
     max-height:310px;
     padding: 16px;
     gap:7px;
-    margin-bottom:7px;
+    margin-bottom:10px;
+    position:relative;
+}
+.cardBox:hover{
+    box-shadow: 0 4px 8px 0 rgba(101,105,108,0.1);
 }
 .userimg{
     height: 40px;
@@ -36,12 +40,16 @@
     display:flex;
     flex-direction:row;
     align-items: center;
+    line-height:1rem;
+
 }
 .community{
     color:black;
-    font-size:1.3rem;
+    font-size:1.1rem;
     font-weight:bold;
     cursor: pointer;
+    white-space: wrap;
+    font-family:'mulish','arial','sans-serif';
 }
 .time{
     font-size:12px;
@@ -49,26 +57,36 @@
     font-weight:700;
 }
 .branch{
-    font-size:13px;
-    color: #54545a;
-    font-weight:700;
+    font: size 11px;
+    color: #545459;
+    font-weight:400;
 }
 .username{
-    font-size:12.5px;
-    color: #54545a;
-    font-weight:500;}
+    font-size:12px;
+    color: #545459;
+    font-weight:500;
+    font-family:'mulish','arial','sans-serif';
+}
 .dot{
     color:gray;
-    font-weight:700; 
+    font-weight:700;
+    font-family:'Times New Roman', Times, serif;
+    margin-left:none;
+    margin-right:none;
+    padding-top:3.5px;
 }
 .cardpost{
     cursor:pointer;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    line-height:2rem;
 }
 .cardposttitle{
     color:#222222;
     font-size:18px;
 }
 .cardpostcontent{
-    color:#42424b;
+    color:#545459;
     font-size:14px;
 }

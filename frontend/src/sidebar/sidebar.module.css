@@ -1,7 +1,7 @@
 .sidebar{
     height:100%;
     width:250px;
-    background-color: whitesmoke;
+    background-color: #f9f9fb;
     position:fixed;
     z-index:30;
 }
@@ -45,7 +45,7 @@
     width:250px;
     height:100%;
     overflow-y:scroll;
-    background-color: whitesmoke;
+    background-color: #f9f9fb;
     padding:15px;
     scrollbar-gutter:stable;
 }

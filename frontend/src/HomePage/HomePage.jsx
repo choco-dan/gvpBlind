@@ -6,9 +6,11 @@ import { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
 import { BottomNavigation } from '@mui/material'
 import { UserContext } from '../UserContext.jsx';
+import Notification from './Notification.jsx';
 function HomePage(){
   const location=useLocation();
   const navigate = useNavigate();
+  const [showNotification, setShowNotification] = useState(false);
   const {usermail}= useContext(UserContext);
   console.log("homepage usermail", usermail);
   const [feed,setFeed]=useState([]);
@@ -20,12 +22,21 @@ function HomePage(){
   useEffect(()=>{
     getFeed();
   },[]);
+  useEffect(()=>{
+    if(location.state && location.state.showNotification){
+      setShowNotification(true);
+    }
+  }, [location.state]);
 
   const navigateToCreatePost = ()=>{
     navigate("/CreatePost", {state:usermail});
   }
   return(
     <>
+    <Notification 
+      message = 'Post pushed successfully'
+      show = {showNotification}
+      onClose = {()=> setShowNotification(false)} />
     <button onClick = {navigateToCreatePost} className = {styles.postCont}>create a post</button>
     <div className = 'post-box'>
       {

@@ -1,5 +1,5 @@
 import React, { useState, useRef} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from './header.module.css';
 import logo from './assets/user.svg';
 import post from './assets/script.svg';
@@ -12,13 +12,14 @@ function Header() {
     const [openProfile, setOpenProfile] = useState(false);
     const [openPost, setOpenPost] = useState(false);
     const[openDots, setOpenDots] = useState(false);
-
+    const navigate = useNavigate();
    const profileMenuRef = useRef();
    const profileRef = useRef();
    const postMenuRef = useRef();
    const postRef = useRef();
    const dotsMenuRef = useRef();
    const dotsRef = useRef();
+
 
    window.addEventListener('click', (e)=>{
    if(e.target !== profileMenuRef.current && e.target !== profileRef.current){
@@ -33,12 +34,17 @@ function Header() {
             setOpenDots(false);
         }
     })
+    const handleRefresh = () =>{
+        navigate('/HomePage',{replace:true});
+        window.location.reload();
+
+    }
     
 
     return (
         <>
         <div className={styles.x}>
-            <Link className = {styles.name} to = "/HomePage" >blinder</Link>
+            <h1 onClick = {handleRefresh} className = {styles.name}>blinder</h1>
             <div className={styles.options}>
                     <div
                     className={styles.button}

@@ -3,15 +3,19 @@ import ReactQuill from 'react-quill';
 import axios from "axios";
 import 'react-quill/dist/quill.snow.css';
 import './postPage.css';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import { UserContext } from '../UserContext';
+import Notification from '../HomePage/Notification';
 const CreatePost = () => {
   const location=useLocation();
+  const navigate = useNavigate();
+
   const {usermail} = useContext(UserContext);
   console.log("createpost usermail: ", usermail);
   const [title, setTitle] = useState('');
   const [contentHTML, setContentHTML] = useState('');
   const [post,setPost]=useState("");
+  const [notification, setNotification] = useState({show:false, message:'', type: 'success'});
   const handleTitleChange = (e) => {
     const value = e.target.value;
     if (value.length <= 300) {
@@ -41,7 +45,15 @@ const CreatePost = () => {
     // const post = contentInput.textContent;
     const communities = getCommunity(post);
     console.log({ title:title,post:post,communities:communities,contentHTML:contentHTML });
-    await axios.post("http://localhost:3000/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
+    try{
+      await axios.post("http://localhost:3000/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
+      navigate('/HomePage', {state:{showNotification: true}});
+    }
+    catch(error){
+      console.error("there was an error creating the post:", error);
+      setNotification({show:true, message: 'Post not pushed. please try again',type:'error'});
+    }
+
   };
 
   const getCommunity = (post) => {
@@ -75,6 +87,12 @@ const CreatePost = () => {
 
   return (
     <div className='post-body'>
+      <Notification 
+        message = {notification.message}
+        show = {notification.show}
+        type = {notification.type}
+        onClose={()=>setNotification({...notification, show:false})} 
+        />
       <div className="create-post-container">
         <h2>Create a Post</h2>
         <form onSubmit={handleSubmit}>
