@@ -37,7 +37,9 @@ function HomePage(){
       message = 'Post pushed successfully'
       show = {showNotification}
       onClose = {()=> setShowNotification(false)} />
-    <button onClick = {navigateToCreatePost} className = {styles.postCont}>create a post</button>
+      <div onClick = {navigateToCreatePost} className = {styles.postbtn}>
+        Create a Post
+       </div>
     <div className = 'post-box'>
       {
         feed.map((post,index)=>{
