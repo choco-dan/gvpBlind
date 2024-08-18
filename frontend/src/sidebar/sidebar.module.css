@@ -71,7 +71,6 @@
 }
 .scrollable::-webkit-scrollbar {
     width:6px;
-
   }
   .scrollable::-webkit-scrollbar-track {
     background: #f9f9fb;

@@ -32,6 +32,7 @@ function Login(){
        console.log(response);
        if(response.data==="valid user"){
         setUsermail(user.usermail);
+        localStorage.setItem('usermail', user.usermail);
         result.current.textContent="";
         navigate("/HomePage",{state:user.usermail});
        }

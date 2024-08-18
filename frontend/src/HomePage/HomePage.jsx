@@ -4,14 +4,13 @@ import '../App.css'
 import {useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
-import { BottomNavigation } from '@mui/material'
 import { UserContext } from '../UserContext.jsx';
 import Notification from './Notification.jsx';
 function HomePage(){
   const location=useLocation();
   const navigate = useNavigate();
   const [showNotification, setShowNotification] = useState(false);
-  const {usermail}= useContext(UserContext);
+  const {usermail, setUsermail}= useContext(UserContext);
   console.log("homepage usermail", usermail);
   const [feed,setFeed]=useState([]);
   const getFeed=async()=>{
@@ -20,11 +19,20 @@ function HomePage(){
     setFeed(feedresponse.data);
   }
   useEffect(()=>{
+    const storedUsermail = localStorage.getItem('usermail');
+    if(storedUsermail){
+      setUsermail(storedUsermail);
+    }
     getFeed();
-  },[]);
+  },[usermail, setUsermail]);
   useEffect(()=>{
     if(location.state && location.state.showNotification){
       setShowNotification(true);
+      const timer = setTimeout(()=>{
+        setShowNotification(false);
+        navigate(location.pathname, {replace:true, state:{}})
+      }, 2000);
+      return () =>clearTimeout(timer);
     }
   }, [location.state]);
 
