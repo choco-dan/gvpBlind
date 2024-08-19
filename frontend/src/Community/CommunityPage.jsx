@@ -12,6 +12,18 @@ const CommunityPage = () => {
     setCommunityData(response.data);
     console.log(response);
   }
+    const deletePost=async (id)=>{
+        console.log("deleting post");
+        try{
+          const deleteres=await axios.delete(`http://localhost:3000/post/${id}`);
+        console.log(deleteres);
+        getPost();
+        }
+        catch(err){
+          console.log("error in community page",err);
+        }
+      }
+
   useEffect(()=>{
     getPost();
   },[community]);
@@ -43,6 +55,8 @@ const CommunityPage = () => {
                   year={post.year}
                   para={post.post}
                   title={post.title}
+                  _id={post._id}
+                  deletePost={deletePost}
                 />
               )
           })

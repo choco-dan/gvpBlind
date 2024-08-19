@@ -101,6 +101,20 @@ const getFeed=async(req,res)=>{
         console.log("error getting feed",err);
     }
 }
+const deletePost=async (req,res)=>{
+    const {id}=req.params;
+    console.log(id);
+    try{
+        const deletedpost=await posts.findByIdAndDelete(id);
+        console.log(deletedpost);
+        res.json(deletedpost);
+    }
+    catch(err){
+        console.log("error deleting post",err);
+    }
+
+}
 module.exports.addPost=addPost;
 module.exports.getPost=getPost;
 module.exports.getFeed=getFeed;
+module.exports.deletePost=deletePost;

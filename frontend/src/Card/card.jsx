@@ -1,9 +1,9 @@
 import styles from './card.module.css';
 import userImg from './assets/userimage.png'
-function Card(props){
-
+import axios from "axios";
+function Card(props){    
     return(<>
-        <div className = {styles.cardBox}>
+        <div className = {styles.cardBox} onClick={()=>props.deletePost(props._id)}>
             <div className = {styles.cardDetails}>
                 <img className = {styles.userimg} src = {userImg} alt = 'userimg' />
                 <div className = {styles.cardtag}>
