@@ -81,7 +81,7 @@ function HomePage() {
         animate="visible" 
         exit="exit"
         variants={postVariants}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
       >
         <AnimatePresence>
           {
