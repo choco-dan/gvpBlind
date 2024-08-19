@@ -24,7 +24,7 @@ const App = () => {
   const pageTransition = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -30 },
+    exit: { opacity: 0, y: 0 },
     transition: { duration: 0.5, ease: 'easeInOut' }
   };
 
@@ -51,7 +51,7 @@ const App = () => {
             initial={{ opacity: 0, x: -250 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -250 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
             <Sidebar />
           </motion.div>
