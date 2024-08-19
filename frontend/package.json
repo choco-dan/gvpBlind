@@ -17,10 +17,12 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
     "axios": "^1.7.2",
+    "framer-motion": "^11.3.28",
     "mongoose": "^8.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
+    "react-intersection-observer": "^9.13.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.23.1"
   },

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from './cp.module.css'
 import axios from 'axios';
 import Card from "../Card/card.jsx";
+import InViewComponent from '../InViewComponent.jsx';
 const CommunityPage = () => {
   const community=useParams().name.toLowerCase();
   const [communityData, setCommunityData] = useState(null);
@@ -30,6 +31,11 @@ const CommunityPage = () => {
   if (!communityData) {
     return <div>Loading...</div>;
   }
+  const postVariants = {
+    hidden: {opacity: 0, y: 50},
+    visible: {opacity: 1, y:0},
+
+  };
   return (
     <div className={styles.container}>
     <div className = {styles.CommunityPage}>
@@ -41,6 +47,7 @@ const CommunityPage = () => {
       </div>
      
     </div>
+    
       <div id={styles.cardBox}>
         {
           communityData.map((post,index)=>{
@@ -55,8 +62,6 @@ const CommunityPage = () => {
                   year={post.year}
                   para={post.post}
                   title={post.title}
-                  _id={post._id}
-                  deletePost={deletePost}
                 />
               )
           })
