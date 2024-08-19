@@ -1,22 +1,19 @@
-import Card from '../Card/card.jsx'
-import styles from './homepage.module.css'
-import '../App.css'
+import Card from '../Card/card.jsx';
+import styles from './homepage.module.css';
+import '../App.css';
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext.jsx';
 import Notification from './Notification.jsx';
 import InViewComponent from '../InViewComponent.jsx';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function HomePage() {
-
   const location = useLocation();
   const navigate = useNavigate();
-
   const [showNotification, setShowNotification] = useState(false);
   const { usermail, setUsermail } = useContext(UserContext);
-
   const [feed, setFeed] = useState([]);
 
   const getFeed = async () => {
@@ -49,9 +46,15 @@ function HomePage() {
   }
 
   const postVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -50 } // Exit animation
+    exit: { opacity: 0, y: 20 }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 }
   };
 
   return (
@@ -59,23 +62,32 @@ function HomePage() {
       <Notification
         message='Post pushed successfully'
         show={showNotification}
-        onClose={() => setShowNotification(false)} />
-      <div onClick={navigateToCreatePost} className={styles.postbtn}>
-        Create a Post
-      </div>
+        onClose={() => setShowNotification(false)}
+      />
       <motion.div 
-        className='post-box' 
+        className={styles.postbtn}
+        initial="hidden" 
+        animate="visible" 
+        exit="exit"
+        variants={buttonVariants}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        onClick={navigateToCreatePost}
+      >
+        Create a Post
+      </motion.div>
+      <motion.div 
+        className='post-box'
         initial="hidden" 
         animate="visible" 
         exit="exit"
         variants={postVariants}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
-        {
-          feed.map((post, index) => {
-            return (
+        <AnimatePresence>
+          {
+            feed.map((post, index) => (
               <InViewComponent key={index} variants={postVariants} index={index}>
                 <Card
-                  key={index}
                   username={post.username}
                   time={post.timespan}
                   branch={post.branch}
@@ -84,12 +96,12 @@ function HomePage() {
                   title={post.title}
                 />
               </InViewComponent>
-            )
-          })
-        }
+            ))
+          }
+        </AnimatePresence>
       </motion.div>
     </>
   );
 }
 
-export default HomePage
+export default HomePage;
