@@ -52,9 +52,9 @@ function HomePage() {
   };
 
   const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 1 },
     visible: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.8 }
+    exit: { opacity: 0, scale: 0.6 }
   };
 
   return (
@@ -70,7 +70,7 @@ function HomePage() {
         animate="visible" 
         exit="exit"
         variants={buttonVariants}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
         onClick={navigateToCreatePost}
       >
         Create a Post

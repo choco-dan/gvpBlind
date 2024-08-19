@@ -21,6 +21,13 @@ const App = () => {
   const shouldHideSidebar = hideSidebarPaths.includes(location.pathname) || isNotFound;
   const shouldHideHeader = hideHeaderPaths.includes(location.pathname) || isNotFound;
 
+  const pageTransition = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -30 },
+    transition: { duration: 0.5, ease: 'easeInOut' }
+  };
+
   return (
     <div className="app-container">
       <AnimatePresence>
@@ -53,16 +60,24 @@ const App = () => {
 
       <div>
         <AnimatePresence>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/SignupPage" element={<SignupPage />} />
-            <Route path="/HomePage" element={<HomePage />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/CreatePost" element={<CreatePost />} />
-            <Route path="/Profile" element={<UserProfile />} />
-            <Route path="/community/:name" element={<CommunityPage />} />
-            <Route path="*" element={<NotFound setIsNotFound={setIsNotFound} />} />
-          </Routes>
+          <motion.div
+            key={location.pathname}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageTransition}
+          >
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/SignupPage" element={<SignupPage />} />
+              <Route path="/HomePage" element={<HomePage />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/CreatePost" element={<CreatePost />} />
+              <Route path="/Profile" element={<UserProfile />} />
+              <Route path="/community/:name" element={<CommunityPage />} />
+              <Route path="*" element={<NotFound setIsNotFound={setIsNotFound} />} />
+            </Routes>
+          </motion.div>
         </AnimatePresence>
       </div>
     </div>
