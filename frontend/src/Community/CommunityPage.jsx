@@ -47,11 +47,14 @@ const CommunityPage = () => {
       </div>
      
     </div>
+
     
       <div id={styles.cardBox}>
         {
           communityData.map((post,index)=>{
               return(
+                <InViewComponent key={index} variants={postVariants} index={index}>
+
                 <Card
                   id={styles.card}
                   key={index}
@@ -63,6 +66,7 @@ const CommunityPage = () => {
                   para={post.post}
                   title={post.title}
                 />
+                </InViewComponent>
               )
           })
         }

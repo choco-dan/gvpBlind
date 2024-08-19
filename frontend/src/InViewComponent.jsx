@@ -13,7 +13,7 @@ function InViewComponent({ children, variants, index }) {
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      transition={{ duration: 0.5, delay: index * 0.025 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
     >
       {children}
     </motion.div>
