@@ -46,13 +46,13 @@ function HomePage() {
   }
 
   const postVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 20 }
   };
 
   const buttonVariants = {
-    hidden: { opacity: 0, scale: 1 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0.6 }
   };
@@ -81,7 +81,7 @@ function HomePage() {
         animate="visible" 
         exit="exit"
         variants={postVariants}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <AnimatePresence>
           {

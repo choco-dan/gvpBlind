@@ -3,22 +3,25 @@ body{
   font-family: "mulish",'sans-serif','arial';
   overflow-x:hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 .quill > .ql-container > .ql-editor.ql-blank::before{
   font-size: 12px;
   padding-left:10px;
   color: gray;
 }
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: whitesmoke;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
   background: #6f58c9;
   border-radius: 10px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid whitesmoke;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #5a47a9;

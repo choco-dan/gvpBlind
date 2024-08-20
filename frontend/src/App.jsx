@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import HomePage from './HomePage/HomePage.jsx';
@@ -22,7 +22,7 @@ const App = () => {
   const shouldHideHeader = hideHeaderPaths.includes(location.pathname) || isNotFound;
 
   const pageTransition = {
-    initial: { opacity: 0, y: 30 },
+    initial: { opacity: 0, y: 0 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 0 },
     transition: { duration: 0.5, ease: 'easeInOut' }

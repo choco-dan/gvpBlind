@@ -6,14 +6,13 @@ function InViewComponent({ children, variants, index }) {
     triggerOnce: true,
     threshold: 0.1,
   });
-
   return (
     <motion.div
       ref={ref}
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
     >
       {children}
     </motion.div>
