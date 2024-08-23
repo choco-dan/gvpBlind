@@ -11,12 +11,13 @@ import Sidebar from './sidebar/sidebar.jsx';
 import Header from './Header/header.jsx';
 import CreatePost from './postPage/postPage.jsx';
 import UserProfile from "./UserProfile/Profilepage.jsx";
+import PolicyPage from './policyPage.jsx'
 import './App.css';
 
 const App = () => {
   const location = useLocation();
   const [isNotFound, setIsNotFound] = useState(false);
-  const hideSidebarPaths = ['/', '*', '/Login', '/SignupPage', '/CreatePost', '/login', '/signuppage', '/profile'];
+  const hideSidebarPaths = ['/', '*', '/Login', '/SignupPage', '/CreatePost', '/login', '/signuppage', '/profile', '/policy'];
   const hideHeaderPaths = ['/', '*', '/Login', '/SignupPage', '/login', '/signuppage'];
   const shouldHideSidebar = hideSidebarPaths.includes(location.pathname) || isNotFound;
   const shouldHideHeader = hideHeaderPaths.includes(location.pathname) || isNotFound;
@@ -74,6 +75,7 @@ const App = () => {
               <Route path="/Login" element={<Login />} />
               <Route path="/CreatePost" element={<CreatePost />} />
               <Route path="/Profile" element={<UserProfile />} />
+              <Route path = "/policy" element = {<PolicyPage />} />
               <Route path="/community/:name" element={<CommunityPage />} />
               <Route path="*" element={<NotFound setIsNotFound={setIsNotFound} />} />
             </Routes>

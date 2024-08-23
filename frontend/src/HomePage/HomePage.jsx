@@ -59,7 +59,8 @@ function HomePage() {
 
   return (
     <>
-      <Notification
+    <div className = {styles.homeps}>
+    <Notification
         message='Post pushed successfully'
         show={showNotification}
         onClose={() => setShowNotification(false)}
@@ -100,6 +101,10 @@ function HomePage() {
           }
         </AnimatePresence>
       </motion.div>
+
+
+    </div>
+      
     </>
   );
 }

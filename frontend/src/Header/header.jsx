@@ -1,72 +1,63 @@
-import React, { useState, useRef} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import logo from './assets/user.svg';
 import post from './assets/script.svg';
 import dots from './assets/menu-dots.svg';
 
 function Header() {
-    const profileMenu = ['PROFILE','SETTINGS','LOGOUT'];
-    const postMenu = ['POSTS','LIKES','COMMENTS'];
-    const dotsMenu = ['ABOUT','POLICY','LICENSE'];
+    const profileMenu = ['PROFILE', 'SETTINGS', 'LOGOUT'];
+    const postMenu = ['POSTS', 'LIKES', 'COMMENTS'];
+    const dotsMenu = ['ABOUT', 'POLICY', 'LICENSE'];
     const [openProfile, setOpenProfile] = useState(false);
     const [openPost, setOpenPost] = useState(false);
-    const[openDots, setOpenDots] = useState(false);
+    const [openDots, setOpenDots] = useState(false);
     const navigate = useNavigate();
-   const profileMenuRef = useRef();
-   const profileRef = useRef();
-   const postMenuRef = useRef();
-   const postRef = useRef();
-   const dotsMenuRef = useRef();
-   const dotsRef = useRef();
+    const profileMenuRef = useRef();
+    const profileRef = useRef();
+    const postMenuRef = useRef();
+    const postRef = useRef();
+    const dotsMenuRef = useRef();
+    const dotsRef = useRef();
 
-
-   window.addEventListener('click', (e)=>{
-   if(e.target !== profileMenuRef.current && e.target !== profileRef.current){
-        setOpenProfile(false);
-    }})
-    window.addEventListener('click',(e)=>{
-         if(e.target !== postMenuRef.current && e.target !== postRef.current){
+    window.addEventListener('click', (e) => {
+        if (e.target !== profileMenuRef.current && e.target !== profileRef.current) {
+            setOpenProfile(false);
+        }
+    });
+    window.addEventListener('click', (e) => {
+        if (e.target !== postMenuRef.current && e.target !== postRef.current) {
             setOpenPost(false);
-        }})
-    window.addEventListener('click',(e)=>{
-        if(e.target !== dotsMenuRef.current && e.target !== dotsRef.current){
+        }
+    });
+    window.addEventListener('click', (e) => {
+        if (e.target !== dotsMenuRef.current && e.target !== dotsRef.current) {
             setOpenDots(false);
         }
-    })
-    const handleRefresh = () =>{
-        navigate('/HomePage',{replace:true});
-        window.location.reload();
+    });
 
-    }
-    
+    const handleRefresh = () => {
+        navigate('/HomePage', { replace: true });
+        window.location.reload();
+    };
 
     return (
         <>
-        <div className={styles.x}>
-            <h1 onClick = {handleRefresh} className = {styles.name}>blinder</h1>
-            <div className={styles.options}>
-                    <div
-                    className={styles.button}
-                     onClick={() => { setOpenProfile(!openProfile);}}>
-                        <img  ref = {profileRef}
-                         className={styles.usericon} src={logo} alt='user' />
+            <div className={styles.x}>
+                <h1 onClick={handleRefresh} className={styles.name}>blinder</h1>
+                <div className={styles.options}>
+                    <div className={styles.button} onClick={() => { setOpenProfile(!openProfile); }}>
+                        <img ref={profileRef} className={styles.usericon} src={logo} alt='user' />
                     </div>
-                    <div 
-                     className={styles.button}
-                      onClick = {()=>{setOpenPost(!openPost);}}>
-                        <img ref = {postRef}
-                        className={styles.post} src={post} alt='post' />
-                    </div>              
-                    <div
-                     className={styles.button}
-                      onClick = {()=>{setOpenDots(!openDots);}}>
-                        <img ref = {dotsRef}
-                        className={styles.dots} src={dots} alt='about' />
-                    </div>     
+                    <div className={styles.button} onClick={() => { setOpenPost(!openPost); }}>
+                        <img ref={postRef} className={styles.post} src={post} alt='post' />
+                    </div>
+                    <div className={styles.button} onClick={() => { setOpenDots(!openDots); }}>
+                        <img ref={dotsRef} className={styles.dots} src={dots} alt='about' />
+                    </div>
                 </div>
             </div>
-        
+
             {openProfile && (
                 <div ref={profileMenuRef} className={styles.dropdownprofile}>
                     <ul>
@@ -74,8 +65,8 @@ function Header() {
                             <li onClick={() => {
                                 setOpenProfile(false);
                             }} className={styles.dropdownitem} key={index}>
-                                {index === 0 ? ( // Check if it's the 'PROFILE' option
-                                    <Link to="/profile">{menu}</Link> // Wrap with Link
+                                {index === 0 ? (
+                                    <Link to="/profile">{menu}</Link>
                                 ) : (
                                     menu
                                 )}
@@ -84,35 +75,40 @@ function Header() {
                     </ul>
                 </div>
             )}
-        {openPost && (
-                    <div ref = {postMenuRef}
-                     className = {styles.dropdownpost}>
+
+            {openPost && (
+                <div ref={postMenuRef} className={styles.dropdownpost}>
                     <ul>
-                        {postMenu.map((menu,index)=>(
-                            <li onClick = {()=>setOpenPost(false)}
-                             className= {styles.dropdownitem} key = {index}>
+                        {postMenu.map((menu, index) => (
+                            <li onClick={() => setOpenPost(false)} className={styles.dropdownitem} key={index}>
                                 {menu}
                             </li>
                         ))}
                     </ul>
                 </div>
-                )};
-        {openDots && (
-                    <div ref = {dotsMenuRef}
-                     className = {styles.dropdowndots}>
+            )}
+
+            {openDots && (
+                <div ref={dotsMenuRef} className={styles.dropdowndots}>
                     <ul>
-                        {dotsMenu.map((menu,index)=>(
-                            <li onClick={()=>setOpenDots(false)}
-                            className = {styles.dropdownitem}
-                            key = {index}>
-                                {menu}
+                        {dotsMenu.map((menu, index) => (
+                            <li onClick={() => setOpenDots(false)} className={styles.dropdownitem} key={index}>
+                                {menu === 'POLICY' ? (
+                                    <Link to="/policy">{menu}</Link>
+                                ) : menu === 'ABOUT' ? (
+                                    <Link to="/about">{menu}</Link>
+                                ) : menu === 'LICENSE' ? (
+                                    <Link to="/license">{menu}</Link>
+                                ) : (
+                                    menu
+                                )}
                             </li>
                         ))}
                     </ul>
                 </div>
-                )};
+            )}
         </>
-    );   
+    );
 }
 
 export default Header;
