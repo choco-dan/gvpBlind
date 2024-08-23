@@ -8,7 +8,7 @@ import poll from './assets/vote-yea.svg';
 const Sidebar = () => {
   const industries = ['Tech', 'Financial Services', 'Healthcare', 'Gaming', 'E-commerce & Retail'];
   const branches = ['CSE', 'CSM', 'CSD', 'IT', 'ECE', 'EEE', 'Mech', 'Civil', 'Chemical'];
-  const generalTopics = ['Ask Gvp', 'Cars', 'Artificial Intelligence', 'Vizag',
+  const generalTopics = ['Ask Gvp', 'Cars', 'AI', 'Vizag',
                          'Misc.', 'India', 'Politics','Relationships', 'Memes',
                         'Movies', 'Anime', 'Cricket'];
 
