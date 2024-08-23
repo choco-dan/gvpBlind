@@ -16,14 +16,21 @@ const CommunityPage = () => {
     const deletePost=async (id)=>{
         console.log("deleting post");
         try{
-          const deleteres=await axios.delete(`http://localhost:3000/post/${id}`);
+          const deleteres=await axios.delete(`http://localhost:3000/post/delete/${id}`);
         console.log(deleteres);
         getPost();
         }
         catch(err){
           console.log("error in community page",err);
         }
-      }
+    }
+    
+    const likePost=async(id)=>{
+      console.log("likePost");
+      const likedpost=await axios.put(`http://localhost:3000/post/likes/${id}`);
+      getPost();
+      console.log(likedpost);
+    }
 
   useEffect(()=>{
     getPost();
@@ -58,6 +65,7 @@ const CommunityPage = () => {
                 <Card
                   id={styles.card}
                   key={index}
+                  postid={post._id}
                   community={community}
                   username={post.username}
                   time={post.timespan}
@@ -65,6 +73,9 @@ const CommunityPage = () => {
                   year={post.year}
                   para={post.post}
                   title={post.title}
+                  likes={post.likes}
+                  deletePost={deletePost}
+                  likePost={likePost}
                 />
                 </InViewComponent>
               )

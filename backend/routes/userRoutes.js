@@ -1,6 +1,6 @@
 const express=require("express");
 const {addUser,authUser,fetchUser}=require("../contoller/userContoller");
-const {addPost,getPost,getFeed,deletePost}=require("../contoller/postContoller");
+const {addPost,getPost,getFeed,deletePost,likePost}=require("../contoller/postContoller");
 const app=express();
 const router=express.Router();
 router.post("/signup",addUser);
@@ -8,5 +8,6 @@ router.post("/login",authUser);
 router.post("/post",addPost);
 router.post("/feed",getFeed);
 router.get("/community/:community",getPost);
-router.delete("/post/:id",deletePost);
+router.delete("/post/delete/:id",deletePost);
+router.put("/post/likes/:id",likePost);
 module.exports=router;

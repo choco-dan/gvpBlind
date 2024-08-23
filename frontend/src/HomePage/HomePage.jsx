@@ -22,6 +22,13 @@ function HomePage() {
     setFeed(feedresponse.data);
   }
 
+  const likePost=async(id)=>{
+    console.log("likePost");
+    const likedpost=await axios.put(`http://localhost:3000/post/likes/${id}`);
+    console.log(likedpost);
+    getFeed();
+  }
+
   useEffect(() => {
     const storedUsermail = localStorage.getItem('usermail');
     if (storedUsermail) {
@@ -89,11 +96,15 @@ function HomePage() {
               <InViewComponent key={index} variants={postVariants} index={index}>
                 <Card
                   username={post.username}
+                  postid={post._id}
+                  likes={post.likes}
                   time={post.timespan}
                   branch={post.branch}
                   year={post.year}
                   para={post.post}
                   title={post.title}
+                  likePost={likePost}
+
                 />
               </InViewComponent>
             ))

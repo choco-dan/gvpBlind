@@ -1,9 +1,10 @@
 import styles from './card.module.css';
 import userImg from './assets/userimage.png'
+import {FaRegHeart} from "react-icons/fa";
 import axios from "axios";
 function Card(props){    
     return(<>
-        <div className = {styles.cardBox} onClick={()=>props.deletePost(props._id)}>
+        <div className = {styles.cardBox} >
             <div className = {styles.cardDetails}>
                 <img className = {styles.userimg} src = {userImg} alt = 'userimg' />
                 <div className = {styles.cardtag}>
@@ -29,6 +30,13 @@ function Card(props){
                             {props.username}
                         </div>
                     </div>
+                </div>
+                <div className={styles.likeBox}>
+                    <FaRegHeart 
+                    className={styles.likebtn}
+                    onClick={()=>props.likePost(props.postid)}
+                    />
+                    <p className={styles.likeCount}>{`${props.likes} likes`}</p>
                 </div>
         </div>
         <div className = {styles.cardpost}>

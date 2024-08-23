@@ -103,7 +103,7 @@ const getFeed=async(req,res)=>{
 }
 const deletePost=async (req,res)=>{
     const {id}=req.params;
-    console.log(id);
+    console.log(req);
     try{
         const deletedpost=await posts.findByIdAndDelete(id);
         console.log(deletedpost);
@@ -114,7 +114,18 @@ const deletePost=async (req,res)=>{
     }
 
 }
+const likePost=async(req,res)=>{
+    try{
+        const {id}=req.params;
+        const likedPost=await posts.findByIdAndUpdate(id,{$inc:{likes:1}},{new:true});
+        console.log(likedPost);
+    }
+    catch(err){
+        console.log("ERROR LIKING POST".err);
+    }
+}
 module.exports.addPost=addPost;
 module.exports.getPost=getPost;
 module.exports.getFeed=getFeed;
 module.exports.deletePost=deletePost;
+module.exports.likePost=likePost;
