@@ -1,0 +1,33 @@
+.policypage{
+  padding:20px;
+  margin-top:50px;
+}
+.policypage h1{
+    margin-top:20px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.policypage h2{
+    margin:15px 0px;
+}
+.policypage h4{
+    margin-top: 10px;
+}
+.about-page{
+    padding:20px;
+    margin-top:50px;
+}
+.about-page h1{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align:center;
+}
+.about-page hr{
+    margin-bottom:10px;
+}
+.about-page h2{
+    margin: 15px 0px;
+}
+.about-page h4{
+    margin-top:10px;
+}

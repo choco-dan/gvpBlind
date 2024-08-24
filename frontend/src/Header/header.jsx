@@ -8,7 +8,7 @@ import dots from './assets/menu-dots.svg';
 function Header() {
     const profileMenu = ['PROFILE', 'SETTINGS', 'LOGOUT'];
     const postMenu = ['POSTS', 'LIKES', 'COMMENTS'];
-    const dotsMenu = ['ABOUT', 'POLICY', 'LICENSE'];
+    const dotsMenu = ['ABOUT', 'POLICY'];
     const [openProfile, setOpenProfile] = useState(false);
     const [openPost, setOpenPost] = useState(false);
     const [openDots, setOpenDots] = useState(false);
@@ -97,8 +97,6 @@ function Header() {
                                     <Link to="/policy">{menu}</Link>
                                 ) : menu === 'ABOUT' ? (
                                     <Link to="/about">{menu}</Link>
-                                ) : menu === 'LICENSE' ? (
-                                    <Link to="/license">{menu}</Link>
                                 ) : (
                                     menu
                                 )}
