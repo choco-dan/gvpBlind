@@ -9,7 +9,7 @@ body{
   color: gray;
 }
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;

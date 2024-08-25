@@ -31,13 +31,14 @@
     margin-bottom: 5px;
     align-items:center;
     cursor: pointer;
+    transition : ease-in-out 0.1s;
+
 }
 .poll{
     margin-bottom: 0.6rem;
 }
 .feed:hover,.poll:hover{
     background-color: rgba(210, 216, 234,0.7);
-    transition : ease-in-out 0.1s;
 }
 .scrollable{
     margin-top:0.5rem;

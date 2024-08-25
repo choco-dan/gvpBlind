@@ -31,3 +31,6 @@
 .about-page h4{
     margin-top:10px;
 }
+.policypage, .about-page p{
+    font-size: 0.9rem;
+}
