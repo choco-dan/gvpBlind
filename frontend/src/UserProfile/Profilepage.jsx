@@ -31,8 +31,8 @@ function UserProfile() {
                         <p className={styles.info}>Email ID</p>
                     </div>
                     <div className={styles.infoby}>
-                        <p className={styles.info}>Branch</p>
-                        <p className={styles.info}>Year</p>
+                       <p className={styles.info}>Branch</p>
+                       <p className={styles.info}>Year</p>
                     </div>
                 </div>
 
