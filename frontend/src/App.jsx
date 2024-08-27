@@ -32,6 +32,8 @@ const App = () => {
 
   return (
     <div className="app-container">
+    <div className = "headersidebar">
+
       <AnimatePresence>
         {!shouldHideHeader && (
           <motion.div
@@ -59,8 +61,9 @@ const App = () => {
           </motion.div>
         )}
       </AnimatePresence>
+  </div>
 
-      <div>
+      <div className = 'routecont'>
         <AnimatePresence>
           <motion.div
             key={location.pathname}

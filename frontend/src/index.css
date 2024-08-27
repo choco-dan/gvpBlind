@@ -9,18 +9,6 @@ body{
   color: gray;
 }
 ::-webkit-scrollbar {
-  width: 9px;
+  width:0px;
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #6f58c9;
-  border-radius: 10px;
-  border: 3px solid #f1f1f1;
-  height:50px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #5a47a9;
-}
+
