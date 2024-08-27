@@ -6,9 +6,6 @@ body{
     margin:0;
     padding:0;
 }
-.app-containter{
-    display:flex;
-}
 .post-box{
     margin-left:300px;
     margin-top:20px;

@@ -124,8 +124,30 @@ const likePost=async(req,res)=>{
         console.log("ERROR LIKING POST".err);
     }
 }
+const userPosts=async (req,res)=>{
+    const {usermail}=req.params;
+    try{
+        const userposts=await posts.find({usermail:usermail}).sort({time:-1});
+        console.log(userPosts);
+        const updatedPost=userposts.map((post)=>{
+            const currTime=new Date().getTime();
+            const prevTime=post.time;
+            const difftime=currTime-prevTime;
+            const timespan=calcTime(difftime);
+            const uppost={...post.toObject(),timespan:timespan};
+            // console.log("upp",uppost);
+            
+            return uppost;
+        })
+        res.json(updatedPost);
+    }
+    catch(err){
+        console.log("error getting userpost",err);
+    }
+}
 module.exports.addPost=addPost;
 module.exports.getPost=getPost;
 module.exports.getFeed=getFeed;
 module.exports.deletePost=deletePost;
 module.exports.likePost=likePost;
+module.exports.userPosts=userPosts;

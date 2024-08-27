@@ -73,10 +73,12 @@ const authUser=async(req,res)=>{
         res.send("failure");
     }
 }
-const fetchUser=async(req,res)=>{
-    const usermail=req.body.usermail;
+const fetchUser=async (req,res)=>{
+    const {usermail}=req.params;
+    console.log(req.params);
     try{
         const userdetails=await user.findOne({usermail:usermail});
+        console.log(userdetails);
         const {password,...postedBy}=userdetails.toObject();
         res.json(postedBy);
     }

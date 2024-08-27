@@ -63,7 +63,6 @@ const CommunityPage = () => {
                 <InViewComponent key={index} variants={postVariants} index={index}>
 
                 <Card
-                  id={styles.card}
                   key={index}
                   postid={post._id}
                   community={community}

@@ -1,15 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { motion } from 'framer-motion';
+import { UserContext } from '../UserContext';
+import axios from 'axios';
 import styles from './profilepage.module.css';
 import userImg from './assets/userimage.png';
-
+import Card from "../Card/card.jsx";
+import cardstyle from "../Card/card.module.css";
 function UserProfile() {
+    const {usermail} = useContext(UserContext);
     const [activeTab, setActiveTab] = useState('Posts');
-
+    const [user,setUser]=useState({});
+    const [posts,setPosts]=useState([]);
+    const getUser=async ()=>{
+        console.log("getting user");
+        const userdata=await axios.get(`http://localhost:3000/users/${usermail}`);
+        setUser(userdata.data);
+        console.log(userdata);
+    };
+    const getPosts=async ()=>{
+        console.log("getting post");
+        const postresponse=await axios.get(`http://localhost:3000/posts/${usermail}`);
+        setPosts(postresponse.data);
+        console.log(postresponse);
+    };
+    useEffect(()=>{
+        getUser();
+        getPosts();
+    },[]);
     const renderContent = () => {
         switch (activeTab) {
             case 'Posts':
-                return <div className={styles.content}>User's Posts will be displayed here.</div>;
+                return <div className={styles.content}>
+                            {
+          posts.map((post,index)=>{
+              return(
+
+                <Card
+                  key={index}
+                  id={cardstyle.card}
+                  postid={post._id}
+                  username={post.username}
+                  time={post.timespan}
+                  branch={post.branch}
+                  year={post.year}
+                  para={post.post}
+                  title={post.title}
+                  likes={post.likes}
+                  
+                />
+              )
+          })
+        }
+
+                </div>;
             case 'Comments':
                 return <div className={styles.content}>User's Comments will be displayed here.</div>;
             case 'Likes':
@@ -27,12 +70,12 @@ function UserProfile() {
                         <img className={styles.userimg} src={userImg} alt="userimg" />
                     </div>
                     <div className={styles.userdetails}>
-                        <p className={styles.info}>Username</p>
-                        <p className={styles.info}>Email ID</p>
+                        <p className={styles.info}>{user.username}</p>
+                        <p className={styles.info}>{user.usermail}</p>
                     </div>
                     <div className={styles.infoby}>
-                       <p className={styles.info}>Branch</p>
-                       <p className={styles.info}>Year</p>
+                       <p className={styles.info}>{user.branch}</p>
+                       <p className={styles.info}>{user.year}</p>
                     </div>
                 </div>
 
