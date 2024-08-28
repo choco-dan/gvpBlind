@@ -9,14 +9,14 @@ const CommunityPage = () => {
   const [communityData, setCommunityData] = useState(null);
 
   const getPost=async()=>{
-    const response=await axios.get(`http://localhost:3000/community/${community}`);
+    const response=await axios.get(`http://localhost:7575/community/${community}`);
     setCommunityData(response.data);
     console.log(response);
   }
     const deletePost=async (id)=>{
         console.log("deleting post");
         try{
-          const deleteres=await axios.delete(`http://localhost:3000/post/delete/${id}`);
+          const deleteres=await axios.delete(`http://localhost:7575/post/delete/${id}`);
         console.log(deleteres);
         getPost();
         }
@@ -27,7 +27,7 @@ const CommunityPage = () => {
     
     const likePost=async(id)=>{
       console.log("likePost");
-      const likedpost=await axios.put(`http://localhost:3000/post/likes/${id}`);
+      const likedpost=await axios.put(`http://localhost:7575/post/likes/${id}`);
       getPost();
       console.log(likedpost);
     }

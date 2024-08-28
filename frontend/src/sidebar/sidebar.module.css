@@ -81,7 +81,7 @@
   }
   .scrollable::-webkit-scrollbar-thumb {
     background: #bfc1c5;
-    border:none;
+    border-radius:10px;
   }
   .scrollable::-webkit-scrollbar-thumb:hover {
     background: rgb(170, 170, 170) ;

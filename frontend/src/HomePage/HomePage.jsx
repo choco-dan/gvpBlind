@@ -17,14 +17,14 @@ function HomePage() {
   const [feed, setFeed] = useState([]);
 
   const getFeed = async () => {
-    const feedresponse = await axios.post("http://localhost:3000/feed", { usermail: usermail });
+    const feedresponse = await axios.post("http://localhost:7575/feed", { usermail: usermail });
     console.log(feedresponse.data);
     setFeed(feedresponse.data);
   }
 
   const likePost=async(id)=>{
     console.log("likePost");
-    const likedpost=await axios.put(`http://localhost:3000/post/likes/${id}`);
+    const likedpost=await axios.put(`http://localhost:7575/post/likes/${id}`);
     console.log(likedpost);
     getFeed();
   }

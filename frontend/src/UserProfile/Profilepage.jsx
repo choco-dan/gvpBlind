@@ -13,13 +13,13 @@ function UserProfile() {
     const [posts,setPosts]=useState([]);
     const getUser=async ()=>{
         console.log("getting user");
-        const userdata=await axios.get(`http://localhost:3000/users/${usermail}`);
+        const userdata=await axios.get(`http://localhost:7575/users/${usermail}`);
         setUser(userdata.data);
         console.log(userdata);
     };
     const getPosts=async ()=>{
         console.log("getting post");
-        const postresponse=await axios.get(`http://localhost:3000/posts/${usermail}`);
+        const postresponse=await axios.get(`http://localhost:7575/posts/${usermail}`);
         setPosts(postresponse.data);
         console.log(postresponse);
     };
@@ -56,7 +56,7 @@ function UserProfile() {
             case 'Comments':
                 return <div className={styles.content}>User's Comments will be displayed here.</div>;
             case 'Likes':
-                return <div className={styles.content}>User's Settings will be displayed here.</div>;
+                return <div className={styles.content}>User's Liked posts will be displayed here.</div>;
             default:
                 return null;
         }
@@ -112,6 +112,7 @@ function UserProfile() {
                         {renderContent()}
                     </motion.div>
                 </div>
+                <br></br><br />
             </div>
         </>
     );

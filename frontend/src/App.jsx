@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import HomePage from './HomePage/HomePage.jsx';
@@ -13,6 +13,7 @@ import CreatePost from './postPage/postPage.jsx';
 import UserProfile from "./UserProfile/Profilepage.jsx";
 import PolicyPage from './Header/header-dots/policyPage.jsx'
 import AboutPage from './Header/header-dots/aboutPage.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
 import './App.css';
 
 const App = () => {
@@ -32,38 +33,37 @@ const App = () => {
 
   return (
     <div className="app-container">
-    <div className = "headersidebar">
+      <div className="headersidebar">
+        <AnimatePresence>
+          {!shouldHideHeader && (
+            <motion.div
+              key="header"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Header />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        {!shouldHideHeader && (
-          <motion.div
-            key="header"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Header />
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {!shouldHideSidebar && (
+            <motion.div
+              key="sidebar"
+              initial={{ opacity: 0, x: -250 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -250 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Sidebar />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
-      <AnimatePresence>
-        {!shouldHideSidebar && (
-          <motion.div
-            key="sidebar"
-            initial={{ opacity: 0, x: -250 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -250 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Sidebar />
-          </motion.div>
-        )}
-      </AnimatePresence>
-  </div>
-
-      <div className = 'routecont'>
+      <div className='routecont'>
         <AnimatePresence>
           <motion.div
             key={location.pathname}
@@ -75,13 +75,29 @@ const App = () => {
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<LandingPage />} />
               <Route path="/SignupPage" element={<SignupPage />} />
-              <Route path="/HomePage" element={<HomePage />} />
               <Route path="/Login" element={<Login />} />
-              <Route path="/CreatePost" element={<CreatePost />} />
-              <Route path="/Profile" element={<UserProfile />} />
-              <Route path = "/policy" element = {<PolicyPage />} />
-              <Route path = "/about" element = {<AboutPage />} />
-              <Route path="/community/:name" element={<CommunityPage />} />
+              <Route path="/HomePage" element={
+                <ProtectedRoute>
+                  <HomePage />
+                </ProtectedRoute>
+              } />
+              <Route path="/CreatePost" element={
+                <ProtectedRoute>
+                  <CreatePost />
+                </ProtectedRoute>
+              } />
+              <Route path="/Profile" element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              } />
+              <Route path="/community/:name" element={
+                <ProtectedRoute>
+                  <CommunityPage />
+                </ProtectedRoute>
+              } />
+              <Route path="/policy" element={<PolicyPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<NotFound setIsNotFound={setIsNotFound} />} />
             </Routes>
           </motion.div>

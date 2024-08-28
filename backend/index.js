@@ -18,7 +18,7 @@ const connection=async()=>{
    }
 };
 connection();
-const port=process.env.PORT || 3000;
+const port=process.env.PORT || 7575;
 app.listen(port,()=>{
     console.log(`port ${port} started`);
 });
