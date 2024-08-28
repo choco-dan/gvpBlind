@@ -14,6 +14,7 @@ import UserProfile from "./UserProfile/Profilepage.jsx";
 import PolicyPage from './Header/header-dots/policyPage.jsx'
 import AboutPage from './Header/header-dots/aboutPage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 import './App.css';
 
 const App = () => {

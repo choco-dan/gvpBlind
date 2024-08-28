@@ -1,4 +1,3 @@
-
 .post-body{
   display:flex;
   height:120vh;
@@ -14,10 +13,9 @@
   overflow:hidden;
 }
 .create-post-container h2{
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
   font-size:2rem;
   color: hsl(200, 4%, 14%);
-  text-align: center;
 }
 .create-post-container {
     margin-top:80px;

@@ -31,13 +31,13 @@ function Card(props){
                         </div>
                     </div>
                 </div>
-                <div className={styles.likeBox}>
+                 { /* <div className={styles.likeBox}>
                     <FaRegHeart 
                     className={styles.likebtn}
                     onClick={()=>props.likePost(props.postid)}
                     />
                     <p className={styles.likeCount}>{`${props.likes} likes`}</p>
-                </div>
+                </div>*/ }
         </div>
         <div className = {styles.cardpost}>
             <h2 className= {styles.cardposttitle}>{props.title}</h2>

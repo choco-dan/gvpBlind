@@ -1,58 +1,66 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import axios from 'axios';
 import styles from './profilepage.module.css';
 import userImg from './assets/userimage.png';
 import Card from "../Card/card.jsx";
 import cardstyle from "../Card/card.module.css";
+
 function UserProfile() {
-    const {usermail} = useContext(UserContext);
+    const { usermail } = useContext(UserContext);
+    const location = useLocation();
     const [activeTab, setActiveTab] = useState('Posts');
-    const [user,setUser]=useState({});
-    const [posts,setPosts]=useState([]);
-    const getUser=async ()=>{
+    const [user, setUser] = useState({});
+    const [posts, setPosts] = useState([]);
+
+    const getUser = async () => {
         console.log("getting user");
-        const userdata=await axios.get(`http://localhost:7575/users/${usermail}`);
+        const userdata = await axios.get(`http://localhost:7575/users/${usermail}`);
         setUser(userdata.data);
         console.log(userdata);
     };
-    const getPosts=async ()=>{
+
+    const getPosts = async () => {
         console.log("getting post");
-        const postresponse=await axios.get(`http://localhost:7575/posts/${usermail}`);
+        const postresponse = await axios.get(`http://localhost:7575/posts/${usermail}`);
         setPosts(postresponse.data);
         console.log(postresponse);
     };
-    useEffect(()=>{
+
+    useEffect(() => {
         getUser();
         getPosts();
-    },[]);
+    }, []);
+
+    useEffect(() => {
+        if (location.state?.activeTab) {
+            setActiveTab(location.state.activeTab);
+        }
+    }, [location.state?.activeTab]);
+
     const renderContent = () => {
         switch (activeTab) {
             case 'Posts':
-                return <div className={styles.content}>
-                            {
-          posts.map((post,index)=>{
-              return(
-
-                <Card
-                  key={index}
-                  id={cardstyle.card}
-                  postid={post._id}
-                  username={post.username}
-                  time={post.timespan}
-                  branch={post.branch}
-                  year={post.year}
-                  para={post.post}
-                  title={post.title}
-                  likes={post.likes}
-                  
-                />
-              )
-          })
-        }
-
-                </div>;
+                return (
+                    <div className={styles.content}>
+                        {posts.map((post, index) => (
+                            <Card
+                                key={index}
+                                id={cardstyle.card}
+                                postid={post._id}
+                                username={post.username}
+                                time={post.timespan}
+                                branch={post.branch}
+                                year={post.year}
+                                para={post.post}
+                                title={post.title}
+                                likes={post.likes}
+                            />
+                        ))}
+                    </div>
+                );
             case 'Comments':
                 return <div className={styles.content}>User's Comments will be displayed here.</div>;
             case 'Likes':
@@ -74,8 +82,8 @@ function UserProfile() {
                         <p className={styles.info}>{user.usermail}</p>
                     </div>
                     <div className={styles.infoby}>
-                       <p className={styles.info}>{user.branch}</p>
-                       <p className={styles.info}>{user.year}</p>
+                        <p className={styles.info}>{user.branch}</p>
+                        <p className={styles.info}>{user.year}</p>
                     </div>
                 </div>
 
@@ -112,7 +120,7 @@ function UserProfile() {
                         {renderContent()}
                     </motion.div>
                 </div>
-                <br></br><br />
+                <br /><br />
             </div>
         </>
     );

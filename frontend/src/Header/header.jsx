@@ -6,7 +6,7 @@ import post from './assets/script.svg';
 import dots from './assets/menu-dots.svg';
 
 function Header() {
-    const profileMenu = ['PROFILE', 'SETTINGS', 'LOGOUT'];
+    const profileMenu = ['PROFILE', 'LOGOUT'];
     const postMenu = ['POSTS', 'LIKES', 'COMMENTS'];
     const dotsMenu = ['ABOUT', 'POLICY'];
     const [openProfile, setOpenProfile] = useState(false);
@@ -41,6 +41,15 @@ function Header() {
         window.location.reload();
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('authToken');
+        navigate('/login');
+    };
+
+    const handleTabClick = (tab) => {
+        navigate('/profile', { state: { activeTab: tab } });
+    };
+
     return (
         <>
             <div className={styles.x}>
@@ -64,6 +73,9 @@ function Header() {
                         {profileMenu.map((menu, index) => (
                             <li onClick={() => {
                                 setOpenProfile(false);
+                                if (menu === 'LOGOUT') {
+                                    handleLogout();
+                                }
                             }} className={styles.dropdownitem} key={index}>
                                 {index === 0 ? (
                                     <Link to="/profile">{menu}</Link>
@@ -80,7 +92,14 @@ function Header() {
                 <div ref={postMenuRef} className={styles.dropdownpost}>
                     <ul>
                         {postMenu.map((menu, index) => (
-                            <li onClick={() => setOpenPost(false)} className={styles.dropdownitem} key={index}>
+                            <li
+                                onClick={() => {
+                                    setOpenPost(false);
+                                    handleTabClick(menu);
+                                }}
+                                className={styles.dropdownitem}
+                                key={index}
+                            >
                                 {menu}
                             </li>
                         ))}

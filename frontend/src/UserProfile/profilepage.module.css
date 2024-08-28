@@ -57,13 +57,13 @@
 }
 
 .info {
-    background-color: rgba(210, 216, 234, 0.7);
+    background-color: rgba(240, 248, 255,0.8);
     padding: 15px 20px;
     border-radius: 5px;
     font-family: 'Mulish', 'sans-serif', 'arial';
     font-weight: 600;
     font-size: 0.9rem;
-    color: #333;
+    color: black;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
