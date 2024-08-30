@@ -23,7 +23,7 @@ function HomePage() {
   const getFeed = async () => {
     const feedresponse = await axios.post("http://localhost:7575/feed", { usermail: usermail });
     setFeed(feedresponse.data);
-    setFilteredFeed(feedresponse.data);  // Initialize filteredFeed
+    setFilteredFeed(feedresponse.data); 
   };
 
   const likePost = async (id) => {
@@ -55,7 +55,8 @@ function HomePage() {
     setSearchTerm(term);
     const filtered = feed.filter(post => 
       post.title.toLowerCase().includes(term) || 
-      post.post.toLowerCase().includes(term)
+      post.post.toLowerCase().includes(term) ||
+      post.username.toLowerCase().includes(term)
     );
     setFilteredFeed(filtered);
   };
