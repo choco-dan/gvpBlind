@@ -103,5 +103,18 @@
 .dropdownitem:hover{
     background-color: rgba(210, 216, 234,0.7);
 }
+.postbtn{
+    margin-right:180px;
+    margin-top:3px;
+    background-color: rgba(210, 216, 234,0.7) ;
+    color:black;
+    padding:8px 12px;
+    border-radius: 5px;
+    transition: transform 0.15s ease-in-out;
+    cursor: pointer;
+}
+.postbtn:hover{
+    transform: scale(1.1)
+}
 
 

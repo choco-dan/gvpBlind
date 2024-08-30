@@ -72,9 +72,9 @@ function HomePage() {
   };
 
   const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.6 }
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 }
   };
 
   return (
@@ -86,7 +86,7 @@ function HomePage() {
           onClose={() => setShowNotification(false)}
         />
 
-        <motion.div
+       {/* <motion.div
           className={styles.postCont}
           initial="hidden"
           animate="visible"
@@ -101,7 +101,7 @@ function HomePage() {
             type="text"
             placeholder="Start a post......"
           />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
             className={styles.searchmotion}

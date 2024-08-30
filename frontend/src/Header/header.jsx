@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import logo from './assets/user.svg';
 import post from './assets/script.svg';
 import dots from './assets/menu-dots.svg';
-
+import { UserContext } from '../UserContext';
 function Header() {
     const profileMenu = ['PROFILE', 'LOGOUT'];
     const postMenu = ['POSTS', 'LIKES', 'COMMENTS'];
@@ -12,6 +12,7 @@ function Header() {
     const [openProfile, setOpenProfile] = useState(false);
     const [openPost, setOpenPost] = useState(false);
     const [openDots, setOpenDots] = useState(false);
+    const {usermail} = useContext(UserContext);
     const navigate = useNavigate();
     const profileMenuRef = useRef();
     const profileRef = useRef();
@@ -49,11 +50,15 @@ function Header() {
     const handleTabClick = (tab) => {
         navigate('/profile', { state: { activeTab: tab } });
     };
+    const navigateToCreatePost = () => {
+        navigate("/CreatePost", { state: usermail });
+      };
 
     return (
         <>
             <div className={styles.x}>
                 <h1 onClick={handleRefresh} className={styles.name}>blinder</h1>
+                <div className = {styles.postbtn} onClick={navigateToCreatePost}>Write a post</div>
                 <div className={styles.options}>
                     <div className={styles.button} onClick={() => { setOpenProfile(!openProfile); }}>
                         <img ref={profileRef} className={styles.usericon} src={logo} alt='user' />
