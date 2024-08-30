@@ -10,7 +10,9 @@ app.use(cors());
 app.use("/",userRouter);
 const connection=async()=>{
    try{
-    await mongoose.connect("mongodb://localhost:27017/blind");
+    const url = process.env.MONGO_URL;
+    await mongoose.connect(url, {
+    });
     console.log("database connected");
    }
    catch(err){

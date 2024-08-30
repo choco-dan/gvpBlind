@@ -10,7 +10,7 @@ const OTP=(usermail,username)=>{
         },
         secure:true
     });
-    const otp=Math.round(Math.random()*999999);
+    const otp=Math.floor(Math.random()*999999);
     const mailData={
         from:process.env.USER_EMAIL,
         to:usermail,

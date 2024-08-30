@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from './cp.module.css'
 import axios from 'axios';
 import Card from "../Card/card.jsx";
+import { motion, AnimatePresence, easeInOut } from 'framer-motion';
 import InViewComponent from '../InViewComponent.jsx';
 const CommunityPage = () => {
   const community=useParams().name.toLowerCase();
@@ -39,23 +40,25 @@ const CommunityPage = () => {
     return <div>Loading...</div>;
   }
   const postVariants = {
-    hidden: {opacity: 0, y: 50},
+    hidden: {opacity: 0, y: 0},
     visible: {opacity: 1, y:0},
 
   };
   return (
     <div className={styles.container}>
-    <div className = {styles.CommunityPage}>
+    <motion.div className = {styles.CommunityPage}
+      initial = {{opacity: 0}}
+      animate = {{opacity:1}}
+      exit = {{opacity:0}}
+      transition = {{duration:0.3, transition:'easeInOut'}}
+      >
       <div className = {styles.commtitle}>
       <h1>#{community.toUpperCase()}</h1>
       </div>
       <div className= {styles.commdesc}>
       <p>Community description needed to be added from database</p>
       </div>
-     
-    </div>
-
-    
+    </motion.div>
       <div id={styles.cardBox}>
         {
           communityData.map((post,index)=>{
