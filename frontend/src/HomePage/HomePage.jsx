@@ -1,6 +1,8 @@
 import Card from '../Card/card.jsx';
 import styles from './homepage.module.css';
 import '../App.css';
+import plus from './assets/add.svg';
+import searchIcon from './assets/search-icon.svg';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
@@ -15,19 +17,19 @@ function HomePage() {
   const [showNotification, setShowNotification] = useState(false);
   const { usermail, setUsermail } = useContext(UserContext);
   const [feed, setFeed] = useState([]);
+  const [filteredFeed, setFilteredFeed] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const getFeed = async () => {
     const feedresponse = await axios.post("http://localhost:7575/feed", { usermail: usermail });
-    console.log(feedresponse.data);
     setFeed(feedresponse.data);
-  }
+    setFilteredFeed(feedresponse.data);  // Initialize filteredFeed
+  };
 
-  const likePost=async(id)=>{
-    console.log("likePost");
-    const likedpost=await axios.put(`http://localhost:7575/post/likes/${id}`);
-    console.log(likedpost);
+  const likePost = async (id) => {
+    await axios.put(`http://localhost:7575/post/likes/${id}`);
     getFeed();
-  }
+  };
 
   useEffect(() => {
     const storedUsermail = localStorage.getItem('usermail');
@@ -42,15 +44,25 @@ function HomePage() {
       setShowNotification(true);
       const timer = setTimeout(() => {
         setShowNotification(false);
-        navigate(location.pathname, { replace: true, state: {} })
+        navigate(location.pathname, { replace: true, state: {} });
       }, 2000);
       return () => clearTimeout(timer);
     }
   }, [location.state]);
 
+  const handleSearch = (event) => {
+    const term = event.target.value.toLowerCase();
+    setSearchTerm(term);
+    const filtered = feed.filter(post => 
+      post.title.toLowerCase().includes(term) || 
+      post.post.toLowerCase().includes(term)
+    );
+    setFilteredFeed(filtered);
+  };
+
   const navigateToCreatePost = () => {
     navigate("/CreatePost", { state: usermail });
-  }
+  };
 
   const postVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -66,34 +78,62 @@ function HomePage() {
 
   return (
     <>
-    <div className = {styles.homeps}>
-    <Notification
-        message='Post pushed successfully'
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
-      <motion.div 
-        className={styles.postbtn}
-        initial="hidden" 
-        animate="visible" 
-        exit="exit"
-        variants={buttonVariants}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
-        onClick={navigateToCreatePost}
-      >
-        Create a Post
-      </motion.div>
-      <motion.div 
-        className='post-box'
-        initial="hidden" 
-        animate="visible" 
-        exit="exit"
-        variants={postVariants}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      >
-        <AnimatePresence>
-          {
-            feed.map((post, index) => (
+      <div className={styles.homeps}>
+        <Notification
+          message='Post pushed successfully'
+          show={showNotification}
+          onClose={() => setShowNotification(false)}
+        />
+
+        <motion.div
+          className={styles.postCont}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={buttonVariants}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          onClick={navigateToCreatePost}
+        >
+          <img className={styles.plusicon} src={plus} alt='post ' />
+          <input
+            className={styles.postin}
+            type="text"
+            placeholder="Start a post......"
+          />
+        </motion.div>
+
+        <motion.div
+            className={styles.searchmotion}
+            initial={{ opacity: 0, scale: 0.4 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+            >
+            <div className={styles.searchWrapper}>
+              <div className={styles.inputContainer}>
+                <img src={searchIcon} alt="search" className={styles.searchIcon} />
+                <input
+                  type="text"
+                  className={styles.searchBar}
+                  placeholder="Search posts..."
+                  value={searchTerm}
+                  onChange={handleSearch}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+
+        <motion.div
+          className='post-box'
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={postVariants}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <AnimatePresence>
+            {filteredFeed.map((post, index) => (
               <InViewComponent key={index} variants={postVariants} index={index}>
                 <Card
                   username={post.username}
@@ -105,17 +145,12 @@ function HomePage() {
                   para={post.post}
                   title={post.title}
                   likePost={likePost}
-
                 />
               </InViewComponent>
-            ))
-          }
-        </AnimatePresence>
-      </motion.div>
-
-
-    </div>
-      
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </>
   );
 }
