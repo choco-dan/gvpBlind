@@ -80,9 +80,9 @@ function SignupPage(){
 
     return(
         <div id={styles.container}>
-              <h1 id={styles["heading"]}>SignUp</h1>
-            <br></br>
             <div id={styles["signup-box"]}>
+            <h1 id={styles["heading"]}>SignUp</h1>
+            <br></br>
                 <code>
                     /fill this form up to register/
                 </code>

@@ -1,6 +1,6 @@
 import styles from './card.module.css';
 import userImg from './assets/userimage.png';
-import { FaRegHeart, FaRegComment } from "react-icons/fa";
+import { FaRegHeart, FaRegComment, FaHeart } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import axios from "axios";
 
@@ -45,7 +45,7 @@ function Card(props) {
             
                 <div className={styles.cardFooter}>
                     <div className={styles.iconWrapper}>
-                        <FaRegHeart className={styles.icon} 
+                        <FaHeart className={styles.iconLiked} 
                                     onClick={()=> props.likePost(props.postid)}/> {props.likes}
                     </div>
                     <div className={styles.iconWrapper}>

@@ -57,7 +57,7 @@ function Login(){
                     <div id={styles["input-box"]}>
                         <h1 id={styles["heading"]}>Login</h1>
                         <code>/enter your credentials/</code>
-                        <p id={styles["username"]}>Usermail</p>
+                        <p id={styles["username"]}>E-mail</p>
                         <input type="text" id={styles["uname-input"]} ref={unameInput} 
                         onChange={e=>setUser({...user,usermail:e.target.value})} />
                         <p id={styles["password"]}>Password</p>

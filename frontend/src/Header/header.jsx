@@ -4,6 +4,7 @@ import styles from './header.module.css';
 import logo from './assets/user.svg';
 import post from './assets/script.svg';
 import dots from './assets/menu-dots.svg';
+import { FaFeatherAlt } from 'react-icons/fa';
 import { UserContext } from '../UserContext';
 function Header() {
     const profileMenu = ['PROFILE', 'LOGOUT'];
@@ -58,8 +59,11 @@ function Header() {
         <>
             <div className={styles.x}>
                 <h1 onClick={handleRefresh} className={styles.name}>blinder</h1>
-                <div className = {styles.postbtn} onClick={navigateToCreatePost}>Write a post</div>
-                <div className={styles.options}>
+                    <div className={styles.postbtn} onClick={navigateToCreatePost}>
+                        <FaFeatherAlt className="icon" />
+                        Write a post
+                    </div>                
+                    <div className={styles.options}>
                     <div className={styles.button} onClick={() => { setOpenProfile(!openProfile); }}>
                         <img ref={profileRef} className={styles.usericon} src={logo} alt='user' />
                     </div>

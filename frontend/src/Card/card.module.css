@@ -120,4 +120,11 @@
     font-size: 16px;
     margin-right: 5px;
     color: #6f6f6f;
+    transition: color 0.3s ease-in-out;
+}
+.iconLiked{
+    color:rgb(255, 15, 95);
+    font-size:16px;
+    margin-right:5px;
+    transition: color 0.3s ease-in-out;
 }

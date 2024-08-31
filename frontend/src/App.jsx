@@ -15,6 +15,7 @@ import PolicyPage from './Header/header-dots/policyPage.jsx'
 import AboutPage from './Header/header-dots/aboutPage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import Footer from './Footer/Footer.jsx';
 import './App.css';
 
 const App = () => {

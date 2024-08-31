@@ -5,7 +5,7 @@
     top: 0;
     z-index: 100;
     margin: 0;
-    padding: 20px 15px;
+    padding: 15px;
     flex-direction: row;
     justify-content: space-between;
     border: none;
@@ -103,18 +103,33 @@
 .dropdownitem:hover{
     background-color: rgba(210, 216, 234,0.7);
 }
-.postbtn{
-    margin-right:180px;
-    margin-top:3px;
-    background-color: rgba(210, 216, 234,0.7) ;
-    color:black;
-    padding:8px 12px;
-    border-radius: 5px;
-    transition: transform 0.15s ease-in-out;
+.postbtn {
+    margin-right: 180px;
+    margin-top: 3px;
+    background-color: rgba(210, 216, 234, 0.7);
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.25s ease-in-out;
     cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.postbtn:hover{
-    transform: scale(1.1)
+.postbtn:hover {
+    transform: rotate(-2deg) translateY(-4px); /* Slight rotation and upward movement */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
 }
+.postbtn:active {
+    transform: rotate(0deg) translateY(0px) scale(0.95); /* Button returns to its original position and shrinks slightly */
+    background-color: rgba(111, 88, 201, 0.7); /* Change background color when active */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow */
+}
+.postbtn .icon {
+    font-size: 18px;
+}
+
+
 
 
