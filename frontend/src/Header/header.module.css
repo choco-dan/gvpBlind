@@ -48,11 +48,12 @@
     right: 10px;
     align-items: center;
     margin-top:15px;
+
 }
 .dropdownprofile,.dropdownpost,.dropdowndots{
     display:block;
     cursor:pointer;
-    position:absolute;
+    position:fixed;
     font-size:0.8rem;
     top:3.3rem;
     white-space:nowrap;

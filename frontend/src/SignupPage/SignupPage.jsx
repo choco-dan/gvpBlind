@@ -50,14 +50,19 @@ function SignupPage(){
         }
     }
     const postData=async()=>{
-        const response=await axios.post("http://localhost:7575/signup",userData);
-        console.log(response);
-        if(response.data==="already user registered"){
-            mailCheck.current.textContent="already user registered";
+        try{
+            const response=await axios.post("http://localhost:7575/signup",userData);
+            console.log(response);
+            if(response.data==="already user registered"){
+                mailCheck.current.textContent="already user registered";
+            }
+            else{
+                setSysOTP(response.data);
+                handleOpen();
+            }
         }
-        else{
-            setDialogopen(true);
-            setSysOTP(response.data);
+        catch(error){
+            console.error("Error during Signup: ", error);
         }
 
     }
@@ -70,12 +75,18 @@ function SignupPage(){
             dialogMsg.current.textContent="enter valid OTP";
         }
     }
+      
     // adding functions to dialog box
     const handleOpen=()=>{
         setDialogopen(true);
     }
     const handleClose=()=>{
-        setDialogopen(false);
+        if(otp === sysOTP){
+            setDialogopen(false);
+        }
+        else{
+            dialogMsg.current.textContent = "please verify OTP before closing."
+        }
     }
 
     return(
@@ -140,7 +151,8 @@ function SignupPage(){
                 </div>
             </div>
             <Dialog
-            open={dialogOpen} onClose={handleClose} 
+            open={dialogOpen} onClose={handleClose}
+            disableEscapeKeyDown disableBackdropClick 
             id={styles["dialog-box"]}>
                 <DialogTitle  
                 sx={{
@@ -156,11 +168,11 @@ function SignupPage(){
                         Click on continue to start gvpBlind
                     </DialogContentText>
                     <DialogActions>
-                        <input type="number" id={styles["otp-input"]}
+                        <input type="number" className = {styles.otpinput} id={styles["otp-input"]}
                         onChange={e=>setOtp(e.target.value)}/>
                         <br/>
-                        <p id={styles["dialog-msg"]} ref={dialogMsg}></p><br/>
-                        <button onClick={validateOtp}>Check OTP</button>
+                        <p id={styles["dialog-msg"]} ref={dialogMsg} className = {styles.dialogMsg}></p><br/>
+                        <button onClick={validateOtp} className={styles.checkbutton}>Check OTP</button>
                     </DialogActions>
                 </DialogContent>
             </Dialog>

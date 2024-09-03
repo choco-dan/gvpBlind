@@ -125,3 +125,34 @@ input,select:focus{
 #dialog-title{
     color: #6f58c9;
 }
+.dialogMsg {
+    color: red; 
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .checkbutton {
+    background-color: #6f58c9; /* Primary color for the button */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .checkbutton:hover {
+    background-color: #5846a3; /* Darken color on hover */
+  }
+  .checkbutton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(111, 88, 201, 0.4); /* Focus effect */
+  }
+  .otpinput{
+    padding:3px;
+    font-style: "mulish", 'arial';
+    border:none;
+    border-bottom:1px solid black;
+    text-align:center;
+  }
+ 
