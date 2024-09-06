@@ -46,7 +46,7 @@ const CreatePost = () => {
     const communities = getCommunity(post);
     console.log({ title:title,post:post,communities:communities,contentHTML:contentHTML });
     try{
-      await axios.post("http://localhost:7575/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
+      await axios.post("https://gvpblind.onrender.com/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
       navigate('/HomePage', {state:{showNotification: true}});
     }
     catch(error){
