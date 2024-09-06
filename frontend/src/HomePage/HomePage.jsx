@@ -21,13 +21,13 @@ function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const getFeed = async () => {
-    const feedresponse = await axios.post("http://localhost:7575/feed", { usermail: usermail });
+    const feedresponse = await axios.post("https://gvpblind.onrender.com/feed", { usermail: usermail });
     setFeed(feedresponse.data);
     setFilteredFeed(feedresponse.data); 
   };
 
   const likePost = async (id) => {
-    await axios.put(`http://localhost:7575/post/likes/${id}`);
+    await axios.put(`https://gvpblind.onrender.com/post/likes/${id}`);
     getFeed();
   };
 

@@ -28,7 +28,7 @@ function Login(){
     const postUser=async ()=>{
         console.log("user data before post:", user);
         try{
-            const response= await axios.post("http://localhost:7575/login",user);
+            const response= await axios.post("https://gvpblind.onrender.com/login",user);
        console.log(response);
        if(response.data==="valid user"){
         setUsermail(user.usermail);

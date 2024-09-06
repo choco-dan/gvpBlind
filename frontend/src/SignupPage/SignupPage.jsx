@@ -51,7 +51,7 @@ function SignupPage(){
     }
     const postData=async()=>{
         try{
-            const response=await axios.post("http://localhost:7575/signup",userData);
+            const response=await axios.post("https://gvpblind.onrender.com/signup",userData);
             console.log(response);
             if(response.data==="already user registered"){
                 mailCheck.current.textContent="already user registered";
