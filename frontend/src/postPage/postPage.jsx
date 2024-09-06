@@ -43,8 +43,8 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (title.length > 300) return;
-    // const contentInput = document.querySelector(".ql-editor");
-    // const post = contentInput.textContent;
+    const contentInput = document.querySelector(".ql-editor");
+    const post = contentInput.textContent;
     const communities = getCommunity(post);
     console.log({ title:title,post:post,communities:communities,contentHTML:contentHTML });
     try{
@@ -55,18 +55,6 @@ const CreatePost = () => {
       console.error("there was an error creating the post:", error);
       setNotification({show:true, message: 'Post not pushed. please try again',type:'error'});
     }
-  }
-    const communities = getCommunity(post);
-    console.log({ title: title, post: post, communities: communities, contentHTML: contentHTML });
-
-    try {
-      await axios.post("https://gvpblind.onrender.com/post", { usermail: usermail, title: title, post: post, communities: communities, contentHTML: contentHTML });
-      navigate('/HomePage', { state: { showNotification: true } });
-    } catch (error) {
-      console.error("There was an error creating the post:", error);
-      setNotification({ show: true, message: 'Post not pushed. Please try again', type: 'error' });
-    }
-  };
 
   const getCommunity = (post) => {
     let communities = [];
@@ -141,5 +129,6 @@ const CreatePost = () => {
     </div>
   );
 };
+}
 
 export default CreatePost;
