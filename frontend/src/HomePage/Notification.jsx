@@ -6,7 +6,7 @@ const Notification = ({ message, show, type = 'success', onClose }) => {
     if (show) {
       const timer = setTimeout(() => {
         onClose();
-      }, 2000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [show, onClose]);

@@ -58,11 +58,11 @@ function Login(){
                         <h1 id={styles["heading"]}>Login</h1>
                         <code>/enter your credentials/</code>
                         <p id={styles["username"]}>E-mail</p>
-                        <input type="text" id={styles["uname-input"]} ref={unameInput} 
+                        <input type="text" placeholder="Domain Mail id" id={styles["uname-input"]} ref={unameInput} 
                         onChange={e=>setUser({...user,usermail:e.target.value})} />
                         <p id={styles["password"]}>Password</p>
                         <div id={styles["password-box"]}>
-                        <input type="password" id={styles["password-input"]} ref={pwdInput}
+                        <input type="password" placeholder="password" id={styles["password-input"]} ref={pwdInput}
                         onChange={e=>setUser({...user,password:e.target.value})}/>
                         <div id={styles["pwd-icon"]}>
                             {show?<IoEye className={styles.icon} onClick={showPassword}/>:<IoEyeOff className={styles.icon} onClick={showPassword}/>}
@@ -81,7 +81,6 @@ function Login(){
                     </div>
                 </div>
                 </div>
-                <div id={styles["image-box"]}></div>
             </div>
         </div>
     )

@@ -1,3 +1,6 @@
+.post-page-container {
+  position: relative;
+}
 .post-body{
   display:flex;
   height:120vh;
@@ -11,6 +14,7 @@
                                       hsla(0, 0%, 2%, 0.1));
   background-size:30px;
   overflow:hidden;
+  padding-top: 60px;
 }
 .create-post-container h2{
   margin-bottom:1.5rem;

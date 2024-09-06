@@ -3,6 +3,14 @@ body{
   font-family: "mulish",'sans-serif','arial';
   overflow-x:hidden;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
 .quill > .ql-container > .ql-editor.ql-blank::before{
   font-size: 12px;
   padding-left:10px;
