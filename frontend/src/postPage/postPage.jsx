@@ -46,15 +46,23 @@ const CreatePost = () => {
     const contentInput = document.querySelector(".ql-editor");
     const post = contentInput.textContent;
     const communities = getCommunity(post);
-    console.log({ title:title,post:post,communities:communities,contentHTML:contentHTML });
-    try{
-      await axios.post("https://gvpblind.onrender.com/post", { usermail:usermail,title:title,post:post,communities:communities,contentHTML:contentHTML });
-      navigate('/HomePage', {state:{showNotification: true}});
-    }
-    catch(error){
+
+    console.log({ title:title, post:post, communities:communities, contentHTML:contentHTML });
+
+    try {
+      await axios.post("https://gvpblind.onrender.com/post", {
+        usermail:usermail, 
+        title:title, 
+        post:post, 
+        communities:communities, 
+        contentHTML:contentHTML
+      });
+      navigate('/HomePage', { state: { showNotification: true } });
+    } catch(error) {
       console.error("there was an error creating the post:", error);
-      setNotification({show:true, message: 'Post not pushed. please try again',type:'error'});
+      setNotification({ show: true, message: 'Post not pushed. Please try again.', type: 'error' });
     }
+  };
 
   const getCommunity = (post) => {
     let communities = [];
@@ -87,48 +95,50 @@ const CreatePost = () => {
   ];
 
   return (
-    <div className='post-page-container'>
-      <Notification
-        message={notification.message}
-        show={notification.show}
-        type={notification.type}
-        onClose={() => setNotification({ ...notification, show: false })}
-      />
-      <div className='post-body'>
-        <div className="create-post-container">
-          <h2>Create a Post</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-                id="title"
-                className="title"
-                placeholder='Title*'
-                value={title}
-                onChange={handleTitleChange}
-                maxLength={300} // Set the maximum length
-                required
-              />
-              <div className="char-counter">{title.length}/300</div>
-            </div>
-            <div className="form-group">
-              <ReactQuill
-                id="quill"
-                placeholder="Body"
-                onChange={handlequill}
-                modules={modules}
-                formats={formats}
-              />
-            </div>
-            <div className="form-actions">
-              <button type="submit" className="post-btn">Post</button>
-            </div>
-          </form>
+    <>
+      <div className='post-page-container'>
+        <Notification
+          message={notification.message}
+          show={notification.show}
+          type={notification.type}
+          onClose={() => setNotification({ ...notification, show: false })}
+        />
+
+        <div className='post-body'>
+          <div className="create-post-container">
+            <h2>Create a Post</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  id="title"
+                  className="title"
+                  placeholder='Title*'
+                  value={title}
+                  onChange={handleTitleChange}
+                  maxLength={300}
+                  required
+                />
+                <div className="char-counter">{title.length}/300</div>
+              </div>
+              <div className="form-group">
+                <ReactQuill
+                  id="quill"
+                  placeholder="Body"
+                  onChange={handlequill}
+                  modules={modules}
+                  formats={formats}
+                />
+              </div>
+              <div className="form-actions">
+                <button type="submit" className="post-btn">Post</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
-};
 }
 
 export default CreatePost;
