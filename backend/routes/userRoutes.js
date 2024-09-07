@@ -9,7 +9,7 @@ router.post("/post",addPost);
 router.post("/feed",getFeed);
 router.get("/community/:community",getPost);
 router.delete("/post/delete/:id",deletePost);
-router.put("/post/likes/:id",likePost);
+router.put("/post/likes/:id/:usermail",likePost);
 router.get("/users/:usermail",fetchUser);
 router.get("/posts/:usermail",userPosts);
 module.exports=router;

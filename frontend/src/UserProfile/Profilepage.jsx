@@ -7,7 +7,7 @@ import styles from './profilepage.module.css';
 import userImg from './assets/userimage.png';
 import Card from "../Card/card.jsx";
 import cardstyle from "../Card/card.module.css";
-
+import { MdDelete } from "react-icons/md";
 function UserProfile() {
     const { usermail } = useContext(UserContext);
     const location = useLocation();
@@ -28,6 +28,17 @@ function UserProfile() {
         setPosts(postresponse.data);
         console.log(postresponse);
     };
+    const deletePost=async (id)=>{
+        console.log("deleting post");
+        try{
+          const deleteres=await axios.delete(`https://gvpblind.onrender.com/post/delete/${id}`);
+          console.log(deleteres);
+          setPosts(prevposts=>prevposts.filter(item=>item._id!==id))
+        }
+        catch(err){
+          console.log("error in community page",err);
+        }
+    }
 
     useEffect(() => {
         getUser();
@@ -57,6 +68,8 @@ function UserProfile() {
                                 para={post.post}
                                 title={post.title}
                                 likes={post.likes}
+                                deletebtn={<MdDelete/>}
+                                deletepost={deletePost}
                             />
                         ))}
                     </div>

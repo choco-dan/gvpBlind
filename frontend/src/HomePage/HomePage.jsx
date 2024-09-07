@@ -19,6 +19,7 @@ function HomePage() {
   const [feed, setFeed] = useState([]);
   const [filteredFeed, setFilteredFeed] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [likes,setLikes]=useState(0);
 
   const getFeed = async () => {
     const feedresponse = await axios.post("https://gvpblind.onrender.com/feed", { usermail: usermail });
@@ -27,10 +28,29 @@ function HomePage() {
   };
 
   const likePost = async (id) => {
-    await axios.put(`https://gvpblind.onrender.com/post/likes/${id}`);
-    getFeed();
+    try {
+      console.log("likpost");
+      const likeresponse = await axios.put(`https://gvpblind.onrender.com/post/likes/${id}/${usermail}`);
+      console.log(likeresponse);
+  
+      const updatedLikes = likeresponse.data;
+  
+      setFeed(prevFeed =>
+        prevFeed.map(post =>
+          post._id === id ? { ...post, likedby: updatedLikes } : post
+        )
+      );
+          console.log(feed);
+      setFilteredFeed(prevFilteredFeed =>
+        prevFilteredFeed.map(post =>
+          post._id === id ? { ...post, likedby: updatedLikes } : post
+        )
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
-
+  
   useEffect(() => {
     const storedUsermail = localStorage.getItem('usermail');
     if (storedUsermail) {
@@ -139,7 +159,7 @@ function HomePage() {
                 <Card
                   username={post.username}
                   postid={post._id}
-                  likes={post.likes}
+                  likes={post.likedby?post.likedby.length:0}
                   time={post.timespan}
                   branch={post.branch}
                   year={post.year}

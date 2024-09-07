@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './cp.module.css'
 import axios from 'axios';
 import Card from "../Card/card.jsx";
 import { motion, AnimatePresence, easeInOut } from 'framer-motion';
 import InViewComponent from '../InViewComponent.jsx';
+import { UserContext } from '../UserContext';
+
 const CommunityPage = () => {
   const community=useParams().name.toLowerCase();
   const [communityData, setCommunityData] = useState(null);
+  const { usermail } = useContext(UserContext);
 
   const getPost=async()=>{
     const response=await axios.get(`https://gvpblind.onrender.com/community/${community}`);
@@ -26,13 +29,25 @@ const CommunityPage = () => {
         }
     }
     
-    const likePost=async(id)=>{
-      console.log("likePost");
-      const likedpost=await axios.put(`https://gvpblind.onrender.com/post/likes/${id}`);
-      getPost();
-      console.log(likedpost);
-    }
-
+    const likePost = async (id) => {
+      try {
+        console.log("likpost");
+        const likeresponse = await axios.put(`https://gvpblind.onrender.com/post/likes/${id}/${usermail}`);
+        console.log(likeresponse);
+    
+        const updatedLikes = likeresponse.data;
+    
+        setCommunityData(prevFeed =>
+          prevFeed.map(post =>
+            post._id === id ? { ...post, likedby: updatedLikes } : post
+          )
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    
+  
   useEffect(()=>{
     getPost();
   },[community]);
@@ -75,7 +90,7 @@ const CommunityPage = () => {
                   year={post.year}
                   para={post.post}
                   title={post.title}
-                  likes={post.likes}
+                  likes={post.likedby?post.likedby.length:0}
                   deletePost={deletePost}
                   likePost={likePost}
                 />

@@ -18,10 +18,7 @@ const postSchema=new mongoose.Schema({
     communities:[String],
     contentHTML:String,
     time:Number,
-    likes:{
-        type:Number,
-        default:0,
-    },
-})
+    likedby:{type:[String],default:[]},
+}, { timestamps: true })
 const post=new mongoose.model("posts",postSchema);
 module.exports=post;

@@ -116,9 +116,18 @@ const deletePost=async (req,res)=>{
 }
 const likePost=async(req,res)=>{
     try{
-        const {id}=req.params;
-        const likedPost=await posts.findByIdAndUpdate(id,{$inc:{likes:1}},{new:true});
-        console.log(likedPost);
+        const {id,usermail}=req.params;
+        console.log(req.params);
+        const likedpost=await posts.findById(id);
+        console.log(likedpost);
+        if(likedpost.likedby.includes(usermail)){
+            likedpost.likedby=likedpost.likedby.filter(email=>email!==usermail);
+        }
+        else{
+            likedpost.likedby.push(usermail);
+        }
+        likedpost.save();
+        res.json(likedpost.likedby);
     }
     catch(err){
         console.log("ERROR LIKING POST".err);
