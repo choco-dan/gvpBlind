@@ -133,6 +133,18 @@ const likePost=async(req,res)=>{
         console.log("ERROR LIKING POST".err);
     }
 }
+const checkLikeStatus = async (req, res) => {
+    try {
+        const { id, usermail } = req.params;
+        const likedpost = await posts.findById(id);
+        const isLiked = likedpost.likedby.includes(usermail);
+        res.json({ liked: isLiked });
+    } catch (err) {
+        console.log("Error checking like status", err);
+        res.status(500).json({ error: "failed to fetch like" });
+    }
+};
+
 const userPosts=async (req,res)=>{
     const {usermail}=req.params;
     try{
@@ -145,7 +157,6 @@ const userPosts=async (req,res)=>{
             const timespan=calcTime(difftime);
             const uppost={...post.toObject(),timespan:timespan};
             // console.log("upp",uppost);
-            
             return uppost;
         })
         res.json(updatedPost);
@@ -160,3 +171,4 @@ module.exports.getFeed=getFeed;
 module.exports.deletePost=deletePost;
 module.exports.likePost=likePost;
 module.exports.userPosts=userPosts;
+module.exports.checkLikeStatus = checkLikeStatus;

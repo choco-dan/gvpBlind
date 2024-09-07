@@ -3,8 +3,31 @@ import userImg from './assets/userimage.png';
 import { FaRegHeart, FaRegComment, FaHeart } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
-function Card(props) {    
+function Card(props) {
+    const [isLiked, setIsLiked] = useState(false);
+
+    useEffect(() => {
+        const checkLikeStatus = async () => {
+            try {
+                const response = await axios.get(`/posts/${props.postid}/like-status/${props.usermail}`);
+                setIsLiked(response.data.liked);
+            } catch (error) {
+                console.error("Error fetching like status", error);
+            }
+        };
+        checkLikeStatus();
+    }, [props.postid, props.usermail]);
+
+    const handleLikeClick = async () => {
+        try {
+            await props.likePost(props.postid);
+            setIsLiked(!isLiked); 
+        } catch (error) {
+            console.error("Error liking post", error);
+        }
+    };
     return (
         <>
             <div className={styles.cardBox}>
@@ -34,7 +57,6 @@ function Card(props) {
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div className={styles.cardpost}>
                     <h2 className={styles.cardposttitle}>{props.title}</h2>
@@ -45,8 +67,11 @@ function Card(props) {
             
                 <div className={styles.cardFooter}>
                     <div className={styles.iconWrapper}>
-                        <FaHeart className={styles.iconLiked} 
-                                    onClick={()=> props.likePost(props.postid)}/> {props.likes}
+                        {isLiked ? 
+                            <FaHeart className={styles.iconLiked} onClick={handleLikeClick} /> : 
+                            <FaRegHeart className={styles.icon} onClick={handleLikeClick} />
+                        } 
+                        {props.likes}
                     </div>
                     <div className={styles.iconWrapper}>
                         <FaRegComment className={styles.icon} /> {props.comments}
