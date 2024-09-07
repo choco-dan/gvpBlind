@@ -181,6 +181,7 @@ input:focus {
 #uname-input::placeholder,
 #password-input::placeholder{
     color:whitesmoke;
+    font-size:0.8rem;
 }
 @media(max-width: 971px) {
     #image-box {
