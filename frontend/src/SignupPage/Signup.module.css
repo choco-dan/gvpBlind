@@ -2,7 +2,15 @@ input,select:focus{
     outline: black;
 }
 #signup-box input:focus-visible{
-    border: 1.5px solid black;
+    border-bottom: 2px solid black;
+}
+#signup-box input:hover{
+    transform: translateY(5px);
+    border-bottom: 1.5px solid black;
+}
+#signup-box input::placeholder{
+    color: black;
+    font-size: 0.8rem;
 }
 #container{
     display: flex;
@@ -18,8 +26,6 @@ input,select:focus{
 #signup-box{
     width: 350px;
     min-height: 500px;
-    background-color: white;
-    backdrop-filter:blur(20px);
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
@@ -30,20 +36,32 @@ input,select:focus{
     backdrop-filter: blur(20px);
     background-image: linear-gradient(120deg,
                                         rgba(255, 255, 255, 0.9),
-                                        hsla(0, 3%, 52%, 0.1));
-    background-size: 10px;
-    
+                                        hsla(0, 3%, 52%, 0.4));
+    background-size: 10px;    
+}
+#signup-box select{
+    background-color: black;
+    color:antiquewhite;
+    padding:3px 10px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    width:110px;
+}
+#signup-box input{
+    transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
+    backdrop-filter: blur(20px);
 }
 #heading{
     font-weight:200;
     font-size:4rem;
     color: black;
+
 }
 #signup-box code{
     color: dimgray;
     font-size:0.8rem;
     font-weight: 800;
-
 }
 #uname-box,#email-box,#pwd-box,#confirm-box{
     width: 85%;
@@ -57,32 +75,26 @@ input,select:focus{
     font-family:"mulish","arial","sans-serif";
     color: black;
     font-style: italic;
+    display:none;
 }
 #uname-input,#email-input,#pwd-input,#confirm-input{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight:700;
     font-style:oblique;
     padding: 9px 10px;
     font-family: "mulish","sans-serif","arial";
-    color: white;
+    color: black;
     background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    
+    border-radius: 10px;
+    border:none;
 }
 #mail-check,#pwd-match{
-    color: red;
-    font-size: 0.8rem;
-    font-style:oblique;
-    font-weight:500;
+    color: whitesmoke;
+    font-size: 0.78rem;
+    font-weight:600;
     margin-top: 5px;
-    margin-left:5px;
-}
-#mail-check{
-    text-shadow:0 0 0.5px black;
-}
-#pwd-match{
-    text-shadow :0 0 0.5px black;
+    margin-left: 5px;
+    text-shadow:0 0 3px red;
 
 }
 #acadamic-box{
@@ -103,9 +115,7 @@ input,select:focus{
     color: black;
     background-color: transparent;
     backdrop-filter: blur(20px);
-    
     border-radius: 10px;
-    
 }
 #btn-box{
     width: 90%;
@@ -115,10 +125,10 @@ input,select:focus{
     padding: 10px;
 }
 #register-btn{
-    color: #6f58c9;
-    background-color: white;
+    color: white;
+    background-color: black;
     font-size: 1.2rem;
-    border: 1px solid #6f58c9;
+    border: 1px solid black;
     border-radius: 10px;
     cursor: pointer;
     padding:10px 30px;
@@ -126,10 +136,10 @@ input,select:focus{
     border 0.2s ease-in, transform 0.2s ease-in;
 }
 #register-btn:hover{
-    color:white;
-    background-color: black;
+    color:black;
+    background-color: antiquewhite;
     border: 1px solid black;
-    transform: translateY(8px);
+    transform: translateY(-5px);
 }
 #dialog-title{
     color: #6f58c9;
@@ -142,7 +152,7 @@ input,select:focus{
     text-align: center;
   }
   .checkbutton {
-    background-color: #6f58c9; /* Primary color for the button */
+    background-color: black; /* Primary color for the button */
     color: white;
     padding: 8px 16px;
     border: none;
@@ -151,11 +161,11 @@ input,select:focus{
     transition: background-color 0.3s ease;
   }
   .checkbutton:hover {
-    background-color: #5846a3; /* Darken color on hover */
+    background-color: black;
   }
   .checkbutton:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(111, 88, 201, 0.4); /* Focus effect */
+    box-shadow: 0 0 0 3px rgba(111, 88, 201, 0.4); 
   }
   .otpinput{
     padding:3px;
