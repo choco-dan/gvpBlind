@@ -128,3 +128,26 @@
     margin-right:5px;
     transition: color 0.3s ease-in-out;
 }
+.deliconWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right:20px;
+    font-size: 0.88rem;
+    font-family: 'mulish','arial';
+    font-weight: 400;
+    color: #6f6f6f;
+    font-style: italic;
+    position: relative;
+}
+.delicon{
+    font-size: 20px;
+    margin-right: 5px;
+    transition: color 0.15s ease-in-out,transform 0.15s ease-in-out;
+}
+.delicon:hover{
+    color:red;
+    transform: scale(1.2);
+}

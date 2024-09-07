@@ -10,26 +10,27 @@ function Card(props) {
     const [isLiked, setIsLiked] = useState(false);
     const { usermail } = useContext(UserContext);
 
-    // useEffect(() => {
-    //     const checkLikeStatus = async () => {
-    //         try {
-    //             const response = await axios.get(`/posts/${props.postid}/like-status/${props.usermail}`);
-    //             setIsLiked(response.data.liked);
-    //         } catch (error) {
-    //             console.error("Error fetching like status", error);
-    //         }
-    //     };
-    //     checkLikeStatus();
-    // }, [props.postid, props.usermail]);
+    /* useEffect(() => {
+         const checkLikeStatus = async () => {
+             try {
+                 const response = await axios.get(`/posts/${props.postid}/like-status/${props.usermail}`);
+                 setIsLiked(response.data.liked);
+             } catch (error) {
+                 console.error("Error fetching like status", error);
+             }
+         };
+         checkLikeStatus();
+     }, [props.postid, props.usermail]);
 
-    // const handleLikeClick = async () => {
-    //     try {
-    //         await props.likePost(props.postid);
-    //         setIsLiked(!isLiked); 
-    //     } catch (error) {
-    //         console.error("Error liking post", error);
-    //     }
-    // };
+     const handleLikeClick = async () => {
+         try {
+             await props.likePost(props.postid);
+    setIsLiked(!isLiked); 
+         } catch (error) {
+             console.error("Error liking post", error);
+         }
+     };
+     */
     return (
         <>
             <div className={styles.cardBox}>
@@ -81,13 +82,15 @@ function Card(props) {
                     <div className={styles.iconWrapper}>
                         <BiShow className={styles.icon} /> {props.views}
                     </div>
-                        {props.deletebtn &&
-                    <div className={styles.iconWrapper}>
+                    {props.deletebtn &&
+                    <div className={styles.deliconWrapper}>
                          
-                        <div className={styles.icon} onClick={()=>props.deletepost(props.postid)}>
+                        <div className={styles.delicon} onClick={()=>props.deletepost(props.postid)}>
                         {props.deletebtn} 
                         </div>
-                        
+                       { /*<div className={styles.delname}>
+                            Delete
+                            </div>*/ }
                     </div>
                         }
                 </div>
