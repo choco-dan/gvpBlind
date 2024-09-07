@@ -91,6 +91,7 @@ const CommunityPage = () => {
                   para={post.post}
                   title={post.title}
                   likes={post.likedby?post.likedby.length:0}
+                  likedby={post.likedby}
                   deletePost={deletePost}
                   likePost={likePost}
                 />

@@ -67,7 +67,8 @@ function UserProfile() {
                                 year={post.year}
                                 para={post.post}
                                 title={post.title}
-                                likes={post.likes}
+                                likes={post.likedby?post.likedby.length:0}
+                                likedby={post.likedby}
                                 deletebtn={<MdDelete/>}
                                 deletepost={deletePost}
                             />

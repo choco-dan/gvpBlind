@@ -160,6 +160,7 @@ function HomePage() {
                   username={post.username}
                   postid={post._id}
                   likes={post.likedby?post.likedby.length:0}
+                  likedby={post.likedby}
                   time={post.timespan}
                   branch={post.branch}
                   year={post.year}
