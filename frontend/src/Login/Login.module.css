@@ -62,7 +62,7 @@
     font-size: 0.9rem;
     margin-bottom: 30px;
     font-weight: 600;
-    color: white;
+    color: black;
     font-style: oblique;
     font-family: "mulish", "arial", "sans-serif";
     padding: 1px 8px;
@@ -141,7 +141,7 @@
     background-color: black;
     font-size: 1.0rem;
     color: antiquewhite;
-    border:none;
+    border: 1px solid black;
     border-radius: 10px;
     padding: 10px 30px;
     cursor: pointer;
@@ -180,8 +180,8 @@ input:focus {
 }
 #uname-input::placeholder,
 #password-input::placeholder{
-    color:whitesmoke;
-    font-size:0.8rem;
+    color:black;
+    font-size: 0.8rem;
 }
 @media(max-width: 971px) {
     #image-box {
@@ -191,4 +191,5 @@ input:focus {
         width:350px;
         height:560px;
     }
+
 }
