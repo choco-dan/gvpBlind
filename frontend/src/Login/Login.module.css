@@ -140,8 +140,8 @@
 #login-btn {
     background-color: black;
     font-size: 1.0rem;
-    color: white;
-    border: 1px solid black;
+    color: antiquewhite;
+    border:none;
     border-radius: 10px;
     padding: 10px 30px;
     cursor: pointer;
@@ -153,7 +153,7 @@
 }
 #login-btn:hover {
     transform: translateY(-5px);
-    background-color: white;
+    background-color: antiquewhite;
     color:black;
     border:1px solid black;
 }
@@ -191,5 +191,4 @@ input:focus {
         width:350px;
         height:560px;
     }
-
 }

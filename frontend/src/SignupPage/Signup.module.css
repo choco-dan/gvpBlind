@@ -10,7 +10,7 @@ input,select:focus{
 }
 #signup-box input::placeholder{
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 }
 #container{
     display: flex;
@@ -41,7 +41,7 @@ input,select:focus{
 }
 #signup-box select{
     background-color: black;
-    color:antiquewhite;
+    color: antiquewhite;
     padding:3px 10px;
     cursor:pointer;
     border:none;
@@ -125,7 +125,7 @@ input,select:focus{
     padding: 10px;
 }
 #register-btn{
-    color: white;
+    color: antiquewhite;
     background-color: black;
     font-size: 1.2rem;
     border: 1px solid black;
