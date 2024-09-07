@@ -55,9 +55,11 @@ function Card(props) {
                         <BiShow className={styles.icon} /> {props.views}
                     </div>
                     <div className={styles.iconWrapper}>
-                        <div className={styles.icon} onClick={()=>props.deletepost(props.postid)}>
-                            {props.deletebtn}
-                        </div>
+                        {props.deltebtn && (
+                        <div className={styles.icon}>
+                        {props.deltebtn} 
+                    </div>
+  )}
                     </div>
                 </div>
             </div>
