@@ -91,6 +91,7 @@ function SignupPage(){
 
     return(
         <div id={styles.container}>
+            <br /><br></br>
             <div id={styles["signup-box"]}>
             <h1 id={styles["heading"]}>SignUp</h1>
             <br></br>
@@ -107,7 +108,7 @@ function SignupPage(){
                     />
                 </div>
                 <div id={styles["email-box"]}>
-                    <p id={styles["email"]}>usermail-id</p>
+                    <p id={styles["email"]}>Domain mail-id</p>
                     <input type="usermail" id={styles["email-input"]} placeholder="Enter domain mail id" ref={usermailInput}
                      onChange={e=>setUserdata({...userData,usermail:e.target.value})}/>
                     <p id={styles["mail-check"]} ref={mailCheck}></p>
