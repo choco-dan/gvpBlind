@@ -77,25 +77,40 @@ function Header() {
             </div>
 
             {openProfile && (
-                <div ref={profileMenuRef} className={styles.dropdownprofile}>
-                    <ul>
-                        {profileMenu.map((menu, index) => (
-                            <li onClick={() => {
-                                setOpenProfile(false);
-                                if (menu === 'LOGOUT') {
-                                    handleLogout();
-                                }
-                            }} className={styles.dropdownitem} key={index}>
-                                {index === 0 ? (
-                                    <Link to="/profile">{menu}</Link>
-                                ) : (
-                                    menu
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+    <div ref={profileMenuRef} className={styles.dropdownprofile}>
+        <ul>
+            {profileMenu.map((menu, index) => (
+                <li
+                    onClick={() => {
+                        setOpenProfile(false);
+                        if (menu === 'LOGOUT') {
+                            handleLogout();
+                        }
+                    }}
+                    className={styles.dropdownitem}
+                    key={index}
+                >
+                    {index === 0 ? (
+                        <Link
+                            to="/profile"
+                            style={{
+                                display: 'block',
+                                width: '100%',
+                                height: '100%',
+                                textDecoration: 'none',
+                                color: 'inherit',
+                            }}
+                        >
+                            {menu}
+                        </Link>
+                    ) : (
+                        menu
+                    )}
+                </li>
+            ))}
+        </ul>
+    </div>
+)}
 
             {openPost && (
                 <div ref={postMenuRef} className={styles.dropdownpost}>
