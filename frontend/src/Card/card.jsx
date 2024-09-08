@@ -55,9 +55,7 @@ function Card(props) {
                             <div className={styles.dot}>
                                 &nbsp;&#183;&nbsp; 
                             </div>
-                            <div className={styles.username}>
-                                {props.username}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
