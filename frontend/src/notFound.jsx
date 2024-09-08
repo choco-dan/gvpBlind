@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import React, {useEffect} from 'react';
 const notFoundStyle = {
     color: 'black',
-    backgroundColor: 'white',
+    backgroundColor: 'whitesmoke',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
