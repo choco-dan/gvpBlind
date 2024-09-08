@@ -115,6 +115,7 @@
     font-weight: 400;
     color: #6f6f6f;
     font-style: italic;
+    cursor:pointer;
 }
 .icon {
     font-size: 16px;

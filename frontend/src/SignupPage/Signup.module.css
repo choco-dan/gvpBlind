@@ -174,4 +174,51 @@ input,select:focus{
     border-bottom:1px solid black;
     text-align:center;
   }
+  .authfooter {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(35,35,35);
+    backdrop-filter: blur(20px); 
+    color: whitesmoke;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border:none;
+}
+
+.footercontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footercontent p {
+    margin: 0;
+    font-weight: 500;
+    color:antiquewhite;
+}
+.socialicons hr{
+}
+.socialicons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    font-size:0.89rem;
+}
+.socialicons a {
+    color: antiquewhite;
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.socialicons a:hover {
+    color: #da3238; 
+}
  

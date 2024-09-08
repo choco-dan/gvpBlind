@@ -110,8 +110,7 @@ function LandingPage() {
                             private environment for our community. More on community guidelines.
                         </motion.p>
                     </motion.div>
-
-                    <br /><br />
+                    {/*
                     <label htmlFor="lmai">Enter your email here*</label>
                     <div className="lp-mail">
                         <motion.input
@@ -132,22 +131,36 @@ function LandingPage() {
                             Verify me!
                         </motion.button>
                     </div>
+                    */}
                 </section>
                 <motion.section
-                    className='lp-credits'
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.6, duration: 0.8 }}
-                >
-                    <div>
-                        <p>
-                            icons
-                            ig x in links social media
-                        </p>
-                        &copy; I am the owner
-                    </div>
-                    <hr />
-                </motion.section>
+    className='lp-credits'
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1.6, duration: 0.8 }}
+>
+    <div>
+        <p>
+            <a href="https://github.com/danixDe" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i> danixDe
+            </a> |
+            <a href="https://www.linkedin.com/in/arvix17" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i> AravindB
+            </a>
+        </p>
+        <p>
+            <a href="https://github.com/DileepKumarRambarki" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i> DileepKumarRambarki
+            </a> |
+            <a href="https://www.linkedin.com/in/dileepkumarrambarki" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i> Dileep Kumar
+            </a>
+        </p>
+        <hr />
+        <p>&copy; 2024 Project by DileepKumar.R & Aravind.B</p>
+    </div>
+</motion.section>
+
             </div>
         </>
     );

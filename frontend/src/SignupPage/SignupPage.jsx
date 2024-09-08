@@ -90,6 +90,7 @@ function SignupPage(){
     }
 
     return(
+        <>
         <div id={styles.container}>
             <br /><br></br>
             <div id={styles["signup-box"]}>
@@ -179,6 +180,31 @@ function SignupPage(){
                 </DialogContent>
             </Dialog>
         </div>
+        <footer className={styles.authfooter}>
+    <div className={styles.footercontent}>
+    <div className= {styles.socialicons}>
+        <p>
+            <a href="https://github.com/danixDe" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i> danixDe
+            </a> |&nbsp;
+            <a href="https://www.linkedin.com/in/arvix17" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i> AravindB
+            </a>
+        </p>
+        <p>
+            <a href="https://github.com/DileepKumarRambarki" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i> DileepKumarRambarki
+            </a> |&nbsp;
+            <a href="https://www.linkedin.com/in/dileepkumarrambarki" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i> Dileep Kumar
+            </a>
+        </p>
+        <hr style={{marginTop:'5px',backgroundColor:'black'}}/>
+        <p >&copy; 2024 Project by DileepKumar.R & Aravind.B</p>
+    </div>
+    </div>
+</footer>  
+        </>
     )
 }
 export default SignupPage

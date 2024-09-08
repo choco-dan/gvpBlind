@@ -3,7 +3,7 @@
     margin:0;
     overflow:hidden;
     /*background issues*/
-    background:linear-gradient(120deg, rgb(12, 5, 26), #6f58c9);
+    background:linear-gradient(120deg, rgb(71, 35, 143), black);
     background-size: 40px;
 }
   .lp-header{
@@ -16,42 +16,58 @@
     display: flex;
     align-items: center;
   }
-  .lp-nav{
-    background: linear-gradient(180deg, white, violet);
+  .lp-nav {
+    background: linear-gradient(180deg, antiquewhite, violet); /* Enhances the background gradient for a more vivid effect */
     -webkit-background-clip: text;
-    color:transparent;
-    display:inline-block;
-    cursor:pointer;
-    font-size: 1.3rem;
-    font-weight: 500;
-    margin-left:2rem;
-    text-decoration:none;
-  }
-  .lp-options ul{
-    display:flex;
+    color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.3rem; /* Slightly larger font size for emphasis */
+    font-weight: 600; /* Increased font weight for better visibility */
+    margin-left: 2rem;
+    text-decoration: none;
+    padding:0px 10px;
+    backdrop-filter: blur(20px);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lp-nav:hover {
+    color: violet; /* Adds hover effect to change the text color */
+    transform: scale(1.1); /* Adds a subtle scale effect on hover */
+}
+
+.lp-options ul {
+    display: flex;
     align-items: center;
-    justify-content:space-around;
-    gap:30px;
-    margin-right:20px;
+    justify-content: space-around;
+    gap: 40px; /* Increased gap for better spacing */
+    margin-right: 20px;
     list-style: none;
-  }
-  .lp-navli{
-    background: linear-gradient(180deg, white, skyblue);
+}
+
+.lp-navli {
+    background: linear-gradient(180deg, white, violet); /* Gradient change for the links */
     -webkit-background-clip: text;
-    color:transparent;
-    display:inline-block;
-    cursor:pointer;
-    font-size: 1.1rem;
+    color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.3rem; /* Slightly larger font for links */
     font-weight: 500;
-    white-space:nowrap;
-  }
+    white-space: nowrap;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lp-navli:hover {
+    color: #6f58c9; /* Adds hover effect to change the text color */
+    transform: scale(1.1); /* Adds a subtle scale effect on hover */
+}
 
   .lp-sec{
     display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height:100vh;
+    height:80vh;
     width:100vw;
     z-index:10;
     overflow-y:scroll;
@@ -77,13 +93,13 @@
 
   }
   .lp-desc h3{
-    color: salmon;
+    color: antiquewhite;
     font-weight: 400;
     font-size:0.95rem;
   }
 
 .lp-desc p{
-    color:silver;
+    color: whitesmoke;
     font-weight: 300;
     font-size:0.89rem;
     text-align:center;
@@ -141,32 +157,47 @@
     color:hsl(0, 0%, 90%);
     
 }
-.lp-credits{
-    z-index:20;
-    overflow-y:scroll;
-    width: 100vw;
-    height: 60vh;
-    padding-top:100px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    color: whitesmoke;
-    font-weight: 400;
-    text-align:center;
-    font-size:0.8rem;
-    flex-direction: column;
-    backdrop-filter: blur(5px);
+.lp-credits {
+  z-index: 20;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 30vh;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: antiquewhite;
+  font-weight: 400;
+  text-align: center;
+  font-size: 0.8rem;
+  flex-direction: column;
+  backdrop-filter: blur(5px);
 }
-.lp-credits hr{
-  width:70%;
+
+.lp-credits a {
+  color: antiquewhite;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lp-credits a:hover {
+  color: #da3238; /* Adds a hover effect */
+}
+
+.lp-credits i {
+  margin-right: 5px;
+}
+
+.lp-credits hr {
+  width: 100%;
   display: block;
   height: 1px;
   border: 0;
-  border-top: 0.89px solid whitesmoke;
+  border-top: 0.89px solid antiquewhite;
   margin: 1em 0;
   padding: 0;
   backdrop-filter: blur(10px);
-}
-.lp-credits p{
-
 }
