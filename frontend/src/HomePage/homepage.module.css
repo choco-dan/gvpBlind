@@ -134,6 +134,7 @@
   width: 100%;
   border:none;
   margin-top:50px;
+  z-index:0;
 }
 
 .footercontent {
