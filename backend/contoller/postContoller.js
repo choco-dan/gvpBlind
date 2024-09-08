@@ -165,6 +165,17 @@ const userPosts=async (req,res)=>{
         console.log("error getting userpost",err);
     }
 }
+const getLikedposts=async(req,res)=>{
+    try{
+        console.log(req.params.usermail);
+        const likedposts=await posts.find({likedby:req.params.usermail}).sort({time:-1});
+        console.log(likedposts);
+        res.json(likedposts);
+    }
+    catch(err){
+        console.log("ERROR GETTING LIKEDPOSTS",err);
+    }
+}
 module.exports.addPost=addPost;
 module.exports.getPost=getPost;
 module.exports.getFeed=getFeed;
@@ -172,3 +183,4 @@ module.exports.deletePost=deletePost;
 module.exports.likePost=likePost;
 module.exports.userPosts=userPosts;
 module.exports.checkLikeStatus = checkLikeStatus;
+module.exports.getLikedposts=getLikedposts;
