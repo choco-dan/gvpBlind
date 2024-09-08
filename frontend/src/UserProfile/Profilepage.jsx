@@ -14,7 +14,7 @@ function UserProfile() {
     const [activeTab, setActiveTab] = useState('Posts');
     const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
-
+    const [likedposts,setLikedposts]=useState([]);
     const getUser = async () => {
         console.log("getting user");
         const userdata = await axios.get(`https://gvpblind.onrender.com/users/${usermail}`);
@@ -28,6 +28,32 @@ function UserProfile() {
         setPosts(postresponse.data);
         console.log(postresponse);
     };
+    const likePost = async (id) => {
+        try {
+          console.log("likpost");
+          const likeresponse = await axios.put(`https://gvpblind.onrender.com/post/likes/${id}/${usermail}`);
+          console.log(likeresponse);
+      
+          const updatedLikes = likeresponse.data;
+      
+          setLikedposts(prevFeed =>
+            prevFeed.map(post =>
+              post._id === id ? { ...post, likedby: updatedLikes } : post
+            )
+          );
+          setLikedposts(prevlikes=>prevlikes.filter(item=>item._id!==id))
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      
+  
+    const getLikedposts=async()=>{
+        console.log("geeting liked posts");
+        const likedpostsresponse=await axios.get(`https://gvpblind.onrender.com/posts/likedposts/${usermail}`);
+        console.log("likedposts",likedpostsresponse);
+        setLikedposts(likedpostsresponse.data);
+    }
     const deletePost=async (id)=>{
         console.log("deleting post");
         try{
@@ -43,6 +69,7 @@ function UserProfile() {
     useEffect(() => {
         getUser();
         getPosts();
+        getLikedposts();
     }, []);
 
     useEffect(() => {
@@ -69,16 +96,34 @@ function UserProfile() {
                                 title={post.title}
                                 likes={post.likedby?post.likedby.length:0}
                                 likedby={post.likedby}
+                                likePost={likePost}
                                 deletebtn={<MdDelete/>}
                                 deletepost={deletePost}
                             />
                         ))}
                     </div>
                 );
+            case 'Likes':
+                return( <div className={styles.content}>
+                     {likedposts.map((post, index) => (
+                            <Card
+                                key={index}
+                                id={cardstyle.card}
+                                postid={post._id}
+                                username={post.username}
+                                time={post.timespan}
+                                branch={post.branch}
+                                year={post.year}
+                                para={post.post}
+                                title={post.title}
+                                likes={post.likedby?post.likedby.length:0}
+                                likedby={post.likedby}
+                                likePost={likePost}
+                            />
+                        ))}
+                    </div>);
             case 'Comments':
                 return <div className={styles.content}>User's Comments will be displayed here.</div>;
-            case 'Likes':
-                return <div className={styles.content}>User's Liked posts will be displayed here.</div>;
             default:
                 return null;
         }

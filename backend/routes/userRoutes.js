@@ -1,6 +1,6 @@
 const express=require("express");
 const {addUser,authUser,fetchUser}=require("../contoller/userContoller");
-const {addPost,getPost,getFeed,deletePost,likePost,userPosts, checkLikeStatus}=require("../contoller/postContoller");
+const {addPost,getPost,getFeed,deletePost,likePost,userPosts, checkLikeStatus,getLikedposts}=require("../contoller/postContoller");
 const app=express();
 const router=express.Router();
 router.post("/signup",addUser);
@@ -13,4 +13,5 @@ router.put("/post/likes/:id/:usermail",likePost);
 router.get("/users/:usermail",fetchUser);
 router.get("/posts/:usermail",userPosts);
 router.get('/posts/:id/like-status/:usermail', checkLikeStatus);
+router.get("/posts/likedposts/:usermail",getLikedposts);
 module.exports=router;
