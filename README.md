@@ -23,20 +23,19 @@ Blinder is an exclusive online community hub designed for students with valid co
 - **Community Segmentation**: Categorize posts under branches, industries, and general topics.
 - **Dark Mode**: Fully responsive dark mode design with customizable themes.
 
-## Technologies Used
+## Technologies used
 - **Frontend**:
   - React.js
   - Framer Motion (for animations)
   - React Router (for route management)
-  - Styled Components (for UI styling)
-  
-  **Backend**:
+
+- **Backend**:
   - Node.js
   - Express.js
   - MongoDB (for data storage)
-    
-  - **Authentication**:
-  - Email Verification (via OTP)
+
+- **Authentication**:
+  - Email verification (via OTP)
   - JWT (JSON Web Token)
 
 ## Project Structure
