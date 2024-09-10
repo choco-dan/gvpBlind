@@ -110,14 +110,14 @@ Register or log in using a valid college domain email to explore the community h
 
 ## API Endpoints
 - **Authentication**:
--  POST /auth/signup: Register a new user.
-- POST /auth/login: Log in an existing user.
+  -  POST /auth/signup: Register a new user.
+  - POST /auth/login: Log in an existing user.
   
 - **Posts**:
-- GET /posts: Fetch all posts.
-- POST /posts: Create a new post.
-- GET /posts/:id/like-status/:usermail: Check like status for a specific post.
-- POST /posts/:id/like: Like or unlike a post.
+  - GET /posts: Fetch all posts.
+  - POST /posts: Create a new post.
+  - GET /posts/:id/like-status/:usermail: Check like status for a specific post.
+  - POST /posts/:id/like: Like or unlike a post.
 
 ## Contributing
 Feel free to contribute by opening an issue or submitting a pull request.
