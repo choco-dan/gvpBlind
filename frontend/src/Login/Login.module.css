@@ -29,7 +29,7 @@
     backdrop-filter: blur(20px);
     background-image: linear-gradient(120deg,
                                         rgba(255, 255, 255, 0.8),
-                                        hsla(0, 3%, 52%, 0.1));
+                                        hsla(0, 2%, 48%, 0.1));
     height: 540px;
     border-radius: 5px;
     padding-bottom: 30px;
@@ -54,10 +54,11 @@
     color: black;
 }
 #input-box code{
-    margin-bottom:50px;
     margin-top: none;
+    margin-bottom: 50px;
     color:dimgray;
     font-weight: 800;
+    text-align: center;
 }
 #uname-input, #password-input {
     width: 300px;

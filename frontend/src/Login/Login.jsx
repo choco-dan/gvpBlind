@@ -56,7 +56,9 @@ function Login(){
                 <div id={styles["login-form"]}>
                     <div id={styles["input-box"]}>
                         <h1 id={styles["heading"]}>Login</h1>
-                        <code>/enter your credentials/</code>
+                        <code>/enter your credentials/<br></br>/for demo login use 
+                            Domain Mail id: abc@123
+                            pass: 123/</code>
                         <p id={styles["username"]}>E-mail</p>
                         <input type="email" placeholder="Domain Mail id" id={styles["uname-input"]} ref={unameInput} 
                         onChange={e=>setUser({...user,usermail:e.target.value})} />

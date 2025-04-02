@@ -68,9 +68,6 @@ function LandingPage() {
                             <li>
                                 <Link className="lp-navli" to="/Login">LOGIN</Link>
                             </li>
-                            <li>
-                                <Link className="lp-navli" to="/SignupPage">SIGN UP</Link>
-                            </li>
                         </ul>
                     </div>
                 </motion.div>

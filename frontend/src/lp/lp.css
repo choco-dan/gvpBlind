@@ -17,7 +17,7 @@
     align-items: center;
   }
   .lp-nav {
-    background: linear-gradient(180deg, antiquewhite, violet); /* Enhances the background gradient for a more vivid effect */
+    background: linear-gradient(180deg, antiquewhite, #6f58c9); /* Enhances the background gradient for a more vivid effect */
     -webkit-background-clip: text;
     color: transparent;
     display: inline-block;
@@ -32,8 +32,8 @@
 }
 
 .lp-nav:hover {
-    color: violet; /* Adds hover effect to change the text color */
-    transform: scale(1.1); /* Adds a subtle scale effect on hover */
+    transform: scale(1.1);
+    color:white /* Adds a subtle scale effect on hover */
 }
 
 .lp-options ul {
@@ -46,7 +46,7 @@
 }
 
 .lp-navli {
-    background: linear-gradient(180deg, white, violet); /* Gradient change for the links */
+    background: linear-gradient(180deg, antiquewhite, #6f58c9); /* Gradient change for the links */
     -webkit-background-clip: text;
     color: transparent;
     display: inline-block;
@@ -58,7 +58,7 @@
 }
 
 .lp-navli:hover {
-    color: #6f58c9; /* Adds hover effect to change the text color */
+    color: antiquewhite; /* Adds hover effect to change the text color */
     transform: scale(1.1); /* Adds a subtle scale effect on hover */
 }
 
